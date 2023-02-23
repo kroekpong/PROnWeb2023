@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>\\Trwf06\pr_online_dev$</_PublishTargetUrl>
+    <History>True|2023-01-06T07:33:53.8965507Z;True|2022-11-21T16:49:25.1528959+07:00;False|2022-11-21T16:40:30.1244777+07:00;False|2022-11-21T16:39:55.6483820+07:00;True|2022-11-21T09:55:45.3318314+07:00;True|2022-11-21T09:42:36.5011402+07:00;True|2022-11-21T08:57:02.2176385+07:00;True|2022-11-21T00:47:54.7458372+07:00;True|2022-11-21T00:28:18.1656698+07:00;True|2022-11-20T23:57:53.8770469+07:00;True|2022-11-20T22:16:36.7971621+07:00;</History>
+  </PropertyGroup>
+</Project>

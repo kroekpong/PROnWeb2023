@@ -1,0 +1,15 @@
+User ID -- มาจากอุ้ย
+- ใช้ email
+- admin เป็นคนทำ
+- ไม่ใช้ 2FA
+Roles	: sale
+	: Manager
+	: Admin
+
+User Detail: เฉพาะ ชื่อนามสกุล
+User สามารถ แก้ password ได้
+
+
+
+ทดลองระบบจริง
+-

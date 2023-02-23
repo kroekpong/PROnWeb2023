@@ -1,0 +1,53 @@
+﻿@page "/UserList"
+@inject PrOnWeb.Services.PrDataService prDataService
+@using PrOnWeb.Data
+@inject NavigationManager navigationManager
+
+
+<h3>User List</h3>
+@if (userWfAuthoTable == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+<SfGrid DataSource="@userWfAuthoTable" AllowPaging="true" AllowFiltering="true" AllowResizing="true" AllowGrouping="false">
+    <GridGroupSettings Columns="@GroupedColumns"></GridGroupSettings>
+    <GridColumns>
+        <GridColumn Field=@nameof(vWorkflowAutho.Id) HeaderText="Name" TextAlign="TextAlign.Center" Width="350">
+            <Template>
+                @{
+                    var userWfAuthoTable = (context as vWorkflowAutho);
+                    <div><a href="#" @onclick="@(() => Navigate(userWfAuthoTable))">@userWfAuthoTable.UserName</a></div>
+                }
+            </Template>
+        </GridColumn>
+        <GridColumn Field=@nameof(vWorkflowAutho.Email) HeaderText="Email" Width="300"></GridColumn>
+        <GridColumn Field=@nameof(vWorkflowAutho.Org) HeaderText="Org." Width="120"></GridColumn>
+        <GridColumn Field=@nameof(vWorkflowAutho.Dep) HeaderText="Dept." Width="120"></GridColumn>
+        <GridColumn Field=@nameof(vWorkflowAutho.Sec) HeaderText="Sec." Width="120"></GridColumn>
+    </GridColumns>
+</SfGrid>
+}
+
+@code {
+    public string[] GroupedColumns = new string[] { "UserName"};
+    List<string> nameList = new List<string>();
+    List<vWorkflowAutho> userWfAuthoTable;
+    protected override async Task OnInitializedAsync()
+    {
+        userWfAuthoTable = await prDataService.GetVWorkflowAuthosAsync();
+        List<UserTable> userTables = await prDataService.GetUserTablesAsync();
+        foreach (UserTable user in userTables)
+        {
+            nameList.Add(user.UserName);
+        }
+        GroupedColumns = nameList.ToArray();
+    }
+
+    private void Navigate(vWorkflowAutho userTable)
+    {
+        navigationManager.NavigateTo($"UserProfile/{userTable.User_Id}");
+    }
+
+}

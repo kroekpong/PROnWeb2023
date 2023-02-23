@@ -1,0 +1,159 @@
+﻿@page "/RepRNForm/{Rnid:int}"
+@layout Shared.EmptyLayout
+@inject PrOnWeb.Services.PrDataService prDataService
+@inject PrOnWeb.Services.PrMainService prMainService
+
+@if (thisReturningNote == null)
+{
+    <em>No Data ...</em>
+}
+else
+{
+    <table style="border-collapse: collapse; width: 100%; height: 791px; border:2px solid">
+        <tbody>
+            <tr style="height: 80px; border:2px solid">
+                <td colspan="2" style="width: 50%; text-align: center; font-size: larger;"><em>บริษัท ไทย โพลีอะซีทัล จำกัด</em></td>
+                <td colspan="2" style="width: 50%; text-align: center; font-size: larger;"><em>บริษัท ไทย โพลีคาร์บอเนต จำกัด</em></td>
+            </tr>
+            <tr style="height: 60px; text-align: center;border:2px solid">
+                <td colspan="4" style="width: 100%; font-size:x-large;"><em><strong>PR RETURNING NOTE</strong></em></td>
+            </tr>
+            <tr style="height: 15px;">
+                <td style="width: 25%; height: 18px;">&nbsp;</td>
+                <td style="width: 25%; height: 18px;">&nbsp;</td>
+                <td style="width: 25%; height: 18px;">&nbsp;</td>
+                <td style="width: 25%; height: 18px;"><em>PURCHASING DEPT.</em></td>
+            </tr>
+            <tr style="height: 25px;">
+                <td style="width: 25%; height: 18px;">TO : <b>@prHeader.Requester</b> </td>
+                <td style="width: 25%; height: 18px;">&nbsp;</td>
+                <td style="width: 25%; height: 18px;">DATE : <b>@RnDate</b></td>
+                <td style="width: 25%; height: 18px;">&nbsp;</td>
+            </tr>
+            <tr style="height: 25px;">
+                <td style="width: 25%; height: 18px;">FROM : <b>@thisReturningNote.Rn_By</b></td>
+                <td style="width: 25%; height: 18px;">&nbsp;</td>
+                <td style="width: 25%; height: 18px;">CC :</td>
+                <td style="width: 25%; height: 18px;">&nbsp;</td>
+            </tr>
+            <tr style="height: 25px;">
+                <td style="width: 50%; height: 18px;" colspan="2">SUBJECT : RETURN OF PR NO. <b>@prHeader.Tracking_No.Trim()</b></td>
+                <td style="width: 25%; height: 18px;">PR RECEIVED ON DATE:&nbsp;</td>
+                <td style="width: 25%; height: 18px;">&nbsp;</td>
+            </tr>
+            <tr style="height: 25px;">
+                <td colspan="4" style="width: 100%; height: 18px; font-size:large;"><em>PLEASE BE INFORMED THAT WE COULD NOT DO FURTHER PROCESS WITH A FEW REASONS AS </em></td>
+            </tr>
+            <tr style="height: 25px;">
+                <td colspan="4" style="width: 100%; height: 18px; font-size:large;"><em>THE P/R IS CONSIDERED INCOMPLETE</em></td>
+            </tr>
+            <tr style="height: 30px;">
+                <td colspan="4" style="width: 100%; height: 72px;">1.INSUFFICIENT INFORMATION OF SPECIFICATION</td>
+            </tr>
+            <tr style="height: 25px;">
+                <td style="width: 25%; height: 18px;">&nbsp;&nbsp;<input type="checkbox" /> NEED THE LIGIBLE DRAWING</td>
+                <td style="width: 25%; height: 18px;">&nbsp;</td>
+                <td style="width: 25%; height: 18px;"><input type="checkbox" /> NEED MORE DETAILS</td>
+                <td style="width: 25%; height: 18px;">&nbsp;</td>
+            </tr>
+            <tr style="height: 25px;">
+                <td style="width: 25%; height: 18px;">&nbsp;&nbsp;<input type="checkbox" /> OTHERS</td>
+                <td style="width: 25%; height: 18px;">&nbsp;</td>
+                <td style="width: 25%; height: 18px;">&nbsp;</td>
+                <td style="width: 25%; height: 18px;">&nbsp;</td>
+            </tr>
+            <tr style="height: 30px;">
+                <td colspan="4" style="width: 100%; height: 72px;">2. NEED AUTHORIZE APPROVAL BUDGET</td>
+            </tr>
+            <tr style="height: 25px;">
+                <td style="width: 25%; height: 18px;">&nbsp;&nbsp;<input type="checkbox" /> DEPT MGR.</td>
+                <td style="width: 25%; height: 18px;"><input type="checkbox" /> PLANT MGR</td>
+                <td style="width: 25%; height: 18px;"><input type="checkbox" /> GENERAL MGR</td>
+                <td style="width: 25%; height: 18px;"><input type="checkbox" /> VICE PRESIDENT</td>
+            </tr>
+            <tr style="height: 30px;">
+                <td colspan="4" style="width: 100%; height: 18px;">3 NEED ACCOUNT ASSIGNMENT CODE</td>
+            </tr>
+            <tr style="height: 25px;">
+                <td style="width: 25%; height: 18px;">&nbsp;&nbsp;<input type="checkbox" /> BUDGET CODE/WBS CODE</td>
+                <td style="width: 25%; height: 18px;">&nbsp;</td>
+                <td style="width: 25%; height: 18px;"><input type="checkbox" /> BUDGET BALANCE</td>
+                <td style="width: 25%; height: 18px;"><input type="checkbox" /> COST CENTER CODE</td>
+            </tr>
+            <tr style="height: 25px;">
+                <td colspan="4" style="width: 100%;"><em>THE PR IS/ARE RETURNED TO YOUR NECESSARY ACTION.</em></td>
+            </tr>
+            <tr style="height: 25px;">
+                <td colspan="4" style="width: 100%;"><em>WE WILL REGISTER THE RECEIPT OF P/R ONCE THE COMPLETED P/R ARE RE-FORWARDED TO US.</em></td>
+            </tr>
+            <tr style="height: 18px; border-top: 2px solid;">
+                <td style="width: 25%; height: 18px;">FOR PURCHASING DEPT.</td>
+                <td style="width: 25%; height: 18px;">&nbsp;</td>
+                <td style="width: 25%; height: 18px;">&nbsp;</td>
+                <td style="width: 25%; height: 18px;">&nbsp;</td>
+            </tr>
+            <tr style="height: 150px;">
+                <td colspan="4" style="width: 100%; height: 18px; vertical-align: top; text-align: left;">&nbsp;<b>@((MarkupString)Memo1)</b></td>
+            </tr>
+            <tr style="height: 36px; border-top: 2px solid; ">
+                <td style="width: 25%; height: 36px;">FOR YOUR COMMENT</td>
+                <td style="width: 25%; height: 36px;">&nbsp;</td>
+                <td style="width: 25%; height: 36px;">&nbsp;</td>
+                <td style="width: 25%; height: 36px;">&nbsp;</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td colspan="4" style="width: 100%; height: 18px; vertical-align: top; text-align: left;">&nbsp;<b>@((MarkupString)Memo2)</b></td>
+            </tr>
+            <tr style="height: 150px;">
+                <td style="width: 25%; height: 18px;">&nbsp;</td>
+                <td style="width: 25%; height: 18px;">&nbsp;</td>
+                <td style="width: 25%; height: 18px;">&nbsp;</td>
+                <td style="width: 25%; height: 18px;">&nbsp;</td>
+            </tr>
+            <tr style="height: 36px;">
+                <td style="width: 25%; height: 36px;">&nbsp;</td>
+                <td style="width: 25%; height: 36px;">&nbsp;</td>
+                <td colspan="2" style="width: 50%; height: 36px; text-Align: Center; border-top: 1px solid;"><em>AUTHORIZED PERSON</em></td>
+            </tr>
+        </tbody>
+    </table>
+    <em>3PS-F017 [04]</em>
+   
+}
+<style>
+
+    th, td {
+        padding: 10px;
+    }
+
+    @@media print {
+    body{
+        width: 21cm;
+        height: 29.7cm;
+        margin: 10mm 10mm 10mm 10mm;
+        /* change the margins as you want them to be. */
+   }
+}
+</style>
+@code {
+    [Parameter] public int RnId { get; set; }
+
+    ReturningNote thisReturningNote;
+    string RnDate;
+    vPRHeader prHeader;
+    string Memo1;
+    string Memo2;
+
+    protected override async Task OnInitializedAsync()
+    {
+        thisReturningNote = await prDataService.GetReturningNoteAsync(RnId);
+        DateTime x = thisReturningNote.Rn_When ?? DateTime.Now;
+        RnDate = x.ToString("d/M/yyyy");
+
+        prHeader = await prMainService.GetvPrHeaderAsync(thisReturningNote.Pr_Id);
+
+        Memo1 = (thisReturningNote.Rn_Memo1 ?? "").Replace(@"\","<br />");
+        Memo2 = (thisReturningNote.Rn_Memo2 ?? "").Replace(@"\", "<br />");
+
+    }
+}

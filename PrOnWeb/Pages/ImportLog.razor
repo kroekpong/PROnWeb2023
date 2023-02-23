@@ -1,0 +1,38 @@
+﻿@page "/importLog"
+@inject PrOnWeb.Services.PrDataService prDataService
+@using PrOnWeb.Data
+
+<h3>Import Log</h3>
+@if (importLogs == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+<SfGrid DataSource="@importLogs" AllowPaging="true" AllowResizing="true">
+    <GridSortSettings>
+        <GridSortColumns>
+            <GridSortColumn Field="Id" Direction="SortDirection.Descending"></GridSortColumn>
+        </GridSortColumns>
+    </GridSortSettings>
+    <GridColumns>
+        <GridColumn Field=@nameof(Import_Log.Id) HeaderText="Id" Width="50"></GridColumn>
+        <GridColumn Field=@nameof(Import_Log.Import_DateTime) HeaderText="Date Time" Width="120"></GridColumn>
+        <GridColumn Field=@nameof(Import_Log.Raw_Record_Count) HeaderText="#Raw" Width="40"></GridColumn>
+        <GridColumn Field=@nameof(Import_Log.Import_File_Name) HeaderText="File Name" Width="150"></GridColumn>
+        <GridColumn Field=@nameof(Import_Log.Good_Record_Count) HeaderText="#Good" Width="40"></GridColumn>
+        <GridColumn Field=@nameof(Import_Log.Bad_Record_Count) HeaderText="#Bad" Width="40"></GridColumn>
+        <GridColumn Field=@nameof(Import_Log.Pr_Header_Id_Start) HeaderText="Header Id" Width="50"></GridColumn>
+        <GridColumn Field=@nameof(Import_Log.Pr_Header_Count) HeaderText="#of Headers" Width="40"></GridColumn>
+        <GridColumn Field=@nameof(Import_Log.Pr_Item_Id_Start) HeaderText="Item Id" Width="50"></GridColumn>
+        <GridColumn Field=@nameof(Import_Log.Pr_Item_Count) HeaderText="#Items" Width="40"></GridColumn>
+    </GridColumns>
+</SfGrid>
+}
+@code {
+    List<Import_Log> importLogs;
+    protected override async Task OnInitializedAsync()
+    {
+        importLogs = await prDataService.GetImportLogsAsync();
+    }
+}

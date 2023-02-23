@@ -1,0 +1,197 @@
+﻿@page "/map"
+@using Syncfusion.Blazor.DropDowns
+@using Syncfusion.Blazor.Navigations
+@using Syncfusion.Blazor.Data
+
+<h3>AuthorityMap</h3>
+
+<div class="control-section">
+    <div class="control_wrapper col-lg-6">
+        <SfTreeView TValue="TreeItem">
+            <TreeViewFieldsSettings DataSource="@TreeDataSource" Id="NodeId" Text="NodeText"
+                                    Expanded="Expanded" Child="@("Child")"></TreeViewFieldsSettings>
+            <TreeViewEvents TValue="TreeItem" NodeSelected="OnSelect" NodeClicked="nodeClicked"></TreeViewEvents>
+        </SfTreeView>
+    </div>
+</div>
+<style>
+    #local-data, #remote-data {
+        max-width: 350px;
+        margin: 25px 60px;
+        padding-top: 15px;
+    }
+</style>
+
+@code {
+    public class MasterData
+    {
+        public string ID { get; set; }
+        public string Text { get; set; }
+    }
+
+
+    public List<string> selectedNodes = new List<string>();
+    string selectedId;
+    public void OnSelect(NodeSelectEventArgs args)
+    {
+        this.selectedId = args.NodeData.Id;
+    }
+    public void nodeClicked(NodeClickEventArgs args)
+    {
+        selectedNodes.Clear();
+        selectedId = args.NodeData.Id;
+        if (selectedId.StartsWith("S-"))
+        {
+            selectedNodes.Add(selectedId);
+
+        }
+    }
+
+
+
+    //====
+    List<TreeItem> TreeDataSource = new List<TreeItem>();
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        TreeDataSource.Add(new TreeItem
+        {
+            NodeId = "TPAC",
+            NodeText = "THAI POLYACETAL",
+            Expanded = false,
+            Child = new List<TreeItem>()
+        {
+                new TreeItem { NodeId = "D-AC", NodeText = "AC",
+                    Child = new List<TreeItem>()
+                {
+                        new TreeItem { NodeId = "S-AC", NodeText = "AC" }
+                    },
+                },
+                new TreeItem { NodeId = "D-FI", NodeText = "FI",
+                    Child = new List<TreeItem>()
+                {
+                        new TreeItem { NodeId = "S-FI", NodeText = "FI" }
+                    },
+                },
+                new TreeItem { NodeId = "D-AD", NodeText = "AD",
+                    Child = new List<TreeItem>()
+                {
+                        new TreeItem { NodeId = "S-AD", NodeText = "AD" },
+                        new TreeItem { NodeId = "S-GA", NodeText = "GA" },
+                        new TreeItem { NodeId = "S-HR", NodeText = "HR" }
+                    },
+                },
+                new TreeItem { NodeId = "D-LG", NodeText = "LG",
+                    Child = new List<TreeItem>()
+                {
+                        new TreeItem { NodeId = "S-EXP ", NodeText = "EXP "},
+                        new TreeItem { NodeId = "S-WH", NodeText = "WH"},
+                        new TreeItem { NodeId = "S-PLNG", NodeText = "PLNG"}
+                    },
+                },
+                new TreeItem { NodeId = "D-PD", NodeText = "PD",
+Child = new List<TreeItem>() {
+    new TreeItem { NodeId = "S-K2T ", NodeText = "K2T "},
+    new TreeItem { NodeId = "S-K2U", NodeText = "K2U"},
+    new TreeItem { NodeId = "S-K2W", NodeText = "K2W"}
+},},
+new TreeItem { NodeId = "D-PH", NodeText = "PH",
+Child = new List<TreeItem>() {
+    new TreeItem { NodeId = "S-PH", NodeText = "PH"}
+},},
+new TreeItem { NodeId = "D-PS", NodeText = "PS",
+Child = new List<TreeItem>() {
+    new TreeItem { NodeId = "S-PS", NodeText = "PS"}
+},},
+new TreeItem { NodeId = "D-QC", NodeText = "QC",
+Child = new List<TreeItem>() {
+    new TreeItem { NodeId = "S-QC", NodeText = "QC"},
+    new TreeItem { NodeId = "S-RD", NodeText = "RD"}
+},},
+new TreeItem { NodeId = "D-SHE", NodeText = "SHE",
+Child = new List<TreeItem>() {
+    new TreeItem { NodeId = "S-SHE", NodeText = "SHE"}
+},},
+new TreeItem { NodeId = "D-BC", NodeText = "BC",
+Child = new List<TreeItem>() {
+    new TreeItem { NodeId = "S-BC", NodeText = "BC"}
+},},
+new TreeItem { NodeId = "D-IT", NodeText = "IT",
+Child = new List<TreeItem>() {
+    new TreeItem { NodeId = "S-BAV", NodeText = "BAV"},
+    new TreeItem { NodeId = "S-INF", NodeText = "INF"}
+},},
+new TreeItem { NodeId = "D-IC", NodeText = "IC",
+Child = new List<TreeItem>() {
+    new TreeItem { NodeId = "S-IC", NodeText = "IC"}
+},},
+                new TreeItem { NodeId = "D-ISO", NodeText = "ISO",
+                    Child = new List<TreeItem>()
+                {
+                        new TreeItem { NodeId = "S-ISO", NodeText = "ISO" }
+                    }
+                },
+                },
+        });
+
+        TreeDataSource.Add(new TreeItem
+        {
+            NodeId = "TPCC",
+            NodeText = "THAI POLYCARBONATE",
+            Child = new List<TreeItem>()
+{
+                new TreeItem { NodeId = "D-AC ", NodeText = "AC ",Child = new List<TreeItem>() {    new TreeItem { NodeId = "S-AC", NodeText = "AC"}    },},
+new TreeItem { NodeId = "D-FI", NodeText = "FI",Child = new List<TreeItem>() {  new TreeItem { NodeId = "S-FI", NodeText = "FI"}    },},
+new TreeItem { NodeId = "D-AD", NodeText = "AD",Child = new List<TreeItem>() {  new TreeItem { NodeId = "S-AD", NodeText = "AD"}    ,
+    new TreeItem { NodeId = "S-GA", NodeText = "GA"}    ,
+    new TreeItem { NodeId = "S-HR", NodeText = "HR"}    },},
+new TreeItem { NodeId = "D-LG", NodeText = "LG",Child = new List<TreeItem>() {  new TreeItem { NodeId = "S-EXP ", NodeText = "EXP "}    ,
+    new TreeItem { NodeId = "S-WH", NodeText = "WH"}    ,
+    new TreeItem { NodeId = "S-PLNG", NodeText = "PLNG"}    },},
+new TreeItem { NodeId = "D-PD", NodeText = "PD",Child = new List<TreeItem>() {  new TreeItem { NodeId = "S-PT", NodeText = "PT"}    ,
+    new TreeItem { NodeId = "S-VP", NodeText = "VP"}    ,
+    new TreeItem { NodeId = "S-COMPOUND", NodeText = "COMPOUND"}    },},
+new TreeItem { NodeId = "D-PH", NodeText = "PH",Child = new List<TreeItem>() {  new TreeItem { NodeId = "S-PH", NodeText = "PH"}    },},
+new TreeItem { NodeId = "D-PS", NodeText = "PS",Child = new List<TreeItem>() {  new TreeItem { NodeId = "S-PS", NodeText = "PS"}    },},
+new TreeItem { NodeId = "D-QC", NodeText = "QC",Child = new List<TreeItem>() {  new TreeItem { NodeId = "S-QC", NodeText = "QC"}    ,
+    new TreeItem { NodeId = "S-RD", NodeText = "RD"}    },},
+new TreeItem { NodeId = "D-SHE", NodeText = "SHE",Child = new List<TreeItem>() {    new TreeItem { NodeId = "S-SHE", NodeText = "SHE"}  }},
+new TreeItem { NodeId = "D-BC", NodeText = "BC",Child = new List<TreeItem>() {  new TreeItem { NodeId = "S-BC", NodeText = "BC"}    }},
+new TreeItem { NodeId = "D-IT", NodeText = "IT",Child = new List<TreeItem>() {  new TreeItem { NodeId = "S-BAV", NodeText = "BAV"}  ,
+    new TreeItem { NodeId = "S-INF", NodeText = "INF"}  },},
+new TreeItem { NodeId = "D-IC", NodeText = "IC",Child = new List<TreeItem>() {  new TreeItem { NodeId = "S-IC", NodeText = "IC"}    }},
+new TreeItem { NodeId = "D-ISO", NodeText = "ISO",Child = new List<TreeItem>() {    new TreeItem { NodeId = "S-ISO", NodeText = "ISO"}  }}
+            },
+        });
+        TreeDataSource.Add(new TreeItem
+        {
+            NodeId = "MEPT",
+            NodeText = "MEP Engineering-Plastics (Thailand) ",
+            Child = new List<TreeItem>()
+{
+                new TreeItem { NodeId = "D-MKT", NodeText = "MKT",
+                    Child = new List<TreeItem>()
+{
+                        new TreeItem { NodeId = "S-MKT", NodeText = "MKT" }
+                    }
+                },
+                new TreeItem { NodeId = "D-BC", NodeText = "BC",
+                    Child = new List<TreeItem>()
+{
+                        new TreeItem { NodeId = "S-BC", NodeText = "BC" }
+                    }
+                }
+            },
+        });
+    }
+    class TreeItem
+    {
+        public string NodeId { get; set; }
+        public string NodeText { get; set; }
+        public string Icon { get; set; }
+        public bool Expanded { get; set; }
+        public bool Selected { get; set; }
+        public List<TreeItem> Child { get; set; }
+    }
+}
+

@@ -1,0 +1,340 @@
+﻿@page "/configuration"
+@using PrOnWeb.Data
+@using Syncfusion.Blazor.Inputs;
+@using Syncfusion.Blazor.Buttons;
+@using Syncfusion.Blazor.Popups;
+@using Microsoft.AspNetCore.Identity;
+
+@inject PrOnWeb.Services.PrDataService prDataService
+@inject PrOnWeb.Data.PrwaConfiguration prwaConfig
+@inject NavigationManager navigationManager
+@inject PrOnWeb.Services.ImportCSV import
+@inject Microsoft.Extensions.Configuration.IConfiguration appConfig
+@inject UserManager<ApplicationUser> _UserManager
+@inject IJSRuntime jsRuntime
+@attribute [Authorize]
+
+<div id="b-header">
+    System Configurations
+</div>
+
+<div>
+    <div id="b-horbar">
+        CSV Import
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <SfTextBox Placeholder="Path In" @bind-Value="@CSVImportPath" FloatLabelType="@FloatLabelType.Always" />
+    </div>
+    <div class="col-3">
+        <SfTextBox Placeholder="Path Archive" @bind-Value="@CSVArchivePath" FloatLabelType="@FloatLabelType.Always" />
+    </div>
+    <div class="col-3">
+        <button class="btn btn-primary" @onclick="Import">Force Import</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div id="b-horbar">
+            Upload File
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <SfTextBox Placeholder="File upload path" @bind-Value="@FuPath" FloatLabelType="@FloatLabelType.Always" />
+            </div>
+            <div class="col-6">
+                <SfNumericTextBox Placeholder="Maximum file size (Byte)" @bind-Value="@FuSize" FloatLabelType="@FloatLabelType.Always" />
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div id="b-horbar">
+            Password
+        </div>
+        <div class="row">
+
+            <div class="col-3">
+                <SfNumericTextBox Placeholder="Password Expiration Days" @bind-Value="@PasswordExpirationDays" FloatLabelType="@FloatLabelType.Always"
+                                  Readonly="true" />
+            </div>
+            <div class="col-9">
+                Reset last password changed date to TODAY<br />
+                <button class="btn btn-danger" @onclick="SetPasswordDate">Reset</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div>
+    <div id="b-horbar">
+        Purchasing staff
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <SfTextBox Placeholder="PD Head Office" @bind-Value="@sPdHo" FloatLabelType="@FloatLabelType.Always" />
+    </div>
+    <div class="col-3">
+        <SfTextBox Placeholder="PD Rayong" @bind-Value="@sPdRy" FloatLabelType="@FloatLabelType.Always" />
+    </div>
+</div>
+<div>
+    <div id="b-horbar">
+        Co-Sign and Accounting Auto Assign
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <SfTextBox Placeholder="Co-Sign Material Group" @bind-Value="@sCO" FloatLabelType="@FloatLabelType.Always" />
+    </div>
+    <div class="col-4">
+        <SfTextBox Placeholder="Accounting Material Group" @bind-Value="@sAC" FloatLabelType="@FloatLabelType.Always" />
+    </div>
+</div>
+<div>
+    <div id="b-horbar">
+        Budget Range
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <SfGrid @ref="GridBR" DataSource="@budgetRanges">
+            <GridColumns>
+                <GridColumn Field=@nameof(BudgetRange.Id) HeaderText="Id" Visible="false" />
+                <GridColumn Field=@nameof(BudgetRange.Range_No) HeaderText="Range Number" Width="100">
+                    <Template>
+                        @{
+                            var budgetRaange0 = (context as BudgetRange);
+                            <div><a href="@navigationManager.Uri" @onclick="@(() => Navigate(budgetRaange0))"><span>Range </span>@budgetRaange0.Range_No</a></div>
+                        }
+                    </Template>
+                </GridColumn>
+                <GridColumn Field=@nameof(BudgetRange.Range_Oper) HeaderText="Condition" Width="150"></GridColumn>
+                <GridColumn Field=@nameof(BudgetRange.Range_Amount) HeaderText="Amount" Width="150"></GridColumn>
+                <GridColumn Field=@nameof(BudgetRange.Range_Name) HeaderText="Description" Width="200"></GridColumn>
+            </GridColumns>
+        </SfGrid>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <SfButton @onclick="@SaveConfig" IsPrimary="true" CssClass="b-button">Save Configurations</SfButton>
+    </div>
+</div>
+
+<SfDialog Width="500px" Target="#target" IsModal="true" @bind-Visible="@isBudgetRangeDlgVisible">
+    <DialogTemplates>
+        <Header> Budget Range </Header>
+        <Content>
+            <div class="row control_wrapper">
+                <table cellpadding="5">
+                    <tr>
+                        <td class="e-textlabel" style="color: navy">Range</td>
+                        <td colspan="2">Range @BrNumber</td>
+                    </tr>
+                    <tr>
+                        <td class="e-textlabel" style="color: navy">Condition</td>
+                        <td colspan="2">
+                            <SfRadioButton Label="Less than or Equal to" Name="condition" Value="LE" Checked="@BrCondition"></SfRadioButton>
+                            &nbsp;
+                            <SfRadioButton Label="Greater Than" Name="condition" Value="GT" Checked="@BrCondition"></SfRadioButton>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="e-textlabel" style="color: navy">Amount</td>
+                        <td colspan="2">
+                            <SfNumericTextBox TValue="float?" @bind-Value=@BrAmount ValidateDecimalOnType=true Placeholder="ValidateDecimalOnType enabled"></SfNumericTextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="e-textlabel" style="color: navy">Description</td>
+                        <td colspan="2">
+                            <SfTextBox @bind-Value="@BrName"></SfTextBox>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </Content>
+    </DialogTemplates>
+    <DialogButtons>
+        <DialogButton Content="Save" IsPrimary="true" OnClick="@OnBrSave" />
+        <DialogButton Content="Cancel" OnClick="@OnBrCancel" />
+    </DialogButtons>
+    <DialogAnimationSettings Effect="@DialogEffect.None"></DialogAnimationSettings>
+</SfDialog>
+
+@code {
+    public string CSVImportPath = "/CoStorage/";
+    public string CSVArchivePath = "/RawDataArchive/";
+    public string sPdHo;
+    public string sPdRy;
+    public string sCO; // Co Sign
+    public string sAC; // Accounting
+
+    public int? FuSize;
+    public string FuPath;
+    public List<SystemConfiguration> configs;
+    public int PasswordExpirationDays;
+
+    //Budget Range setting
+    List<BudgetRange> budgetRanges = new List<BudgetRange>();
+    SfGrid<BudgetRange> GridBR;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await loadConfiguration();
+        budgetRanges = await prDataService.GetBudgetRangeAsync();
+        PasswordExpirationDays = Int16.Parse(appConfig["PasswordExpirationDays"]);
+    }
+
+    protected async Task loadConfiguration()
+    {
+        configs = await prDataService.GetSystemConfigurationsAsync();
+        CSVImportPath = configs.Where(x => x.ConfigName == "CSVImportPath").First().ConfigValue;
+        CSVArchivePath = configs.Where(x => x.ConfigName == "CSVArchivePath").First().ConfigValue;
+        sPdHo = configs.Where(y => y.ConfigName == "PDHO").First().ConfigValue;
+        sPdRy = configs.Where(y => y.ConfigName == "PDRY").First().ConfigValue;
+        //PdHo = configs.Where(y => y.ConfigName == "PDHO")
+        //    .Select(x => x.ConfigValue)
+        //    .ToList();
+        //sPdHo = string.Join(",", PdHo.ToArray());
+        //PdRy = configs.Where(y => y.ConfigName == "PDRY")
+        //    .Select(x => x.ConfigValue)
+        //    .ToList();
+        //sPdRy = string.Join(",", PdRy.ToArray());
+        sCO = configs.Where(y => y.ConfigName == "CO").First().ConfigValue;
+        sAC = configs.Where(y => y.ConfigName == "AC").First().ConfigValue;
+        FuPath = configs.Where(y => y.ConfigName == "FUPATH")
+        .Select(x => x.ConfigValue)
+        .FirstOrDefault();
+        var xSize = configs.Where(y => y.ConfigName == "FUSIZE")
+            .Select(x => x.ConfigValue)
+            .FirstOrDefault();
+        if (xSize == null)
+        {
+            FuSize = 0;
+        }
+        else
+            FuSize = Int32.Parse(xSize);
+
+        await PushConfig(); // เฉพาะ CSVImportPath, CSVArchivePath
+    }
+
+    private async Task SaveConfig()
+    {
+        // AppSetting
+        //appConfig["PasswordExpirationDays"] = PasswordExpirationDays.ToString();
+        // save Purchasing staff
+        await prDataService.UpdateSystemConfigurationsAsync("PDHO", sPdHo);
+        await prDataService.UpdateSystemConfigurationsAsync("PDRY", sPdRy);
+        await prDataService.UpdateSystemConfigurationsAsync("CO", sCO);
+        await prDataService.UpdateSystemConfigurationsAsync("AC", sAC);
+        await prDataService.UpdateSystemConfigurationsAsync("FUPATH", FuPath);
+        await prDataService.UpdateSystemConfigurationsAsync("FUSIZE", FuSize.ToString());
+        // save upload
+        await PushConfig();
+        // save budget range
+        foreach (var item in budgetRanges)
+        {
+            var BrLine = new BudgetRange()
+            {
+                Id = item.Id,
+                Range_No = item.Range_No,
+                Range_Oper = item.Range_Oper,
+                Range_Amount = item.Range_Amount,
+                Range_Name = item.Range_Name
+            };
+            await prDataService.UpdateBudgetRangeAsync(BrLine);
+        }
+        await jsRuntime.InvokeVoidAsync("alert", "Save Completed.");
+    }
+
+    private async Task PushConfig()
+    {
+        bool isUpdate = false;
+        // เทียบใน mem กับ configs
+        if (CSVImportPath != configs.Where(x => x.ConfigName == "CSVImportPath").First().ToString())
+        {
+            isUpdate = true;
+        }
+        if (CSVArchivePath != configs.Where(x => x.ConfigName == "CSVArchivePath").First().ToString())
+        {
+            isUpdate = true;
+        }
+        if (isUpdate)
+        {
+            prwaConfig.SetConfiguration(CSVImportPath, CSVArchivePath);
+            foreach (var item in configs)
+            {
+                if (item.ConfigName == "CSVImportPath")
+                {
+                    item.ConfigValue = CSVImportPath;
+                    await prDataService.UpdateSystemConfigurationsAsync(item);
+                }
+                if (item.ConfigName == "CSVArchivePath")
+                {
+                    item.ConfigValue = CSVArchivePath;
+                    await prDataService.UpdateSystemConfigurationsAsync(item);
+                }
+            }
+        }
+    }
+
+    bool isBudgetRangeDlgVisible = false;
+    string BrNumber;
+    string BrCondition;
+    float? BrAmount;
+    string BrName;
+    int BrId;
+
+
+    public void Navigate(BudgetRange bgr)
+    {
+        BrId = bgr.Id;
+        BrName = bgr.Range_Name;
+        BrNumber = bgr.Range_No.ToString();
+        BrCondition = bgr.Range_Oper;
+        BrAmount = bgr.Range_Amount;
+        isBudgetRangeDlgVisible = true;
+    }
+    public void OnBrCancel()
+    {
+        isBudgetRangeDlgVisible = false;
+    }
+    public void OnBrSave()
+    {
+        var obj = budgetRanges.FirstOrDefault(x => x.Id == BrId);
+        if (obj != null)
+        {
+            obj.Range_Name = BrName;
+            obj.Range_Oper = BrCondition;
+            obj.Range_Amount = BrAmount ?? 0;
+        }
+        isBudgetRangeDlgVisible = false;
+        GridBR.Refresh();
+    }
+
+    private void Import()
+    {
+        import.ImportPR();
+    }
+
+    private async Task SetPasswordDate()
+    {
+        if (await jsRuntime.InvokeAsync<bool>("confirm", "Please confirm Reset ALL Password Change Date"))
+        {
+            List<ApplicationUser> applicationUsers;
+            applicationUsers = _UserManager.Users.ToList();
+            ApplicationUser user;
+            // add new user
+            foreach (var item in applicationUsers)
+            {
+                item.LastPasswordChangedDate = DateTime.Now;
+                var result1 = await _UserManager.UpdateAsync(item);
+            }
+            await jsRuntime.InvokeVoidAsync("alert", "Done.");
+        }
+    }
+}

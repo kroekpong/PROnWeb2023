@@ -1,0 +1,1010 @@
+﻿@page "/prcreate"
+@inherits LayoutComponentBase
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Authorization;
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.Popups
+@using Syncfusion.Blazor.DropDowns
+@using Microsoft.AspNetCore.Identity;
+@using Syncfusion.Blazor.Grids
+@using Syncfusion.Blazor.Calendars
+@using Syncfusion.Blazor.Data
+@using Microsoft.EntityFrameworkCore;
+
+@inject IJSRuntime JsRuntime
+@inject NavigationManager navigationManager
+@inject PrOnWeb.Services.PrDataService prDataService
+@inject UserManager<ApplicationUser> _UserManager
+@inject NavigationManager navigationManager
+@attribute [Authorize]
+
+
+
+
+<link rel="stylesheet" type="text/css" href="css/pr-style.css" />
+
+
+
+
+<div id="PR" class="container-fluid">
+
+    @*<div class="pr_header">
+
+            <h3>Create Purchase Request </h3>
+
+        </div>*@
+    <EditForm action="" method="post" id="signupForm" class="signupForm" Context="PRHeaderContext" OnSubmit="FormSubmit" Model="prHeader">
+
+        <input type="hidden" name="PrUserId" value="@thisUser.PrUserId">
+        <input type="hidden" name="purchaseOrg" value="CP01">
+        @*<input type="hidden" name="prId">
+            <input type="hidden" name="sn">
+            <input type="hidden" name="totalAmount">
+            <input type="hidden" name="adAccount" value="TH\zrbst">
+            <input type="hidden" name="preStandarAmount">
+            <input type="hidden" name="approvalLimit">
+            <input type="hidden" name="totalStandardMoneyAmount">
+            <input type="hidden" name="currencyCoefficient">*@
+
+
+        <div id="approval_container">
+            <ValidationSummary />
+            <DataAnnotationsValidator />
+            @if (PRHeaderContext.GetValidationMessages().Any())
+            {
+                <div class="alert alert-danger">
+                    Please input required field data .
+                </div>
+            }
+
+            @if (isCreatePRSuccess)
+            {
+                <div class="alert alert-success" role="alert">Create PR Successfully ! </div>
+            }
+
+            @if (isSavePR && !isHasPRItem)
+            {
+                <div class="alert alert-danger">
+                    Do not have PR Items , Please create PR Item.
+                </div>
+            }
+
+
+            <div id="pr_cat_user" class="cat-box clearfix">
+                <h3 class="pr-hdr"> PR Header Information </h3>
+                <div class="cat-list requireInfo">
+                    <span class="th">
+                        Requester
+                    </span>
+                    <span class="td">
+                        <SfTextBox CssClass="e-style pr-input" asp-for="UserName" @bind-Value="@prHeader.Requester" Readonly></SfTextBox>
+                    </span>
+                </div>
+                <div class="cat-list control_wrapper">
+                    <span class="th">
+                        Requester Full Name
+                    </span>
+                    <span class="td">
+                        <SfTextBox CssClass="e-style pr-input" @bind-Value="@thisUser.FullName" Readonly></SfTextBox>
+                    </span>
+                </div>
+                <div class="cat-list">
+                    <span class="th">
+                        Email
+                    </span>
+                    <span class="td">
+                        <SfTextBox CssClass="e-style pr-input" @bind-Value="@thisUser.Email" Readonly></SfTextBox>
+                    </span>
+                </div>
+
+
+                @*</div>*@
+
+                @*--------------Basic Information -------*@
+
+                @*<div id="pr_cat_application" data-type="k" class="cat-box clearfix">
+                    <h3 class="pr-hdr">
+                        Basic Information
+                    </h3>*@
+                <div class=" ">
+                    <div class="cat-list requireInfo">
+                        <span class="th">
+                            Company <i>*</i>
+                        </span>
+                        <span class="td">
+                            <SfDropDownList TItem="Master_Org" CssClass="pr-input" TValue="string" Placeholder="--- Please Select ---" DataSource="@allMasterOrgs" @bind-Value="@prHeader.Company">
+                                <DropDownListEvents TItem="Master_Org" TValue="string" ValueChange="@OnCompanyChange"></DropDownListEvents>
+                                <DropDownListFieldSettings Text="Org" Value="Org"></DropDownListFieldSettings>
+                            </SfDropDownList>
+                        </span>
+                    </div>
+                    <div class="cat-list requireInfo">
+                        <span class="th">
+                            Department <i>*</i>
+                        </span>
+                        <span class="td">
+                            <SfDropDownList TItem="Master_Dep" CssClass="pr-input" TValue="string" Placeholder="--- Please Select ---" DataSource="@allMasterDeps" @bind-Value="@prHeader.Department" AllowFiltering="true">
+                                <DropDownListFieldSettings Text="Dep" Value="Dep"></DropDownListFieldSettings>
+                                <DropDownListEvents TItem="Master_Dep" TValue="string" ValueChange="@GetCostCenter"></DropDownListEvents>
+                            </SfDropDownList>
+                        </span>
+                    </div>
+                    <div class="cat-list requireInfo">
+
+                        <span class="th">
+                            Section <i>*</i>
+                        </span>
+                        <span class="td">
+                            <SfDropDownList TItem="Master_Sec" CssClass="pr-input" TValue="string" Placeholder="--- Please Select ---" DataSource="@allMasterSecs" @bind-Value="@prHeader.Section" AllowFiltering="true">
+                                <DropDownListFieldSettings Text="Sec" Value="Sec"></DropDownListFieldSettings>
+                                <DropDownListEvents TItem="Master_Sec" TValue="string" ValueChange="@GetCostCenter"></DropDownListEvents>
+                            </SfDropDownList>
+                        </span>
+                    </div>
+
+                    <div class="cat-list requireInfo">
+                        <span class="th">
+                            Project <i>*</i>
+                        </span>
+                        <span class="td">
+                            <SfDropDownList TItem="ParamConfig" CssClass="pr-input" TValue="string" Placeholder="--- Please Select ---" DataSource="@projectDDL" @bind-Value="@prHeader.Plant">
+                                <DropDownListEvents TItem="ParamConfig" TValue="string" ValueChange="@GetPRGroup"></DropDownListEvents>
+                                <DropDownListFieldSettings Text="name" Value="code"></DropDownListFieldSettings>
+                            </SfDropDownList>
+                        </span>
+                    </div>
+
+                    <div class="cat-list requireInfo">
+                        <span class="th">
+                            Purchasing Team  <i>*</i>
+                        </span>
+                        <span class="td">
+                            <SfDropDownList TItem="ParamConfig" CssClass="pr-input" TValue="string" Placeholder="--- Please Select ---"
+                                            DataSource="@locationDDL" @bind-Value="@prHeader.Location">
+                                <DropDownListEvents TItem="ParamConfig" TValue="string" ValueChange="@GetPRGroup"></DropDownListEvents>
+                                <DropDownListFieldSettings Text="name" Value="code"></DropDownListFieldSettings>
+                            </SfDropDownList>
+                        </span>
+                    </div>
+
+                    <div class="cat-list requireInfo">
+                        <span class="th"> Purchasing Group </span>
+                        <span class="td">
+                            <SfTextBox CssClass="e-style pr-input" Placeholder="Purchasing Group " @bind-Value="@prHeader.Purchasing_Group" Readonly></SfTextBox>
+                        </span>
+                    </div>
+
+                    <div class="cat-list requireInfo">
+                        <span class="th"> Tracking No. <i>*</i>  </span>
+                        <span class="td">
+                            <SfTextBox CssClass="e-style pr-input" Placeholder="Tracking No." @bind-Value="@prHeader.Tracking_No"  maxlength="9"></SfTextBox>
+                        </span>
+                    </div>
+
+                    <div class="cat-list requireInfo">
+                        <span class="th">
+                            PR Date <i>*</i>
+                        </span>
+                        <span class="td">
+                            <SfDatePicker CssClass="e-style pr-input" TValue="DateTime?" @bind-Value="@prHeader.Pr_Date" ShowClearButton="false" Readonly></SfDatePicker>
+
+                        </span>
+                    </div>
+
+
+                    <div class="cat-list">
+                        <span class="th">
+                            Urgent PR <i>*</i>
+                        </span>
+                        <span class="td">
+                            <SfRadioButton Label=" Yes" Name="isUrgent" Value="Yes" @bind-Checked="@prHeader.Pr_Urgent"></SfRadioButton>
+                            <SfRadioButton Label=" No" Name="isUrgent" Value="No" @bind-Checked="@prHeader.Pr_Urgent"></SfRadioButton>
+                            @*<input type="radio" asp-for="isUrgent" name="isUrgent"  />&nbsp; Yes  &nbsp;
+                                <input type="radio" asp-for="isUrgent" name="isUrgent"  @onchange="OnUrgentChange" checked />&nbsp; No &nbsp;*@
+                        </span>
+                    </div>
+                    <div class="cat-list requireInfo">
+                        <span class="th"> Extension  </span>
+                        <span class="td">
+                            <SfTextBox CssClass="e-style pr-input" Placeholder="Extension" @bind-Value="@prHeader.Extension"></SfTextBox>
+                        </span>
+                    </div>
+
+                    @*<div class="cat-list requireInfo">
+                            <span class="th">    </span>
+                            <span class="td">
+                            </span>
+                        </div>*@
+
+                    <div class="cat-list requireInfo">
+                        <span class="th pr-cost-bg"> Estimate Cost (THB)  </span>
+                        <span class="td">
+                            <SfNumericTextBox CssClass="e-style pr-input" Placeholder="Estimate Cost" @bind-Value="@EstimateCost" Readonly></SfNumericTextBox>
+                        </span>
+                    </div>
+
+
+                    <div class="cat-list requireInfo">
+                        <span class="th pr-cost-bg"> Budget Range (THB)  </span>
+                        <span class="td">
+                            <SfTextBox CssClass="e-style pr-input" Placeholder="Budget Range" @bind-Value="@BudgetRange" Readonly></SfTextBox>
+                        </span>
+                    </div>
+
+                </div>
+                <div class="cat-box clearfix">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-0  pr-sum-form ">
+                                <h5 class="b-label-notlift">Objective</h5>
+
+                                <SfTextBox CssClass="e-outline" Placeholder="" Multiline="true" FloatLabelType="@FloatLabelType.Never" @bind-Value="@prHeader.Objective"></SfTextBox>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="form-group mb-0 pr-sum-form">
+                                <h5 class="b-label-notlift">Comment</h5>
+                                <SfTextBox CssClass="e-outline" Placeholder="" Multiline="true" FloatLabelType="@FloatLabelType.Never" @bind-Value="@prHeader.Comment"></SfTextBox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            @*<div id=" " class="cat-box clearfix">
+                    <h3 class="pr-hdr">
+                        PR Summary
+                    </h3>
+
+                    <div class="row">
+                        <div class="col-sm-5 col-md-6">.col-sm-5 .col-md-6</div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-0  pr-sum-form ">
+                                <h5 class="form-label">Objective</h5>
+                                <textarea class="form-control" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="form-group mb-0 pr-sum-form">
+                                <h5 class="form-label">Remark</h5>
+                                <textarea class="form-control" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>*@
+
+            <style>
+                .e-expand::before {
+                    content: '\e82e';
+                }
+
+                .e-collapse::before {
+                    content: '\e834';
+                }
+            </style>
+
+
+            <div id="pr_cat_application_detail" class="cat-box clearfix" style="border: none;">
+                <h3 class="pr-hdr">
+                    PR Item Details
+                </h3>
+
+                @*@{
+                        var Tool = (new List<string>() { "Add", "Print" });
+                    }*@
+                <div class="table-responsive" id="PR_detail">
+                    <SfGrid ID="Grid_PrForm" @ref="PRGrid" DataSource="@prItems" AllowPaging="true" AllowResizing="true" AllowFiltering="false" AllowGrouping="false" Toolbar="Toolbaritems">
+                        <GridEvents TValue="PRItem" OnToolbarClick="ToolbarClickHandler" OnActionComplete="GridOnActionComplete" OnActionBegin="ActionBeginHandler"></GridEvents>
+                        <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true" Mode="@EditMode.Dialog" ShowDeleteConfirmDialog="true" AllowEditOnDblClick="false" AllowNextRowEdit="false" NewRowPosition="NewRowPosition.Bottom">
+                            <Template>
+                                @{
+                                    var Order = (context as PRItem);
+                                }
+                                <div>
+
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <SfAutoComplete CssClass="e-style" TValue="string" @bind-Value="@Order.Item_Code" TItem="MatGroupList" FloatLabelType="FloatLabelType.Always" SuggestionCount=3 Placeholder="Material Code" DataSource="@MatCodeItemDDL">
+                                                <AutoCompleteFieldSettings Value="Item_Code"></AutoCompleteFieldSettings>
+                                                <AutoCompleteEvents TItem="MatGroupList" TValue="string" OnValueSelect="@(args => OnMatDescSelect(args ,Order))" ValueChange="@(args => OnMatCodeChange(args ,Order))"></AutoCompleteEvents>
+                                                <DropDownListTemplates TItem="MatGroupList">
+                                                    <ItemTemplate Context="MatContex">
+                                                        <div class="name" title="@MatContex.Item_Description">[ @MatContex.Item_Code ] -  @MatContex.Item_Description</div>
+                                                    </ItemTemplate>
+                                                </DropDownListTemplates>
+
+                                            </SfAutoComplete>
+                                        </div>
+                                        <div class="form-group col-md-8">
+                                            <SfAutoComplete CssClass="e-style" TValue="string" @bind-Value="@Order.Item_Description" TItem="MatGroupList" FloatLabelType="FloatLabelType.Always" SuggestionCount=3 Placeholder="Material Description" DataSource="@MatCodeItemDDL">
+                                                <AutoCompleteFieldSettings Value="Item_Description"></AutoCompleteFieldSettings>
+                                                <AutoCompleteEvents TItem="MatGroupList" TValue="string" OnValueSelect="@(args => OnMatDescSelect(args ,Order))" ValueChange="@(args => OnMatDescChange(args ,Order))"></AutoCompleteEvents>
+                                                <DropDownListTemplates TItem="MatGroupList">
+                                                    <ItemTemplate Context="MatContex">
+                                                        <div class="name" title="@MatContex.Item_Description">[ @MatContex.Item_Code ] -  @MatContex.Item_Description</div>
+                                                    </ItemTemplate>
+                                                </DropDownListTemplates>
+
+                                            </SfAutoComplete>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <SfTextBox CssClass="e-style" Placeholder="Material Group" @bind-Value="@Order.Material_Group" Readonly="true"
+                                                       FloatLabelType="@FloatLabelType.Always">
+                                            </SfTextBox>
+                                        </div>
+                                        <div class="form-group col-md-5">
+                                            <SfTextBox CssClass="e-style" Placeholder="Material Group Description" @bind-Value="@Order.Material_Group_Des" Readonly="true" FloatLabelType="@FloatLabelType.Always"></SfTextBox>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <SfTextBox CssClass="e-style" Placeholder="Account Asset Cat." @bind-Value="@Order.Account_Ass_Cat" Readonly="true" FloatLabelType="@FloatLabelType.Always"></SfTextBox>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-3">
+                                            <SfNumericTextBox CssClass="e-style" Min=0 OnChange="@(args => CalAmount(args ,Order))" @bind-Value="@Order.Quantity" FloatLabelType="FloatLabelType.Always" Placeholder="Quantity">
+                                            </SfNumericTextBox>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <SfDropDownList CssClass="e-style" ID="Unit" @bind-Value="@(Order.UOM)" TItem="Master_Unit" TValue="string" Placeholder="Unit"
+                                                            DataSource="@unitDDL" AllowFiltering="true" FloatLabelType="FloatLabelType.Always">
+                                                <DropDownListFieldSettings Text="Name" Value="Code"></DropDownListFieldSettings>
+                                            </SfDropDownList>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <SfDropDownList CssClass="e-style" ID="Currency" @bind-Value="@(Order.Currency)" TItem="Master_Currency" TValue="string" Placeholder="Currency"
+                                                            DataSource="@currencyDDL" AllowFiltering="true" FloatLabelType="FloatLabelType.Always">
+                                                <DropDownListFieldSettings Text="Code" Value="Code"></DropDownListFieldSettings>
+                                                <DropDownListEvents TItem="Master_Currency" TValue="string" ValueChange="@(args => CurrencyValueChange(args ,Order))"></DropDownListEvents>
+                                            </SfDropDownList>
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <SfDatePicker CssClass="e-style" ID="Date Needed" @bind-Value="@(Order.Delivery_date)" Format='dd-MM-yyyy' FloatLabelType="FloatLabelType.Always" Placeholder="Date Needed" ShowClearButton="false"></SfDatePicker>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-3">
+                                            <SfNumericTextBox CssClass="e-style" Min=0 @bind-Value="@Order.Price_PR" OnChange="@(args => CalAmount(args ,Order))" FloatLabelType="FloatLabelType.Always" Placeholder="Price/Unit">
+                                            </SfNumericTextBox>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <SfNumericTextBox CssClass="e-style" Min=0 @bind-Value="@Order.ExRate" OnChange="@(args => CalAmount(args ,Order))" FloatLabelType="FloatLabelType.Always" Placeholder="Exchange Rate">
+                                            </SfNumericTextBox>
+                                        </div>
+                                        @*</div>
+                                            <div class="form-row">*@
+                                        <div class="form-group col-md-3">
+                                            <SfNumericTextBox CssClass="e-style" @bind-Value="@(Order.Amount)" FloatLabelType="FloatLabelType.Always" Placeholder="Amount" Readonly></SfNumericTextBox>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <SfNumericTextBox CssClass="e-style" @bind-Value="@(Order.AmountTHB)" FloatLabelType="FloatLabelType.Always" Placeholder="Amount(THB)" Readonly></SfNumericTextBox>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <SfTextBox CssClass="e-style" Placeholder="GL Account" @bind-Value=@Order.GL_Account FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <SfTextBox CssClass="e-style" ID="Cost_Center" @bind-Value="@(Order.Cost_Center)" FloatLabelType="FloatLabelType.Always" Placeholder="Cost Center" Readonly="@isCostCenter"></SfTextBox>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <SfTextBox CssClass="e-style" ID="WBS_Code" @bind-Value="@(Order.WBS_Code)" FloatLabelType="FloatLabelType.Always" Placeholder="WBS Code" Readonly="@isWSB"></SfTextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Template>
+                            <HeaderTemplate>
+                                <span>Add / Edit PR Items </span>
+                            </HeaderTemplate>
+                            <FooterTemplate>
+                                <SfButton OnClick="@SaveEdit" IsPrimary="true"><i class="fa  fa-save"></i> Save </SfButton>
+                                <SfButton OnClick="@CancelEdit"><i class="fa  fa-ban"></i> Cancel</SfButton>
+                            </FooterTemplate>
+                        </GridEditSettings>
+
+                        <GridColumns>
+                            @*<GridColumn Field=@nameof(PRItem.Id) IsPrimaryKey="true" IsIdentity="true" AllowEditing="false" Visible="false"> </GridColumn>*@
+                            <GridColumn Field=@nameof(PRItem.Item_No) IsPrimaryKey="true" IsIdentity="true" HeaderText="Item No." HeaderTextAlign="TextAlign.Center" TextAlign="TextAlign.Center" Width="120"></GridColumn>
+                            <GridColumn Field=@nameof(PRItem.Item_Code) IsPrimaryKey="true" HeaderText="Material Code" HeaderTextAlign="TextAlign.Center" Width="180"> </GridColumn>
+                            <GridColumn Field=@nameof(PRItem.Item_Description) HeaderText="Description" HeaderTextAlign="TextAlign.Center" Width="300"></GridColumn>
+                            <GridColumn Field=@nameof(PRItem.Quantity) HeaderText="Quantity" Width="120" HeaderTextAlign="TextAlign.Center" TextAlign="TextAlign.Right" ValidationRules="@(new ValidationRules{ Required= true })"></GridColumn>
+                            <GridColumn Field=@nameof(PRItem.UOM) HeaderText="Unit" HeaderTextAlign="TextAlign.Center" TextAlign="TextAlign.Center" Width="80" ValidationRules="@(new ValidationRules{ Required= true })">  </GridColumn>
+                            <GridColumn Field=@nameof(PRItem.Price_PR) HeaderText="Price/Unit" HeaderTextAlign="TextAlign.Center" Width="120" TextAlign="TextAlign.Right" ValidationRules="@(new ValidationRules{ Required= true })"></GridColumn>
+                            <GridColumn Field=@nameof(PRItem.Currency) HeaderText="Currency" HeaderTextAlign="TextAlign.Center" Width="120" TextAlign="TextAlign.Right"></GridColumn>
+                            <GridColumn Field=@nameof(PRItem.ExRate) HeaderText="Exchange Rate" HeaderTextAlign="TextAlign.Center" Width="140" TextAlign="TextAlign.Right"></GridColumn>
+                            <GridColumn Field=@nameof(PRItem.Amount) HeaderText="Amount" HeaderTextAlign="TextAlign.Center" Width="120" TextAlign="TextAlign.Right"></GridColumn>
+                            <GridColumn Field=@nameof(PRItem.AmountTHB) HeaderText="Amount(THB)" HeaderTextAlign="TextAlign.Center" Width="120" TextAlign="TextAlign.Right"></GridColumn>
+                            <GridColumn Field=@nameof(PRItem.Delivery_date) HeaderText="Date Needed" HeaderTextAlign="TextAlign.Center" TextAlign="TextAlign.Center" Format="dd/MM/yyyy" Width="140" ValidationRules="@(new ValidationRules{ Required= true })"></GridColumn>
+                            <GridColumn Field=@nameof(PRItem.Cost_Center) HeaderText="Cost Center" HeaderTextAlign="TextAlign.Center" Width="120"></GridColumn>
+                            <GridColumn Field=@nameof(PRItem.WBS_Code) HeaderText="WBS Code" HeaderTextAlign="TextAlign.Center" Width="120"></GridColumn>
+
+                            <GridColumn Field=@nameof(PRItem.Material_Group) ValidationRules="@(new ValidationRules{ Required= true })" Visible="false"> </GridColumn>
+                            <GridColumn Field=@nameof(PRItem.Material_Group_Des) ValidationRules="@(new ValidationRules{ Required= true })" Visible="false"> </GridColumn>
+                        </GridColumns>
+                    </SfGrid>
+
+
+
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+
+        <!--<div class="button_operate">-->
+        @*<SfButton CssClass="b-button" OnClick="@SaveEdit"><i class="fa  fa-save"></i> Save </SfButton>
+            <SfButton CssClass="btn-default " OnClick="@CancelEdit"><i class="fa  fa-ban"></i> Cancel</SfButton>*@
+        <!--</div>-->
+
+        <div class="button_operate">
+            @*<button class="btn btn-primary btn-lg me-2" type="submit"><i class="fa  fa-save"></i> Save </button>*@
+            <SfButton CssClass="btn btn-primary btn-lg me-2"><i class="fa  fa-save"></i>  Confirm Save </SfButton>
+            @*<button class="btn btn-secondary btn-lg" type="reset"><i class="fa  fa-ban"></i> Clear </button>*@
+        </div>
+
+        <!--<div id="moreChangeHistory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button>
+                    <h3>Change History Details</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="clearfix cw_cat_box">
+                        <div class="cw_cat_list cw_half border_right border_bottom">
+                            <div class="th">Operator</div>
+                            <div class="td"></div>
+                        </div>
+                        <div class="cw_cat_list cw_half border_bottom">
+                            <div class="th">Date</div>
+                            <div class="td"></div>
+                        </div>
+                        <div class="cw_cat_list cw_col_10 cw_cat_list_high_modal border_bottom">
+                            <p>Change History</p>-->
+        <!---->  <!---->  <!---->
+        <!--<p>Files Change History Details</p>-->
+        <!---->  <!---->
+        <!--</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-default">Close</button></div>
+                </div>
+            </div>
+        </div>-->
+
+    </EditForm>
+
+
+</div>
+
+
+
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+    [CascadingParameter]
+    private Task<AuthenticationState> _authState { get; set; }
+
+    string FullName = "", Username = "";
+    ApplicationUser thisUser = new ApplicationUser();
+    private AuthenticationState authState;
+    ClaimsPrincipal MyClaims = new ClaimsPrincipal();
+
+    private DialogSettings DialogParams = new DialogSettings { MinHeight = "500px", Width = "800px" };
+
+    bool isActiveUser;
+    List<Master_Org> allMasterOrgs;
+    List<Master_Dep> allMasterDeps;
+    List<Master_Sec> allMasterSecs;
+    List<Master_Unit> unitDDL;
+    List<Master_Currency> currencyDDL;
+
+    SfTextBox TextBoxDateObj;
+    public void OnCreateDate()
+    {
+        this.TextBoxDateObj.AddIcon("append", "e-date-icon");
+    }
+
+    public DateTime DateValue { get; set; } = DateTime.Now;
+    public DateTime DateNeed { get; set; } = DateTime.Now;
+
+    string SelOrg = "";
+    string SelDep = "";
+    string SelSec = "";
+
+    string isUrgent = "No";
+    Boolean isNotUrgent = false;
+
+    private Boolean Check = false;
+    private Boolean isCostCenter = false;
+    private Boolean isWSB = false;
+    private Boolean isWSBReq = true;
+
+    /* Grid */
+    public SfGrid<PRItem> PRGrid;
+    string PrStatus;
+    string PrStatusName;
+    PRHeader prHeader;
+    List<PRItem> prItems = new List<PRItem>();
+    //PRItem prItem;
+    string thisPrODS; // ODS=Company, Department, Section คั่นด้วย "-"
+    bool isMySectionPr; // ODS ของ PR ใบนี้ตรงกับ ODS ของ WF_Autho ของเรา
+    string thisPrOD;
+    bool isMyDepartmentPr;
+    string thisPrO;
+    bool isMyCompanyPr;
+    bool isStaffChooser;
+    bool isFormValid = false;
+    private bool PreventAdd { get; set; } = false;
+
+
+    string PROrg = "CP01";
+    //string HPRGroup;
+
+    //[Required]
+    //string HCompany,HProject,HLocation;
+
+    //[Required]
+    //string Department, Section, TrackingNo;
+
+    string GL_Account, Cost_Center, WBS_Code, Item_Code, Item_Description, Material_Group, Material_Group_Des, Extension, BudgetRange;
+    double Price_PR = 0, ExRate = 0, Quantity = 0, Amount = 0, AmountTHB = 0;
+
+    float EstimateCost = 0;
+
+    List<ParamConfig> locationDDL = new List<ParamConfig>();
+    List<ParamConfig> projectDDL = new List<ParamConfig>();
+    List<ParamConfig> masterProjetDDL = new List<ParamConfig>();
+    List<MatGroupList> MatCodeItemDDL = new List<MatGroupList>();
+
+    //private List<Object> Toolbaritems = new List<Object>() { "Add New Item" , new ItemModel() { Text = "Click", TooltipText = "Click", PrefixIcon = "e-click", Id = "Click" } };
+    private List<Object> Toolbaritems = new List<Object>() { "Add", "Edit", "Delete" };
+
+
+    //public string[] UnitEnumValues { get; set; } = Enum.GetNames(typeof(Unit));
+
+    protected override void OnInitialized()
+    {
+
+
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        prHeader = new PRHeader();
+        locationDDL.Add(new ParamConfig("HO", "HO"));
+        locationDDL.Add(new ParamConfig("PLANT", "PLANT"));
+
+
+        projectDDL.Add(new ParamConfig("MP01", "MEPT", "MEPT"));
+        projectDDL.Add(new ParamConfig("PA01", "TPAC Project 1", "TPAC"));
+        projectDDL.Add(new ParamConfig("PA02", "TPAC Project 2", "TPAC"));
+        projectDDL.Add(new ParamConfig("PA03", "TPAC Project 3", "TPAC"));
+        projectDDL.Add(new ParamConfig("PC01", "TPCC Project 1", "TPCC"));
+
+        masterProjetDDL = projectDDL;
+
+
+        prHeader.Purchasing_Org = "CP01";
+        prHeader.Pr_Date = DateValue;
+        prHeader.Create_Date = DateValue;
+        prHeader.Pr_Urgent = "No";
+
+        //base.OnInitialized();
+        authState = await _authState;
+        MyClaims = (await _authState).User;
+        thisUser = _UserManager.Users.FirstOrDefault(x => x.UserName == MyClaims.Identity.Name);
+        if (thisUser != null)
+        {
+            FullName = thisUser.FullName;
+
+            prHeader.Requester = thisUser.UserName;
+
+        }
+
+
+        await Task.Delay(1000);
+
+        unitDDL = await prDataService.GetUnitAsync();
+        currencyDDL = await prDataService.GetCurrencyAsync();
+
+        allMasterOrgs = await prDataService.GetMasterOrgsAsync(thisUser.PrUserId);
+        allMasterDeps = await prDataService.GetMasterDepsAsync(thisUser.PrUserId);
+        allMasterSecs = await prDataService.GetMasterSecsAsync(thisUser.PrUserId);
+        //MatCodeItemDDL = await prDataService.GetMatCodeItem(HCompany);
+
+
+        if (null != allMasterOrgs && allMasterOrgs.Count == 1)
+        {
+            prHeader.Company = allMasterOrgs.First().Org;
+        }
+
+        if (null != allMasterDeps && allMasterDeps.Count == 1)
+        {
+            prHeader.Department = allMasterDeps.First().Dep;
+        }
+
+        if (null != allMasterSecs && allMasterSecs.Count == 1)
+        {
+            prHeader.Section = allMasterSecs.First().Sec;
+        }
+
+        MatCodeItemDDL = await prDataService.GetMatCodeItem(prHeader);
+
+        await this.PRGrid.EnableToolbarItems(new List<string>() { "Grid_PrForm_add" }, false);
+
+        StateHasChanged();
+    }
+
+    public void ActionBeginHandler(ActionEventArgs<PRItem> args)
+    {
+
+        Console.WriteLine("ActionBeginHandler: " + args.RequestType);
+        if (args.RequestType == Syncfusion.Blazor.Grids.Action.Add)
+        {
+            // Triggers before add operation starts
+            //args.RowData.PO_DATE = true;
+            args.Index = prItems.Count();
+            //args.Data.Id = prItems.Count()+1;
+            args.Data.Item_No = (args.Index + 1).ToString();
+            args.Data.Delivery_date = DateNeed.Date;
+            args.Data.Currency = "THB";
+            args.Data.ExRate = 1;
+            args.Data.UOM = "PC";
+
+            isCostCenter = true;
+            isWSB = false;
+            isWSBReq = true;
+
+        }
+        else
+        {
+            //Check = false;
+        }
+
+        StateHasChanged();
+    }
+
+    public async void GridOnActionComplete(ActionEventArgs<PRItem> args)
+    {
+        Console.WriteLine("GridOnActionComplete: " + args.RequestType);
+        if (args.RequestType == Syncfusion.Blazor.Grids.Action.Add)
+        {
+            // Triggers before add operation starts
+        }
+        else
+        {
+            //Check = false;
+        }
+
+        //float ecost = 0 ;
+        EstimateCost = 0;
+        foreach (var pri in prItems)
+        {
+            EstimateCost += pri.AmountTHB;
+        }
+
+        await FindBudgetRange();
+    }
+
+    private async Task FindBudgetRange()
+    {
+        // find budget range
+        // input : prAmount // find from BudgetRanges
+        List<BudgetRange> budgetRanges = await prDataService.GetBudgetRangeAsync();
+        foreach (BudgetRange budgetRange in budgetRanges)
+        {
+
+            if (budgetRange.Range_Oper == "LE")
+            {
+                if (EstimateCost <= budgetRange.Range_Amount)
+                {
+                    //thisBudgetRange = budgetRange.Range_No;
+                    BudgetRange = budgetRange.Range_Name;
+                    break;
+                }
+            }
+            else
+            {
+                if (EstimateCost > budgetRange.Range_Amount)
+                {
+                    //thisBudgetRange = budgetRange.Range_No;
+                    BudgetRange = budgetRange.Range_Name;
+                    break;
+                }
+            }
+        }
+    }
+    public async Task CancelEdit()
+    {
+        await PRGrid.CloseEdit();
+    }
+    public async Task SaveEdit()
+    {
+        await PRGrid.EndEdit();
+    }
+
+    private async Task Save()
+    {
+        //PRHeader ActualPrHeader = await prMainService.GetPrHeaderAsync(PrId);
+        //ActualPrHeader.Need_CG_Concerning = isCGConcerning;
+        //ActualPrHeader.Need_SCA_Concerning = isSCAConcerning;
+        //ActualPrHeader.Need_ISO = isISONeed;
+        //ActualPrHeader.Objective = ObjectiveEdit;
+        //await prMainService.UpdatePrHeaderAsync(ActualPrHeader);
+        //Mode = "V";
+    }
+
+    private async Task Cancel()
+    {
+        //isCGConcerning = prHeader.Need_CG_Concerning;
+        //isSCAConcerning = prHeader.Need_SCA_Concerning;
+        //isISONeed = prHeader.Need_ISO;
+        //ObjectiveEdit = prHeader.Objective;
+        //switch (prHeader.Status)
+        //{
+        //    case "RNIN":
+        //        Mode = "FI";
+        //        break;
+        //    case "RNCN":
+        //        Mode = "FC";
+        //        break;
+        //    default:
+        //        Mode = "V";
+        //        break;
+        //}
+    }
+
+
+    private void OnMatDescSelect(SelectEventArgs<MatGroupList> args, PRItem context)
+    {
+
+        context.Item_Code = args.ItemData.Item_Code;
+
+        if (!string.IsNullOrEmpty(args.ItemData.Item_Description))
+        {
+            context.Item_Description = args.ItemData.Item_Description;
+        }
+
+        SetMatGroup(context.Item_Code, context);
+    }
+
+
+    private void OnMatCodeChange(ChangeEventArgs<string, MatGroupList> args, PRItem context)
+    {
+        //var val = null== args ? "":args.ToString();
+        SetMatGroup(context.Item_Code, context);
+    }
+
+    private void OnMatDescChange(ChangeEventArgs<string, MatGroupList> args, PRItem context)
+    {
+        SetMatGroup(context.Item_Code, context);
+    }
+
+    public void SetMatGroup(string val, PRItem context)
+    {
+
+        // Get Cost Center ***
+
+        //context.Item_Code = "";
+        //context.Item_Description = "";
+        context.Material_Group = "";
+        context.Material_Group_Des = "";
+        context.GL_Account = "";
+        context.Cost_Center = "";
+        context.WBS_Code = "";
+        context.Account_Ass_Cat = "";
+
+        //OnMatChange(context);
+        var matCode = context.Item_Code;
+        if (string.IsNullOrWhiteSpace(val))
+        {
+            isCostCenter = true;
+            isWSB = false;
+            isWSBReq = true;
+            matCode = "-";
+        }
+        else
+        {
+            isCostCenter = false;
+            isWSB = true;
+            isWSBReq = false;
+        }
+
+        var matgrp = prDataService.GetMatGroup(matCode);
+
+
+        if (matgrp != null && matgrp.Material_Group != null)
+        {
+            context.Material_Group = matgrp.Material_Group;
+            context.Material_Group_Des = matgrp.Material_Group_Des;
+            context.GL_Account = matgrp.GL_Account;
+            context.Account_Ass_Cat = matgrp.Account_Ass_Cat;
+            if (context.Account_Ass_Cat != null && Int32.Parse(context.Account_Ass_Cat) > 0)
+            {
+                context.Cost_Center = CostCenter;
+            }
+        }
+
+        //if (args.ItemData.GL_Account != null )
+        //{
+        //    context.GL_Account = args.ItemData.GL_Account;
+        //}
+        //if (args.ItemData.Account_Ass_Cat!= null)
+        //{
+        //    context.Account_Ass_Cat = args.ItemData.Account_Ass_Cat;
+        //    if (context.Account_Ass_Cat.Length > 0 && Int32.Parse(context.Account_Ass_Cat) > 0)
+        //    {
+        //        context.Cost_Center = args.ItemData.Cost_Center;
+        //    }
+        //}
+
+        StateHasChanged();
+        //context.Account_Ass_Cat =
+
+    }
+
+
+    //(ChangeEventArgs<string, GameFields> args)
+
+    public async Task CalAmount(Microsoft.AspNetCore.Components.ChangeEventArgs args, PRItem context)
+    {
+        await CalAmount(context);
+    }
+
+    public async Task CalAmount(PRItem context)
+    {
+        context.Amount = context.Quantity * context.Price_PR;
+        context.AmountTHB = context.Amount * context.ExRate;
+        this.StateHasChanged();
+    }
+
+
+
+    //SfAutoComplete<string, PRItem> autoObj { get; set; }
+    private async Task OnCompanyChange()
+    {
+        // Filter Project
+        projectDDL = masterProjetDDL.Where(a => a.type == prHeader.Company).ToList();
+
+        // Set Material Store
+        //MatCodeItemDDL =  await  prDataService.GetMatCodeItem(prHeader);
+
+
+        // Enabled Add Button
+
+
+        this.StateHasChanged();
+
+    }
+
+
+    bool isCreatePRSuccess = false;
+    string CostCenter = "";
+
+    public void GetCostCenter()
+    {
+        if (!string.IsNullOrEmpty(prHeader.Plant) && !string.IsNullOrEmpty(prHeader.Department) && !string.IsNullOrEmpty(prHeader.Section))
+        {
+            CostCenter = prDataService.GetGetCostCenter(prHeader.Plant, prHeader.Department, prHeader.Section);
+
+            this.PRGrid.EnableToolbarItems(new List<string>() { "Grid_PrForm_add" }, true);
+        }
+        else
+        {
+            this.PRGrid.EnableToolbarItems(new List<string>() { "Grid_PrForm_add" }, false);
+        }
+
+    }
+
+
+    public void GetPRGroup()
+    {
+        if (string.IsNullOrEmpty(prHeader.Plant) || string.IsNullOrEmpty(prHeader.Location) && !string.IsNullOrEmpty(prHeader.Purchasing_Group))
+        {
+            prHeader.Purchasing_Group = "";
+        }
+
+        if (!string.IsNullOrEmpty(prHeader.Plant) && !string.IsNullOrEmpty(prHeader.Location))
+        {
+            prHeader.Purchasing_Group = prDataService.GetGetPRGroup(prHeader.Plant, prHeader.Location);
+        }
+
+        GetCostCenter();
+
+        this.StateHasChanged();
+    }
+
+
+    public async void CurrencyValueChange(ChangeEventArgs<string, Master_Currency> args, PRItem context)
+    {
+        context.ExRate = args.ItemData.Rate;
+        await CalAmount(context);
+    }
+
+    bool isSavePR = false, isHasPRItem = true;
+    private async Task FormSubmit(EditContext context)
+    {
+        // Validates the EditContext and returns bool to indicate whether it has valid or invalid input values.
+        isSavePR = context.Validate();
+        if (isSavePR)
+        {
+            // Form has valid inputs.
+
+
+            if (prItems != null && prItems.Count > 0)
+            {
+
+                isHasPRItem = true;
+                if (await JsRuntime.InvokeAsync<bool>("confirm", "Please confirm Create PR ? "))
+                {
+                    //var fileName = await prDataService.DeleteUploadAttachAsync(attachId);
+                    //File.Delete(env.WebRootPath + UploadPath + fileName);
+                    //await GetUploadFileList();
+
+
+                    var result = prDataService.CreatePRData(prHeader, prItems);
+
+                    isCreatePRSuccess = true;
+
+                    navigationManager.NavigateTo($"prform/{result}", true);
+
+
+                }
+
+
+                //Logger.LogInformation("The registration is successful");
+
+            }
+            else
+            {
+                isHasPRItem = false;
+            }
+            this.StateHasChanged();
+        }
+        else
+        {
+            // Form has invalid inputs.
+        }
+    }
+
+
+    public void ToolbarClickHandler(Syncfusion.Blazor.Navigations.ClickEventArgs args)
+    {
+        Console.WriteLine("args.Item.Id: " + args.Item.Id);
+        if (args.Item.Id == "Grid_PrForm_add")
+        {
+
+
+
+            //You can customize your code here.
+        }
+    }
+
+
+
+}
+
+
+
+

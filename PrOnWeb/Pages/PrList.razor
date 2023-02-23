@@ -1,0 +1,236 @@
+﻿@page "/prlist"
+@using System.Security.Claims
+@using Syncfusion.Blazor.Grids
+@using Syncfusion.Blazor.Buttons
+@inject PrOnWeb.Services.PrDataService prDataService
+@inject PrOnWeb.Services.PrMainService prMainService
+@inject NavigationManager navigationManager
+@implements IDisposable
+@attribute [Authorize]
+
+
+
+
+@if (prHeaders == null)
+{
+    <p><em>No Data...</em></p>
+}
+else
+{
+    <h3>PR List @fullName</h3>
+
+    <div>
+        <SfCheckBox @bind-Checked="@isActive" @onclick="@ActiveClick">Show only Active transaction</SfCheckBox>
+    </div>
+
+    <SfGrid ID="Grid_PrList" @ref="gridRef" DataSource="@viewPrLists" AllowPaging="true" AllowFiltering="true" AllowResizing="true"
+            AllowSorting="true" Toolbar="@(new List<string>() { "ExcelExport", "Search" })" AllowExcelExport="true">
+        <GridEvents OnToolbarClick="ToolbarClickHandler" TValue="PrListModel"></GridEvents>
+        <GridSortSettings>
+            <GridSortColumns>
+                <GridSortColumn Field=@nameof(PrListModel.Id) Direction="SortDirection.Descending"></GridSortColumn>
+            </GridSortColumns>
+        </GridSortSettings>        <GridColumns>
+            <GridColumn Field=@nameof(PrListModel.Pr_No) HeaderText="SAP PR" TextAlign="TextAlign.Center" Width="70">
+                <Template>
+                    @{
+                        var prHeader0 = (context as PrListModel);
+                        <div><a href="@navigationManager.Uri" @onclick="@(() => Navigate(prHeader0))">@prHeader0.Pr_No</a></div>
+                    }
+                </Template>
+            </GridColumn>
+            <GridColumn Field=@nameof(PrListModel.Company) HeaderTextAlign="TextAlign.Center" TextAlign="TextAlign.Center" HeaderText="Company" Width="60"></GridColumn>
+            <GridColumn Field=@nameof(PrListModel.Department) HeaderText="Dept." Width="40" HeaderTextAlign="TextAlign.Center" TextAlign="TextAlign.Center"></GridColumn>
+            <GridColumn Field=@nameof(PrListModel.Section) HeaderText="Sect." Width="50" HeaderTextAlign="TextAlign.Center" TextAlign="TextAlign.Center"></GridColumn>
+            <GridColumn Field=@nameof(PrListModel.Pr_Date) HeaderText="PR Date" Width="60" Format="d/M/yyyy" HeaderTextAlign="TextAlign.Center" TextAlign="TextAlign.Center"></GridColumn>
+            <GridColumn Field=@nameof(PrListModel.Requester) HeaderText="Requester" Width="110" HeaderTextAlign="TextAlign.Center" TextAlign="TextAlign.Left"></GridColumn>
+            <GridColumn Field=@nameof(PrListModel.Tracking_No) HeaderText="Tracking" Width="70" HeaderTextAlign="TextAlign.Center" TextAlign="TextAlign.Left"></GridColumn>
+            <GridColumn Field=@nameof(PrListModel.Plant) HeaderText="Plant" Width="40" HeaderTextAlign="TextAlign.Center"></GridColumn>
+            <GridColumn Field=@nameof(PrListModel.Purchasing_Org) HeaderText="Pur Org" Width="50" HeaderTextAlign="TextAlign.Center"></GridColumn>
+            @*<GridColumn Field=@nameof(PrListModel.Create_Date) HeaderText="Cr.Date" Width="60" Format="d/M/yyyy" HeaderTextAlign="TextAlign.Center"></GridColumn>*@
+            <GridColumn Field=@nameof(PrListModel.PrStatus) HeaderText="Status" Width="140" HeaderTextAlign="TextAlign.Center"></GridColumn>
+            <GridColumn Field=@nameof(PrListModel.Objective) HeaderText="Objective" Width="240" TextAlign="TextAlign.Left"></GridColumn>
+        </GridColumns>
+    </SfGrid>
+
+}
+
+
+@if (viewPrLists == null)
+{
+    <div class="loader"> <div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+}
+
+
+
+<style type="text/css" class="cssStyles">
+    .e-grid .e-headercell {
+        background-color: #CADAFA;
+    }
+
+    .e-extlink:before {
+        content: '\e785';
+    }
+</style>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+    [CascadingParameter]
+    private Task<AuthenticationState> _authState { get; set; }
+
+    SfGrid<PrListModel> gridRef;
+    private AuthenticationState authState;
+    ClaimsPrincipal MyClaims = new ClaimsPrincipal();
+
+    List<vPRHeader> prHeaders = new List<vPRHeader>();
+    private string fullName;
+    int myUserId;
+
+    List<PrListModel> prLists;
+    List<PrListModel> viewPrLists;
+    bool isActive = true;
+
+    public class DistinctItemComparer : IEqualityComparer<PrListModel>
+    {
+        public bool Equals(PrListModel x, PrListModel y)
+        {
+            return x.Id == y.Id;
+        }
+        public int GetHashCode(PrListModel obj)
+        {
+            return obj.Id.GetHashCode();
+        }
+    }
+
+    //===========================================================
+    protected override async Task OnInitializedAsync()
+    {
+        string myODSs;
+        string myODs;
+        string myCompanies;
+        prLists = new List<PrListModel>();
+
+        authState = await _authState;
+        MyClaims = (await _authState).User;
+
+        if (MyClaims.Identity.IsAuthenticated)
+        {
+            myUserId = Int16.Parse(MyClaims.Claims.FirstOrDefault(c => c.Type == "PrUserId").Value);
+            myODSs = await prDataService.GetODSsFromUserIdAsync(myUserId);
+            myODs = await prDataService.GetODsFromUserIdAsync(myUserId);
+            myCompanies = await prDataService.GetCompaniesFromUserIdAsync(myUserId);
+
+            // Case 1 : Requester
+            if (MyClaims.IsInRole("Requester"))
+            {
+                prLists.AddRange(await prMainService.GetPrListApprovalNameAsyncCase0("Requester", myODSs));
+                prLists.AddRange(await prMainService.GetPrListApprovalNameAsyncCase1(myUserId, myODSs));
+            }
+            // Case 2 : Role อื่น by Name
+            prLists.AddRange(await prMainService.GetPrListApprovalNameAsyncCase2(myUserId));
+            // Case 3 : Role อื่น by role : SM, DM, AC, CS
+            if (MyClaims.IsInRole("SMs"))
+            {
+                prLists.AddRange(await prMainService.GetPrListApprovalNameAsyncCase0("SM", myODSs));
+                prLists.AddRange(await prMainService.GetPrListApprovalNameAsyncCase3_1("SM", myODSs));
+            }
+            if (MyClaims.IsInRole("DMs"))
+            {
+                prLists.AddRange(await prMainService.GetPrListApprovalNameAsyncCase0("DM", myODs));
+                prLists.AddRange(await prMainService.GetPrListApprovalNameAsyncCase3_1("DM", myODs));
+            }
+            if (MyClaims.IsInRole("Accountings"))
+            {
+                prLists.AddRange(await prMainService.GetPrListApprovalNameAsyncCase3_2("PAAC", myCompanies));
+            }
+            if (MyClaims.IsInRole("ADCoSigner"))
+            {
+                prLists.AddRange(await prMainService.GetPrListApprovalNameAsyncCase3_2("CSAD", myCompanies));
+            }
+            if (MyClaims.IsInRole("ITCoSigner"))
+            {
+                prLists.AddRange(await prMainService.GetPrListApprovalNameAsyncCase3_2("CSIT", myCompanies));
+            }
+            if (MyClaims.IsInRole("QCCoSigner"))
+            {
+                prLists.AddRange(await prMainService.GetPrListApprovalNameAsyncCase3_2("CSQC", myCompanies));
+            }
+            if (MyClaims.IsInRole("SECoSigner"))
+            {
+                prLists.AddRange(await prMainService.GetPrListApprovalNameAsyncCase3_2("CSSE", myCompanies));
+            }
+            // Case 4 : PS Manager
+            if (MyClaims.IsInRole("PSManager"))
+            {
+                if (MyClaims.IsInRole("PF"))
+                {
+                    prLists.AddRange(await prMainService.GetPrListApprovalNameAsyncCase4("PDRY"));
+                }
+                if (MyClaims.IsInRole("PH"))
+                {
+                    prLists.AddRange(await prMainService.GetPrListApprovalNameAsyncCase4("PDHO"));
+                }
+            }
+            // Case 5 : Purchaser
+            if (MyClaims.IsInRole("PF"))
+            {
+                prLists.AddRange(await prMainService.GetPrListApprovalNameAsyncCase5(myUserId));
+            }
+            if (MyClaims.IsInRole("PH"))
+            {
+                prLists.AddRange(await prMainService.GetPrListApprovalNameAsyncCase5(myUserId));
+            }
+            // Case 6 : Users
+            if (MyClaims.IsInRole("Users"))
+            {
+                prLists.AddRange(await prMainService.GetPrListApprovalNameAsyncCase0("Users", myODSs));
+            }
+        }
+        prLists = prLists.Distinct(new DistinctItemComparer()).ToList();
+
+        viewPrLists = prLists.Where(x => x.List_Level < 8).ToList();
+        viewPrLists = viewPrLists.Where(x => x.Pr_No.Substring(0, 2) != "L-").ToList();
+
+    }
+
+    private void Navigate(PrListModel prHeader1)
+    {
+        navigationManager.NavigateTo($"prform/{prHeader1.Id}", true);
+    }
+    private void vNavigate(VPrList prList1)
+    {
+        navigationManager.NavigateTo($"prform/{prList1.Id}", true);
+    }
+
+    private void ActiveClick()
+    {
+        if (isActive == true)
+        {
+            isActive = false;
+            viewPrLists = prLists.Where(x => x.Pr_No.Substring(0, 2) != "L-").ToList();
+        }
+        else
+        {
+            isActive = true;
+            viewPrLists = prLists.Where(x => x.List_Level < 8).ToList();
+            viewPrLists = viewPrLists.Where(x => x.Pr_No.Substring(0, 2) != "L-").ToList();
+        }
+        gridRef.Refresh();
+
+    }
+
+    public void Dispose()
+    {
+        GC.SuppressFinalize(this);
+    }
+
+    public async Task ToolbarClickHandler(Syncfusion.Blazor.Navigations.ClickEventArgs args)
+    {
+        if (args.Item.Id == "Grid_PrList_excelexport") //Id is combination of Grid's ID and itemname
+        {
+            await this.gridRef.ExcelExport();
+        }
+    }
+
+}

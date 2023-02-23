@@ -1,0 +1,333 @@
+﻿@page "/users"
+@attribute [Authorize(Roles = "Administrators")]
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.Inputs
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<ApplicationUser> _UserManager
+@inject PrOnWeb.Services.PrDataService prDataService
+@inject NavigationManager navigationManager
+
+
+<div id="b-header">
+    Users
+</div>
+
+@if (allAppUsers == null)
+{
+    <textarea>loading...</textarea>
+}
+else
+{
+    <div id="b-horbar">
+        User List
+    </div>
+
+    <div class="col control-section">
+        <div class="content-wrapper">
+            <div class="row">
+                <SfCheckBox @bind-Checked="@isActiveUser" Label="Active User Only" @onchange="@LoadAllUser"></SfCheckBox>
+            </div>
+            <div class="row">
+                <SfGrid @ref="Grid" DataSource="@allAppUsers"
+                        AllowPaging="true" AllowSorting="true" AllowFiltering="true"
+                        Toolbar="@(new List<string>() { "Search" })">
+                    <GridSortSettings>
+                        <GridSortColumns>
+                            <GridSortColumn Field="UserName" Direction="SortDirection.Ascending"></GridSortColumn>
+                        </GridSortColumns>
+                    </GridSortSettings>
+                    <GridColumns>
+                        @if (isActiveUser == false)
+                        {
+                            <GridColumn Field=@nameof(AppUser.IsActive) HeaderText="" DisplayAsCheckBox="true" Width="50" />
+                        }
+                        <GridColumn Field=@nameof(AppUser.PrUserId) HeaderText="Id" Visible="false" />
+                        <GridColumn Field=@nameof(AppUser.UserName) HeaderText="User Name" Width="120px">
+                            <Template>
+                                @{
+                                    var appUsr0 = (context as AppUser);
+                                    <div><a href="@navigationManager.Uri" @onclick="@(() => Navigate(appUsr0))">@appUsr0.UserName</a></div>
+                                }
+                            </Template>
+                        </GridColumn>
+                        <GridColumn Field=@nameof(AppUser.Email) HeaderText="Email" Width="150"></GridColumn>
+                        <GridColumn Field=@nameof(AppUser.FullName) HeaderText="Full Name" Width="150"></GridColumn>
+                        <GridColumn Field=@nameof(AppUser.Company) HeaderText="Company" Width="50"></GridColumn>
+                        <GridColumn Field=@nameof(AppUser.Department) HeaderText="Department" Width="50"></GridColumn>
+                        <GridColumn Field=@nameof(AppUser.Section) HeaderText="Section" Width="50"></GridColumn>
+                    </GridColumns>
+                </SfGrid>
+            </div>
+        </div>
+    </div>
+}
+
+<h3><b>Add / Edit one user</b></h3>
+<div class="row">
+    <div class="col-2">
+        <SfTextBox Placeholder="User Name" @bind-Value="@NewUserName" FloatLabelType="@FloatLabelType.Always" />
+    </div>
+    <div class="col-2">
+        <SfTextBox Placeholder="Email" @bind-Value="@NewEmail" FloatLabelType="@FloatLabelType.Always" />
+    </div>
+    <div class="col-2">
+        <SfTextBox Placeholder="Full Name" @bind-Value="@NewFullName" FloatLabelType="@FloatLabelType.Always" />
+    </div>
+    <div class="col-2">
+        <SfButton CssClass="b-button" OnClick="AddOneUser" Content="Add/Edit one user" />
+    </div>
+
+
+</div>
+
+@if (allUsers == null)
+{
+    <em>No Data</em>
+}
+else
+{
+    <div class="col control-section">
+        <div class="content-wrapper">
+            <div class="row">
+                <SfButton CssClass="b-button e-danger" OnClick="UpdateNewUser" Content="Merge New Users" />
+                <SfButton CssClass="b-button e-danger" OnClick="DeleteImportUserTable" Content="Clear New Users Table" />
+                @*<SfButton CssClass="b-button e-danger" OnClick="ImportNewUserTable" Content="Import New Users Table" />*@
+            </div>
+        </div>
+    </div>
+    <div class="col control-section">
+        <div class="content-wrapper">
+            <div class="row">
+                <SfGrid @ref="GridNewUsers" DataSource="@allUsers" AllowPaging="true">
+                    <GridColumns>
+                        <GridColumn Field=@nameof(UserTable.Pr_User_Id) HeaderText="Id" Width="50" Visible="false"></GridColumn>
+                        <GridColumn Field=@nameof(UserTable.UserName) HeaderText="User Name" Width="100"></GridColumn>
+                        <GridColumn Field=@nameof(UserTable.Email) HeaderText="Email" Width="150"></GridColumn>
+                        <GridColumn Field=@nameof(UserTable.FullName) HeaderText="Full Name" Width="150"></GridColumn>
+                    </GridColumns>
+                </SfGrid>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    SfGrid<AppUser> Grid;
+    SfGrid<UserTable> GridNewUsers;
+    List<ApplicationUser> applicationUsers;
+    List<AppUser> allAppUsers;
+    List<UserTable> allUsers;
+    string NewUserName;
+    string NewEmail;
+    string NewFullName;
+
+    bool isActiveUser;
+
+    public class AppUser
+    {
+        public string PrUserId { get; set; }
+        public string UserName { get; set; }
+        public string Email { get; set; }
+        public string FullName { get; set; }
+        public string Company { get; set; }
+        public string Department { get; set; }
+        public string Section { get; set; }
+        public bool IsActive { get; set; }
+    }
+
+    List<WorkflowAutho> workFlowAuthos;
+    public async Task LoadAllUser()
+    {
+        allAppUsers = new List<AppUser>();
+        AppUser appUser;
+        bool isAddThis;
+        foreach (var item in applicationUsers)
+        {
+            isAddThis = item.EmailConfirmed; // แสดงเฉพาะ Active User
+            if (isActiveUser == false) // แสดงทั้งหมด
+            {
+                isAddThis = true;
+            }
+            if (isAddThis == true)
+            {
+                workFlowAuthos = await prDataService.GetWorkflowAuthosAsync(Int16.Parse(item.PrUserId));
+                if (workFlowAuthos.Count == 0)
+                {
+                    appUser = new AppUser()
+                    {
+                        PrUserId = item.PrUserId,
+                        UserName = item.UserName,
+                        Email = item.Email,
+                        FullName = item.FullName,
+                        Company = "",
+                        Department = "",
+                        Section = "",
+                        IsActive = item.EmailConfirmed
+                    };
+                    allAppUsers.Add(appUser);
+                }
+                else
+                {
+                    foreach (var wf in workFlowAuthos)
+                    {
+                        appUser = new AppUser()
+                        {
+                            PrUserId = item.PrUserId,
+                            UserName = item.UserName,
+                            Email = item.Email,
+                            FullName = item.FullName,
+                            Company = wf.Org,
+                            Department = wf.Dep,
+                            Section = wf.Sec,
+                            IsActive = item.EmailConfirmed
+                        };
+                        allAppUsers.Add(appUser);
+                    }
+                }
+            }
+            Grid.Refresh();
+
+        }
+    }
+
+    // ==================================================
+    protected override async Task OnInitializedAsync()
+    {
+        isActiveUser = true; // เฉพาะ Active User
+        applicationUsers = _UserManager.Users.ToList();
+        await LoadAllUser();
+        allUsers = await prDataService.GetUserTablesAsync();
+    }
+
+    public async Task SelectedRowCellIndex()
+    {
+        var value = await this.Grid.GetSelectedRecords();
+        navigationManager.NavigateTo($"UserProfile/{value.First().UserName}");
+    }
+
+    private void Navigate(AppUser appUsr)
+    {
+        navigationManager.NavigateTo($"UserProfile/{appUsr.UserName}");
+    }
+
+    //public async Task RegisNewUser()
+    //{
+    //    int thisPrUserId;
+    //    int maxPrUserId = 0;
+    //    foreach (ApplicationUser user in allUser)
+    //    {
+    //        if (user.PrUserId != "" && user.PrUserId != null)
+    //        {
+    //            thisPrUserId = Int32.Parse(user.PrUserId);
+    //            if (thisPrUserId > maxPrUserId)
+    //            {
+    //                maxPrUserId = thisPrUserId;
+    //            }
+    //        }
+    //    }
+
+    //    WorkflowAutho workflowAutho;
+
+    //    foreach (ApplicationUser user in allUser)
+    //    {
+    //        if (user.PrUserId == null || user.PrUserId == "")
+    //        {
+    //            // gen new PrUserID
+    //            maxPrUserId += 1;
+    //            user.PrUserId = maxPrUserId.ToString();
+    //            await _UserManager.UpdateAsync(user);
+    //            // create new WorkflowAuthos
+    //            //workflowAutho = new WorkflowAutho
+    //            //{
+    //            //    User_Id = maxPrUserId
+    //            //};
+    //            //await prDataService.CreateWorkflowAuthoAsync(workflowAutho);
+    //        }
+    //    }
+    //}
+
+    public string defaultPassword = "Abc123$$$";
+
+    public async Task UpdateNewUser()
+    {
+        var passwordHasher = new PasswordHasher<ApplicationUser>();
+        // add new user
+        ApplicationUser newUser;
+        string hashedPwd;
+        int newPrUserId;
+        foreach (var item in allUsers)
+        {
+            newUser = await _UserManager.FindByNameAsync(item.UserName.Trim());
+            if (newUser == null)
+            {
+                newPrUserId = await prDataService.GetNextPrUserId();
+                newUser = new ApplicationUser();
+                newUser.UserName = item.UserName.Trim();
+                hashedPwd = passwordHasher.HashPassword(newUser, defaultPassword);
+                newUser.PasswordHash = hashedPwd;
+                newUser.Email = item.Email;
+                newUser.PhoneNumber = "";
+                newUser.PrUserId = newPrUserId.ToString();
+                newUser.FullName = item.FullName;
+                newUser.EmailConfirmed = true;
+                var result0 = await _UserManager.CreateAsync(newUser);
+            }
+            else // Update
+            {
+                newUser.UserName = item.UserName.Trim();
+                newUser.Email = item.Email;
+                newUser.PhoneNumber = "";
+                newUser.FullName = item.FullName;
+                newUser.EmailConfirmed = true;
+                var result1 = await _UserManager.UpdateAsync(newUser);
+            }
+        }
+        Grid.Refresh();
+
+    }
+
+    public async Task AddOneUser()
+    {
+        var passwordHasher = new PasswordHasher<ApplicationUser>();
+        // add new user
+        ApplicationUser newUser;
+        string hashedPwd;
+        int newPrUserId;
+        newUser = await _UserManager.FindByNameAsync(NewUserName.Trim());
+        if (newUser == null)
+        {
+            newPrUserId = await prDataService.GetNextPrUserId();
+            newUser = new ApplicationUser();
+            newUser.UserName = NewUserName.Trim();
+            hashedPwd = passwordHasher.HashPassword(newUser, defaultPassword);
+            newUser.PasswordHash = hashedPwd;
+            newUser.Email = NewEmail;
+            newUser.PhoneNumber = "";
+            newUser.PrUserId = newPrUserId.ToString();
+            newUser.FullName = NewFullName;
+            newUser.EmailConfirmed = true;
+            var result0 = await _UserManager.CreateAsync(newUser);
+        }
+        else // Update
+        {
+            newUser.UserName = NewUserName.Trim();
+            newUser.Email = NewEmail;
+            newUser.PhoneNumber = "";
+            newUser.FullName = NewFullName;
+            newUser.EmailConfirmed = true;
+            var result1 = await _UserManager.UpdateAsync(newUser);
+        }
+        NewUserName = "";
+        NewEmail = "";
+        NewFullName = "";
+        Grid.Refresh();
+    }
+
+    public async Task DeleteImportUserTable()
+    {
+        await prDataService.DeleteUserTableAsync();
+        allUsers = await prDataService.GetUserTablesAsync();
+        GridNewUsers.Refresh();
+    }
+
+}

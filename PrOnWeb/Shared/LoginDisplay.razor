@@ -1,0 +1,13 @@
+﻿<AuthorizeView>
+    <Authorized>
+        <form method="post" action="Identity/Account/LogOut">
+            <button type="submit" class="nav-link btn btn-link" style="color:white; font-weight:600;">Log out</button>
+        </form>
+    </Authorized>
+    <NotAuthorized>
+        @*You are not authorized to use this app.*@
+        @*<a href="Identity/Account/Register">Register</a>*@
+
+        <a href="Identity/Account/Login" style="color:white; font-weight:600; ">Log in</a>
+    </NotAuthorized>
+</AuthorizeView>

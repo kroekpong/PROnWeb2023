@@ -1,0 +1,93 @@
+﻿@page "/TestUpload/{DocumentType:int}/{DocumentId:int}"
+@using Syncfusion.Blazor.Inputs
+@using System.IO
+@using System.Security.Claims;
+@inject PrOnWeb.Services.PrDataService prDataService
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment env
+
+
+<EditForm Model="@uploadFile" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <div class="form-group">
+        <SfTextBox Placeholder="Description"
+                   @ref="@description"></SfTextBox>
+    </div>
+    <div class="form-group">
+        <SfUploader @ref="UploadObj" ID="UploadFiles" MaxFileSize="@MaxUploadFileSize" AutoUpload="false">
+            <UploaderEvents ValueChange="OnChange"></UploaderEvents>
+        </SfUploader>
+    </div>
+    @*<button type="submit" class="btn btn-primary">Upload</button>*@
+</EditForm>
+@UploadFileName <br />
+@UPloadComplete <br /> 
+@SaveRecord <br /> 
+@Rename<br /> 
+
+@code {
+    [Parameter] public int DocumentType { get; set; }
+    [Parameter] public int DocumentId { get; set; }
+    public int MaxUploadFileSize = 10000000;
+    public string UploadPath = "/images/";
+
+    SfUploader UploadObj;
+    SfTextBox description;
+    ClaimsPrincipal CurrentUser = new ClaimsPrincipal();
+    [CascadingParameter]
+    private Task<AuthenticationState> _authState { get; set; }
+    string UploadFileName = "";
+    string UPloadComplete = "";
+    string SaveRecord = "";
+    string Rename = "";
+
+    public async Task OnChange(UploadChangeEventArgs args)
+    {
+        UploadFileName = "";
+        UPloadComplete = "";
+        foreach (var file in args.Files)
+        {
+            var path = env.WebRootPath +  UploadPath + file.FileInfo.Name;
+            UploadFileName = path;
+            FileStream filestream = new FileStream(path, FileMode.Create, FileAccess.Write);
+            file.Stream.WriteTo(filestream);
+            filestream.Close();
+            file.Stream.Close();
+            UPloadComplete = "Upload Complete";
+            await SaveUploadDetail(file.FileInfo.Name);
+        }
+    }
+
+    public UploadFile uploadFile = new UploadFile();
+
+    public async Task HandleValidSubmit()
+    {
+        await this.UploadObj.Upload(); // Upload the selected file manually
+    }
+
+    public async Task SaveUploadDetail(string UploadFileName)
+    {
+        //must be authenticated
+        CurrentUser = (await _authState).User;
+        int UserId = Int32.Parse(CurrentUser.Claims.FirstOrDefault(c => c.Type == "PrUserId").Value);
+
+        // Insert new upload record
+        // 1= Pr Item Attachment
+        // 2= Rn Attachment
+        var NewUpload = new UploadFile
+        {
+            Upload_Type = DocumentType,
+            Document_id = DocumentId,
+            Filename = UploadFileName,
+            Description = description.Value,
+            Who = UserId,
+            When = DateTime.Now,
+            Status = "NEW"
+        };
+        int NewId = await prDataService.InsertUploadFileAsync(NewUpload);
+        SaveRecord = "Save record complete";
+        string NewFileName = NewId.ToString() + "_" + UploadFileName;
+        File.Move(env.WebRootPath +  UploadPath +  UploadFileName, env.WebRootPath + UploadPath + NewFileName);
+        Rename = "Rename file complete ->" + env.WebRootPath + UploadPath + NewFileName;
+    }
+
+}

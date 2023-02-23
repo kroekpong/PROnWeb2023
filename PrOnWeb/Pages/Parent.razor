@@ -1,0 +1,18 @@
+﻿@page "/parent"
+<button class="e-btn" @onclick="ShowDialog">Show Confirm Dialog</button>
+
+<CascadingValue Value="@this">
+    <TextboxComponent @ref="Dialog" Visible=@Visibility IsModal="@IsModal"></TextboxComponent>
+</CascadingValue>
+
+@code {
+    [CascadingParameter]
+    PrOnWeb.Pages.TextboxComponent Dialog { get; set; }
+    public bool Visibility { get; set; } = false;
+    public bool IsModal { get; set; } = true;
+
+    private void ShowDialog()
+    {
+        this.Dialog.Show("rewr", "test");
+    }
+} 

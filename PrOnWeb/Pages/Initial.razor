@@ -1,0 +1,27 @@
+﻿@page "/Initial" 
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<ApplicationUser> _UserManager
+
+<h3>Initial</h3>
+
+@code {
+
+    string userName = "SARAVUT";
+    string defaultPassword = "Abc123$$$";
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        //var user = await _UserManager.FindByNameAsync(userName);
+        string token;
+        IdentityResult result;
+        List<ApplicationUser> applicationUsers;
+
+        applicationUsers = _UserManager.Users.ToList();
+        foreach (var user in applicationUsers)
+        {
+            token = await _UserManager.GeneratePasswordResetTokenAsync(user);
+            result = await _UserManager.ResetPasswordAsync(user, token, defaultPassword);
+        }
+    }
+}

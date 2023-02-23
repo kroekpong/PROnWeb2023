@@ -1,0 +1,2067 @@
+﻿@page "/prform/{PrId:int}"
+@using System.IO
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.Popups
+@using Syncfusion.Blazor.Grids
+@using Syncfusion.Blazor.DropDowns
+@using PrOnWeb.Data
+@using System.Security.Claims;
+@using Microsoft.AspNetCore.Identity;
+
+@inject IJSRuntime JsRuntime
+@inject NavigationManager navigationManager
+@inject UserManager<ApplicationUser> _UserManager
+
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment env
+@inject EmailServices.IEmailService EmailService
+@inject PrOnWeb.Services.PrDataService prDataService
+@inject PrOnWeb.Services.PrMainService prMainService
+@inject EmailServices.IMailKitEmailService MailKitService
+@attribute [Authorize]
+
+@{
+    var isPRW = (prHeader != null && prHeader.Pr_No != null && prHeader.Pr_No.StartsWith("PRW"));
+    var PrLabel = isPRW ? "WEB PR : " : "SAP PR : ";
+    //var isPrPD = (prHeader != null && prHeader.Status != null && (prHeader.Status.Equals("PDRY") || prHeader.Status.Equals("PDHO")));
+}
+
+
+@if (prHeader == null)
+{
+    <b><em>Loading Data...</em></b> }
+else
+{
+    <div class="container-fluid">
+        <div class="row prform-header">
+            <div id="b-header" class="col-md-10">
+                @if (prHeader == null)
+                {
+                    <span>SAP PR: <em>Loading ...</em></span>
+                }
+                else
+                {
+                    <span>@PrLabel</span><span class="text-info"> @prHeader.Pr_No </span>
+                    <span class="label status"> @PrStatusName </span>
+                    @if ("Yes" == prHeader.Pr_Urgent)
+                    {
+                        <small class="label urgent-pr"> Urgent PR ! </small>}}
+
+            </div>
+            <div class="col-2" style="display: flex; align-items: end;">
+                <SfButton @onclick="PrintPrForm" CssClass="b-button  btn-warning"><i class="fa fa-print"></i> Print PR form</SfButton>
+
+                <a href="prlist" class="e-btn b-button btn-outline-dark"><i class="fa fa-reply"></i>  Back to List</a>
+            </div>
+        </div>
+        @*<div class="row">
+                <div class="col">
+                    <SfButton @onclick="PrintPrForm" CssClass="b-button"><i class="fa fa-print"></i> Print PR form</SfButton>
+                </div>
+            </div>*@
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row">
+
+                </div>
+                <div class="row" style="">
+                    <div class="col">
+                        @if (Mode == "V")
+                        {
+                            @if (isPRW && isRequester)
+                            {
+                                <SfButton CssClass="b-button btn-primary" OnClick="@ModeModify" Disabled="@isBlocked"><i class="fa fa-file-text-o"></i> Modify PR</SfButton>
+                            }
+                            <SfButton CssClass="b-button btn-info" OnClick="@ModeEdit" Disabled="@isBlocked"><i class="fa fa-pencil-square-o"></i> Update</SfButton>
+                            <SfButton CssClass="b-button btn-success" OnClick="@SetFinalized" Disabled="@isBlocked"><i class="fa fa-check-square-o"></i> Submit</SfButton>
+                            <SfButton CssClass=" b-button btn-danger" OnClick="@SetDelete" Disabled="@isBlocked"><i class="fa fa-trash-o"></i> Delete </SfButton>
+                        }
+                        @if (Mode == "E")
+                        {
+                            @if (isPRW && isRequester)
+                            {
+                                <SfButton CssClass="b-button btn-primary" OnClick="@ModeModify" Disabled="@isBlocked"><i class="fa fa-file-text-o"></i> Modify PR</SfButton>
+                            }
+                            <SfButton  CssClass="b-button  btn-success" OnClick="@SaveEdit" Disabled="@isBlocked"><i class="fa fa-save"></i>  Save</SfButton>
+                            <SfButton CssClass="b-button" OnClick="@CancelEdit" Disabled="@isBlocked"><i class="fa fa-times-circle-o"></i> Cancel</SfButton>
+                        }
+                        @if (Mode == "P")
+                        {
+                            <SfButton IsPrimary="true" CssClass="b-button" OnClick="@SetApproved" Disabled="@isBlocked"><i class="fa fa-check-square-o"></i> Approve</SfButton>
+                            <SfButton CssClass="b-button e-warning" OnClick="@SetReject" Disabled="@isBlocked"><i class="fa fa-ban"></i> Reject</SfButton>
+                        }
+                        @if (Mode == "R")
+                        {
+                            <SfButton IsPrimary="true" CssClass="b-button" OnClick="@CreateRN" Disabled="@isBlocked"><i class="fa fa-pencil-square-o"></i> Create Returning Note</SfButton>
+                            <SfButton CssClass="b-button e-warning" OnClick="@SetReject" Disabled="@isBlocked"><i class="fa fa-ban"></i> Reject</SfButton>
+                        }
+
+                        @if (isStaffChooser)
+                        {
+                            <SfButton IsPrimary="true" CssClass="b-button btn-info" OnClick="@ReAssingStaff" Disabled="@isBlocked"><i class="fa fa-send-o"></i> Re-Assign Purchasing Team</SfButton>
+                        }
+                    </div>
+                </div>
+                <div class="row pt-2">
+                    <div class="col">
+                        <SfCheckBox @bind-Checked="@isCGConcerning" Label="CG Concerning " Disabled=@isReadOnly></SfCheckBox> &nbsp;
+                        <SfCheckBox @bind-Checked="@isSCAConcerning" Label="SCA Concerning " Disabled=@isReadOnly></SfCheckBox> &nbsp;
+                        <SfCheckBox @bind-Checked="@isISONeed" Label="ISO/IEC17025" Disabled=@isReadOnly></SfCheckBox>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <span class="b-label-notlift">Objective</span>
+                        <SfTextBox CssClass="e-outline" Placeholder="" @bind-Value="@ObjectiveEdit"
+                                   Multiline="true" FloatLabelType="@FloatLabelType.Never" Readonly=@isReadOnly></SfTextBox>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                @if (PrStatus == "NEW" || PrStatus == "REJ")
+                {
+                    <span class="b-label-notlift">Co-Sign</span>
+                    @if (coSigners != null)
+                    {
+                        <SfDropDownList TItem="CoSigners" TValue="string" Placeholder="Select Co-Sign" Enabled="!isReadOnly"
+                                        @bind-Value="@CoSignGroupSelect" DataSource="@coSigners" Readonly="@isReadOnly">
+                            <DropDownListFieldSettings Text="CoSignName" Value="CoSignGroup"></DropDownListFieldSettings>
+                        </SfDropDownList>
+                    }
+
+                }
+
+
+                @foreach (ApprValues apprValue in apprFlow)
+                {<div>
+                        <SfCheckBox Disabled="true" Label=@apprValue.Text Checked=@apprValue.isChecked></SfCheckBox>
+                        <span class="app-label-name">@apprValue.Name</span>
+                        <span class="app-label-date ">@apprValue.Date</span>
+                    </div>
+                }
+            </div>
+
+            <div class="col-2">
+                <span class="b-label-notlift">Returning Notes</span>
+
+                <table border="0">
+                    @if (returningNotes != null)
+                    {
+
+                        @foreach (var item in returningNotes)
+                        {
+                            <tr>
+                                <td style="height: 20px; background-color:white;">&nbsp;</td>
+                                <td align="left">
+                                    <a href="#" runat="server" @onclick:preventDefault @onclick="@(() => RNClick(item.Id))">@item.Rn_Id</a><span class="text-info" style="font-size: 14px;">  [ @item.Rn_Status ] </span>
+                                      
+                                        @*<asp:HyperLink id="rnLink"
+            NavigateUrl="RnForm/V/@item.Id/0"
+            Text="@item.Rn_Id"
+            runat="server" />*@
+                                </td>
+                                <td style="height: 20px; background-color:white;">&nbsp;</td>
+                            </tr>
+}
+                    }
+                </table>
+            </div>
+            <div class="col-sm-3">
+                @if (uploadFiles != null)
+                {
+                    <table>
+                        <tr>
+                            <td class="b-label-notlift">Attachment</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                @foreach (UploadFile item in uploadFiles)
+                                {
+                                    <div style="font-size: smaller;">
+                                        @*<a href="images/@(item.Id + "_" + item.Filename)" download=@item.Filename target="_top">*@
+                                        <a href="images/@(item.Id + "_" + item.Filename)" target="_blank">
+                                            @item.Description [ @item.Filename ]
+                                        </a>
+                                        &nbsp;&nbsp;
+                                        <SfButton IconCss="e-icons e-xdelete-icon" CssClass="e-small e-round" IsPrimary="true"
+                                                  OnClick="@(e=> DeleteAttach( item.Id))" Disabled="isDeleteFileDisable">
+                                        </SfButton>
+                                    </div>}
+                            </td>
+                        </tr>
+                    </table>        }
+                <SfButton @onclick="@OpenUploadDialog" IsPrimary="true"><i class="fa fa-upload"></i> Upload File</SfButton>
+                <SfDialog ID="uploadDialog" Width="350px" MinHeight="150px" ShowCloseIcon="true" @bind-Visible="@IsVisibleChild" IsModal="true">
+                    <DialogTemplates>
+                        <Header> Upload File Attachment </Header>
+                        <Content> <Upload OnDNComplete="CloseUploadDialog" DocumentType="1" DocumentId="@PrId"></Upload> </Content>
+                    </DialogTemplates>
+                    <DialogPositionData X="center" Y="center"></DialogPositionData>
+                </SfDialog>
+            </div>
+            <div class="col-2">
+                @if (prItems != null)
+                {
+                    <Memo prNo=@PrId></Memo>}
+            </div>
+        </div>
+    </div>
+    <hr />
+
+    <div class="col-lg-12 control-section">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <SfTextBox CssClass="e-style" Placeholder="Company" @bind-Value="@prHeader.Company" FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+                        </div>
+                        <div class="col-md-1">
+                            <SfTextBox CssClass="e-style" Placeholder="Department" @bind-Value="@prHeader.Department" FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+                        </div>
+                        <div class="col-md-1">
+                            <SfTextBox CssClass="e-style" Placeholder="Section" @bind-Value="@prHeader.Section" FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+                        </div>
+                        <div class="col-md-2">
+                            <SfTextBox CssClass="e-style" Placeholder="Plant" @bind-Value="@prHeader.Plant" FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+                        </div>
+                        <div class="col-md-2">
+                            <SfTextBox CssClass="e-style" Placeholder="Purchase Group" @bind-Value="@prHeader.Purchasing_Group" FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+                        </div>
+                        <div class="col-md-5">
+                            <SfTextBox CssClass="e-style" Placeholder="Comment" @bind-Value="@prHeader.Comment" FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <SfTextBox CssClass="e-style" Placeholder="Requester" @bind-Value="@prHeader.Requester" FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+                        </div>
+                        <div class="col-2">
+                            <SfTextBox CssClass="e-style" Placeholder="Submit by" @bind-Value="@creatorName" FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+                        </div>
+                        <div class="col-2">
+                            <SfTextBox CssClass="e-style" Placeholder="Tracking No." @bind-Value="@prHeader.Tracking_No" FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+                        </div>
+                        <div class="col-md-3">
+                            <SfTextBox CssClass="e-style" Placeholder="Total Budget (THB)" @bind-Value="@prHeader.sPrAmt" FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+                        </div>
+                        <div class="col-md-3">
+                            <SfTextBox CssClass="e-style" Placeholder="Budget Range (THB)" @bind-Value="@thisBudgetRangeName" FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+                        </div>
+                    </div>
+                    
+                        @if (@RecordCount > 0 && isStaffChooser == true)
+                        {
+                            <div class="row"  style="padding:1rem;">
+                                <span>Assign Staff to @RecordCount item(s)</span>
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        @if (usersOfRole != null)
+                                        {
+                                            <SfDropDownList TItem="ApplicationUser" TValue="int" PopupHeight="230px" Placeholder="Select Purchasing Staff"
+                                                            @bind-Value="@StaffId" DataSource="@usersOfRole">
+                                                <DropDownListFieldSettings Text="UserName" Value="PrUserId"></DropDownListFieldSettings>
+                                            </SfDropDownList>
+                                        }
+                                    </div>
+                                    <div class="col-6">
+                                        <SfButton OnClick="@OnSaveStaff"><i class="fa fa-save"></i> Save Assign</SfButton>
+                                    </div>
+                                </div>
+                         </div>
+                        }
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+
+    @if (prItems != null)
+    {
+
+        <SfGrid ID="Grid_PrForm" @ref="Grid" DataSource="@prItems" AllowPaging="false" AllowResizing="true">
+            <GridSelectionSettings Type="Syncfusion.Blazor.Grids.SelectionType.Multiple"></GridSelectionSettings>
+            <GridEvents RowSelected="SelectRecords" RowDeselected="DeSelectcords" TValue="PRItem"></GridEvents>
+            <GridColumns>
+                <GridColumn Type="ColumnType.CheckBox" Width="30" Visible="isStaffChooser" HeaderTextAlign="TextAlign.Center"></GridColumn>
+                <GridColumn Field=@nameof(PRItem.Item_No) HeaderText="#" TextAlign="TextAlign.Center" Width="35" HeaderTextAlign="TextAlign.Center">
+                    <Template>
+                        @{ var prItem0 = (context as PRItem);
+                            <SfButton @onclick="@(() => LoadSingleItem(prItem0))" CssClass="e-small e-round btn-info"><i class="fa fa-search"></i></SfButton>
+                        }
+                    </Template>
+                </GridColumn>
+                <GridColumn Field=@nameof(PRItem.PR_Closed) HeaderText="Close" DisplayAsCheckBox="true" Width="80" TextAlign="TextAlign.Center" HeaderTextAlign="TextAlign.Center"></GridColumn>
+                <GridColumn Field=@nameof(PRItem.Delete_Status) HeaderText="Delete" TextAlign="TextAlign.Center" Width="80" HeaderTextAlign="TextAlign.Center">
+                    <Template>
+                        @{ var prItem0 = (context as PRItem);
+                            if (prItem0.Delete_Status != null && prItem0.Delete_Status.StartsWith("DEL"))
+                            {
+                                <span style="color:red;"><i class="fa fa-trash"></i></span>
+                            } }
+                    </Template>
+                </GridColumn>
+
+                <GridColumn Field=@nameof(PRItem.Item_Description) HeaderText="Description" Width="300" HeaderTextAlign="TextAlign.Center"></GridColumn>
+
+                <GridColumn Field=@nameof(PRItem.Item_Code) HeaderText="Item Code" Width="120" HeaderTextAlign="TextAlign.Center">
+                    <Template>
+                        @{ var prItem = (context as PRItem);
+                            @prItem.Item_Code.TrimStart(new Char[] { '0' }); }
+                    </Template>
+                </GridColumn>
+                <GridColumn Field=@nameof(prItem.Price_PR) HeaderText="Cost" Width="120" HeaderTextAlign="TextAlign.Center" TextAlign="TextAlign.Right">
+                    <Template>
+                        @{ var prI = (context as PRItem);
+                            int priceUnit;
+
+                            priceUnit = prI.Price_Unit == 0 ? 1 : prI.Price_Unit;
+                            var SubTotal = prI.Price_PR * prI.Quantity / priceUnit;
+                            <span>@SubTotal.ToString("N2")</span>
+                        }
+                    </Template>
+                </GridColumn>
+                <GridColumn Field=@nameof(PRItem.Currency) HeaderText="Currency" Width="90" HeaderTextAlign="TextAlign.Center" TextAlign="TextAlign.Center"></GridColumn>
+                <GridColumn Field=@nameof(PRItem.Quantity) HeaderText="Qty." Width="70" HeaderTextAlign="TextAlign.Center" TextAlign="TextAlign.Right"></GridColumn>
+                <GridColumn Field=@nameof(PRItem.UOM) HeaderText="Unit" Width="70" HeaderTextAlign="TextAlign.Center" TextAlign="TextAlign.Center"></GridColumn>
+                <GridColumn Field=@nameof(PRItem.Requistion_date) HeaderText="Issuing Date" Format="d/M/yyyy" Width="100" HeaderTextAlign="TextAlign.Center" TextAlign="TextAlign.Center"></GridColumn>
+                <GridColumn Field=@nameof(PRItem.Delivery_date) HeaderText="Date Needed" Format="d/M/yyyy" Width="100" HeaderTextAlign="TextAlign.Center" TextAlign="TextAlign.Center"></GridColumn>
+                <GridColumn Field=@nameof(PRItem.Purchasing_Staff) HeaderText="Purchaser" Width="100" HeaderTextAlign="TextAlign.Center"></GridColumn>
+                <GridColumn Field=@nameof(PRItem.Staff_assign_date) HeaderText="Purc.Recv" Format="d/M/yyyy" Width="100" HeaderTextAlign="TextAlign.Center" TextAlign="TextAlign.Center"></GridColumn>
+                <GridColumn Field=@nameof(PRItem.GL_Account) HeaderText="Account" Width="100" HeaderTextAlign="TextAlign.Center"></GridColumn>
+                <GridColumn Field=@nameof(PRItem.Cost_Center) HeaderText="Cost Center" Width="120" HeaderTextAlign="TextAlign.Center"></GridColumn>
+                <GridColumn Field=@nameof(PRItem.WBS_Code) HeaderText="WBS code" Width="100" HeaderTextAlign="TextAlign.Center"></GridColumn>
+            </GridColumns>
+        </SfGrid>
+
+        <SfDialog Width="750px" @bind-Visible="@isItemDlgVisible" IsModal="true" ShowCloseIcon="true">
+            <DialogTemplates>
+                <Header>
+                    PR Line Items
+                </Header>
+                <Content>
+                    <div class="dialogContent">
+                        <PrItemDetail @ref="prItemDetail" onDlgClose="CloseItemDlg"></PrItemDetail>
+                        @*<PrItemDetail @ref="prItemDetail" thisPrItem="prItem"  onDlgClose="CloseItemDlg"></PrItemDetail>*@
+                    </div>
+                </Content>
+            </DialogTemplates>
+
+        </SfDialog> } @* Reject Reason Dialog box *@
+    <SfDialog @bind-Visible="@isRejectVisible" Target="#target" Width="300px">
+        <DialogTemplates>
+            <Header>
+                Reject reason:
+            </Header>
+            <Content>
+                <SfTextBox CssClass="e-outline" Placeholder="Message ..." @bind-Value="@RejectReason"
+                           Multiline="true" FloatLabelType="@FloatLabelType.Never"></SfTextBox>
+            </Content>
+        </DialogTemplates>
+        <DialogButtons>
+            <DialogButton Content="Save" IsPrimary="true" OnClick="@ConfirmReject" />
+            <DialogButton Content="Cancel" IsPrimary="true" OnClick="@CancelReject" />
+        </DialogButtons>
+    </SfDialog>}
+
+ @if (isBlocked)
+{
+    <div class="loader" > <div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+}
+
+
+
+<link rel="stylesheet" type="text/css" href="css/prform-style.css" />
+
+@code {
+
+    // Authentication
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+    [CascadingParameter]
+    private Task<AuthenticationState> _authState { get; set; }
+    private AuthenticationState authState;
+    ClaimsPrincipal MyClaims = new ClaimsPrincipal();
+    int MyUserId;
+
+    [Parameter] public int PrId { get; set; }
+
+    string PrStatus;
+    string PrStatusName;
+    vPRHeader prHeader;
+    List<PRItem> prItems;
+    PRItem prItem;
+    string thisPrODS; // ODS=Company, Department, Section คั่นด้วย "-"
+    bool isMySectionPr; // ODS ของ PR ใบนี้ตรงกับ ODS ของ WF_Autho ของเรา
+    string thisPrOD;
+    bool isMyDepartmentPr;
+    string thisPrO;
+    bool isMyCompanyPr;
+    bool isStaffChooser;
+    bool isBlocked = false;
+    bool isRequester = false;
+
+    public string UploadPath = "images";
+    public int MaxUploadFileSize = 10000000;
+    public List<SystemConfiguration> configs;
+
+    double prAmount = 0.00;
+    int thisBudgetRange = 0;
+    string thisBudgetRangeName = "";
+    string creatorName;
+
+    Approval_flow myApproval_flow;
+    int thisApprovalFlowId;
+    List<vApproval_flow> thisPrApproval_Flows;
+    List<ApprValues> apprFlow = new List<ApprValues>();
+    List<ReturningNote> returningNotes;
+
+   
+    IList<ApplicationUser> mailUsersOfRole;
+    IList<ApplicationUser> usersOfRole;
+
+    string SmNamePDF = "";
+    string DmNamePDF = "";
+    string L3NamePDF = "";
+    string L4NamePDF = "";
+    string L5NamePDF = "";
+    string L6NamePDF = "";
+    string L7NamePDF = "";
+
+    public SfGrid<PRItem> Grid;
+    bool isPM = false;
+    bool isDeleteFileDisable = true;
+
+    bool isReadOnly = true;
+    string CoSignGroupSelect = ""; // filled by CheckItemAccountCosign
+
+    public class CoSigners
+    {
+        public string CoSignGroup { get; set; }
+        public string CoSignName { get; set; }
+    }
+    private List<CoSigners> coSigners = new List<CoSigners>()
+{
+        new CoSigners(){CoSignGroup="--", CoSignName="-Don't need Co-Sign-"},
+        new CoSigners(){CoSignGroup="CSAD", CoSignName="Admin"},
+        new CoSigners(){CoSignGroup="CSIT", CoSignName="IT"},
+        new CoSigners(){CoSignGroup="CSQC", CoSignName="QC"},
+        new CoSigners(){CoSignGroup="CSSE", CoSignName="Safety"}
+    };
+    // Mode : E = Edit, V = View, P = Wait for Approve, C = รอ Close สำหรับ PS DM
+    // Mode : X = Close แล้ว, W= Wait for Cancel, H = Hold
+
+
+    string _Mode = "V";
+    [Parameter]
+    public string Mode
+    {
+        get
+        {
+            return _Mode;
+        }
+        set
+        {
+            _Mode = value;
+            switch (value)
+            {
+                case "E":
+                    isReadOnly = false;
+                    break;
+                default:
+                    isReadOnly = true;
+                    break;
+            }
+        }
+    }
+
+    bool isItemDlgVisible { get; set; } = false;
+    private void OnDialogBtnClick()
+    {
+        isItemDlgVisible = false;
+    }
+    private void OnOpenButtonClick()
+    {
+        isItemDlgVisible = true;
+    }
+    private void OnRnClick()
+    {
+        navigationManager.NavigateTo($"rnform/G/{PrId}/{prItem.Item_No}");
+    }
+
+    List<PRItem> Temp;
+    int RecordCount = 0;
+    public List<double> SelectedRowIndexes { get; set; }
+
+    public void CountRecord()
+    {
+        var temp = this.Grid.GetSelectedRecords();
+        RecordCount = temp.Result.Count;
+        temp.GetAwaiter().OnCompleted(() =>
+        {
+            this.Temp = temp.Result; // here you I get the selected row datas in form list of objects.
+            StateHasChanged();
+        });
+    }
+
+
+    public async Task SelectRecords(RowSelectEventArgs<PRItem> args)
+    {
+        SelectedRowIndexes = await this.Grid.GetSelectedRowIndexes();
+        var temp = this.Grid.GetSelectedRecords();
+        RecordCount = temp.Result.Count;
+        StateHasChanged();
+    }
+    public async Task DeSelectcords(RowDeselectEventArgs<PRItem> args)
+    {
+        SelectedRowIndexes = await this.Grid.GetSelectedRowIndexes();
+        var temp = this.Grid.GetSelectedRecords();
+        RecordCount = temp.Result.Count;
+        StateHasChanged();
+    }
+
+    int StaffId;
+    public async Task OnSaveStaff()
+    {
+        var SelectedItem = this.Grid.GetSelectedRecords();
+
+        if (SelectedItem==null || SelectedItem.Result == null || SelectedItem.Result.Count <= 0)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Please select Staff to assign.");
+            return;
+        }
+
+        isBlocked = true;
+        if (await JsRuntime.InvokeAsync<bool>("confirm", "Confirm Assign Staff ?"))
+        {
+
+        }
+        else
+        {
+            isBlocked = false;
+            return;
+        }
+
+        vPRHeader prh = await prMainService.GetvPrHeaderAsync(prHeader.Id);
+        EmailMessage emailMessage = new EmailMessage()
+        {
+            PrId = prh.Id.ToString(),
+            PrNo = prh.Pr_No,
+            RequesterInfo = prh.Requester,
+            WBS = "",
+            TotalCost = prh.sPrAmt,
+            RequirementDate = (prh.Pr_Date ?? DateTime.Now).ToString("dd/MM/yyyy"),
+            StatusName = prh.PrStatus,
+            Objective = prh.Objective,
+            Company = prh.Company,
+            Department = prh.Department,
+            Section = prh.Section,
+            //Memo = fMemo,
+            Comment = prh.Comment
+        };
+
+        foreach (var item in SelectedItem.Result)
+        {
+            if (!item.PR_Closed)
+            {
+                item.Purchasing_Staff_Id = StaffId;
+                var staff = usersOfRole.Where(x => x.PrUserId == StaffId.ToString()).FirstOrDefault();
+                item.Purchasing_Staff = staff!=null? staff.UserName:"";
+                item.Staff_assign_date = DateTime.Now;
+                await prMainService.UpdatePRItemAsync(item);
+
+                await SendNotiMail(staff.Email, "Staff_Assign", emailMessage);
+            }
+        }
+
+        isBlocked = false;
+        await Grid.ClearSelection();
+        Grid.Refresh();
+        // check ว่า ได้ assign ครบทุกรายการหรือยัง
+        bool isAllAssign = true;
+        foreach (var item in prItems)
+        {
+            if (item.Purchasing_Staff_Id == 0 && item.PR_Closed == false && !item.Delete_Status.StartsWith("DELE"))
+            {
+                isAllAssign = false;
+            }
+        }
+        if (isAllAssign)
+        {
+            thisPrApproval_Flows = await prDataService.GetvApprovalFlowPrHeadAsync(PrId);
+            foreach (var item in thisPrApproval_Flows)
+            {
+                if (item.Approver_role.StartsWith("PD"))
+                {
+                    thisApprovalFlowId = item.Id;
+                }
+            }
+            myApproval_flow = await prDataService.GetApprovalFlowFromIdAsync(thisApprovalFlowId);
+            // ทำการบันทึก Status การ Approve
+            myApproval_flow.Status = "A";
+            myApproval_flow.When_end = DateTime.Now;
+            myApproval_flow.Approver_id = MyUserId;
+            await prDataService.UpdateApprovalFlowAsync(myApproval_flow);
+        }
+    }
+
+    public class ApprValues
+    {
+        public string? Text { get; set; }
+        public string? Name { get; set; }
+        public DateTime? Date { get; set; }
+        public Boolean isChecked { get; set; }
+    }
+
+    private async Task GenApproveFlow()
+    {
+        // Load active Approval_Flow
+        // loop see if Is_Disable = false & UserId is me
+        thisPrApproval_Flows = await prDataService.GetvApprovalFlowPrHeadAsync(PrId);
+        //แสดง status ของ step ต่างๆ
+        foreach (var Item in thisPrApproval_Flows)
+        {
+            if (Item.Is_disabled == false)
+            {
+                thisApprovalFlowId = Item.Id;
+                if (Item.Approver_id == MyUserId && !Item.Approver_role.StartsWith("PD"))
+                {
+                    Mode = "P";
+                }
+            }
+            switch (Item.Approver_role)
+            {
+                case "CREATOR":
+                    creatorName = Item.Approver_Name;
+                    break;
+                case "PAAC":
+
+                    if (Item.Status == "A")
+                    {
+                        apprFlow.Add(new ApprValues { Text = "Accounting:", Name = Item.Approver_Name, Date = Item.When_end, isChecked = true });
+                    }
+                    else
+                    {
+                        apprFlow.Add(new ApprValues { Text = "Accounting:", Name = Item.Approver_Name, isChecked = false });
+                    }
+                    break;
+                case "CSSE":
+                case "CSIT":
+                case "CSAD":
+                case "CSQC":
+                    //apprFlow.Add(new ApprValues { Text = "CoSign", isChecked = (Item.Status == "A" ? true : false) });
+                    if (Item.Status == "A")
+                    {
+                        apprFlow.Add(new ApprValues { Text = "CoSign:", Name = Item.Approver_Name, Date = Item.When_end, isChecked = true });
+                    }
+                    else
+                    {
+                        apprFlow.Add(new ApprValues { Text = "CoSign:", Name = Item.Approver_Name, isChecked = false });
+                    }
+                    break;
+                case "PASM":
+                    SmName = Item.Approver_Name;
+                    if (Item.Status == "A")
+                    {
+                        //SmNamePDF = SmName;
+                        apprFlow.Add(new ApprValues { Text = "SM:", Name = Item.Approver_Name, Date = Item.When_end, isChecked = true });
+                    }
+                    else
+                    {
+                        apprFlow.Add(new ApprValues { Text = "SM:", Name = Item.Approver_Name, isChecked = false });
+                    }
+
+                    break;
+                case "PADM":
+                    DmName = Item.Approver_Name;
+                    if (Item.Status == "A")
+                    {
+                        DmNamePDF = DmName;
+                        // Approve Name Get Postion // Position = 3 >> L3Name
+                        apprFlow.Add(new ApprValues { Text = "DM:", Name = Item.Approver_Name, Date = Item.When_end, isChecked = true });
+                    }
+                    else
+                    {
+                        apprFlow.Add(new ApprValues { Text = "DM:", Name = Item.Approver_Name, isChecked = false });
+                    }
+                    break;
+                case "PAL2": // เปลี่ยนจาก L3 เป็น Approver ==> SrDepMgr/ Executiver
+                    L3Name = Item.Approver_Name;
+                    if (Item.Status == "A")
+                    {
+                        L3NamePDF = L3Name;
+                        apprFlow.Add(new ApprValues { Text = "Appr:", Name = Item.Approver_Name, Date = Item.When_end, isChecked = true });
+                    }
+                    else
+                    {
+                        apprFlow.Add(new ApprValues { Text = "Appr:", Name = Item.Approver_Name, isChecked = false });
+                    }
+                    break;
+                case "PAL3": // เปลี่ยนจาก L4 เป็น Approver ==> Advisor/VM
+                    L4Name = Item.Approver_Name;
+                    if (Item.Status == "A")
+                    {
+                        L4NamePDF = L4Name;
+                        apprFlow.Add(new ApprValues { Text = "Appr:", Name = Item.Approver_Name, Date = Item.When_end, isChecked = true });
+                    }
+                    else
+                    {
+                        apprFlow.Add(new ApprValues { Text = "Appr:", Name = Item.Approver_Name, isChecked = false });
+                    }
+                    break;
+                case "PAL4": // เปลี่ยนจาก L5 เป็น Approver ==> Plant Manager
+                    L5Name = Item.Approver_Name;
+                    if (Item.Status == "A")
+                    {
+                        L5NamePDF = L5Name;
+                        apprFlow.Add(new ApprValues { Text = "Appr:", Name = Item.Approver_Name, Date = Item.When_end, isChecked = true });
+                    }
+                    else
+                    {
+                        apprFlow.Add(new ApprValues { Text = "Appr:", Name = Item.Approver_Name, isChecked = false });
+                    }
+                    break;
+                case "PAL5": // เปลี่ยนจาก L6 เป็น Approver ==> Vice President
+                    L6Name = Item.Approver_Name;
+                    if (Item.Status == "A")
+                    {
+                        L6NamePDF = L6Name;
+                        apprFlow.Add(new ApprValues { Text = "Appr:", Name = Item.Approver_Name, Date = Item.When_end, isChecked = true });
+                    }
+                    else
+                    {
+                        apprFlow.Add(new ApprValues { Text = "Appr:", Name = Item.Approver_Name, isChecked = false });
+                    }
+                    break;
+                case "PAL6": // เปลี่ยนจาก L7 เป็น Approver ==> President
+                    L7Name = Item.Approver_Name;
+                    if (Item.Status == "A")
+                    {
+                        L7NamePDF = L7Name;
+                        apprFlow.Add(new ApprValues { Text = "Appr:", Name = Item.Approver_Name, Date = Item.When_end, isChecked = true });
+                    }
+                    else
+                    {
+                        apprFlow.Add(new ApprValues { Text = "Appr:", Name = Item.Approver_Name, isChecked = false });
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    }
+
+    private async Task GetRnList()
+    {
+        returningNotes = await prDataService.GetRnListFromPrIdAsync(PrId);
+        foreach (var rrn in returningNotes)
+        {
+            var RnStatusName = await prDataService.GetStatusNameAsync(rrn.Rn_Status);
+            rrn.Rn_Status = RnStatusName;
+        }
+    }
+
+    private async Task loadConfiguration()
+    {
+        configs = await prDataService.GetSystemConfigurationsAsync();
+        UploadPath = configs.Where(y => y.ConfigName == "FUPATH")
+            .Select(x => x.ConfigValue)
+            .FirstOrDefault();
+        int FuSize = Int32.Parse(configs.Where(y => y.ConfigName == "FUSIZE")
+            .Select(x => x.ConfigValue)
+            .FirstOrDefault());
+        MaxUploadFileSize = FuSize;
+    }
+
+    private async Task SetMyDeptSecPR()
+    {
+        thisPrODS = prHeader.Company + "-" + prHeader.Department + "-" + prHeader.Section;
+        thisPrOD = prHeader.Company + "-" + prHeader.Department;
+        thisPrO = prHeader.Company;
+        isMySectionPr = false;
+        isMyDepartmentPr = false;
+        isMyCompanyPr = false;
+        var myWorkflowAuthos = await prDataService.GetWorkflowAuthosAsync(MyUserId);
+        foreach (var item in myWorkflowAuthos) // อาจมี หลาย workflow
+        {
+            if (thisPrODS == item.Org + "-" + item.Dep + "-" + item.Sec)
+            {
+                isMySectionPr = true;
+            }
+            if (thisPrOD == item.Org + "-" + item.Dep)
+            {
+                isMyDepartmentPr = true;
+            }
+            if (thisPrO == item.Org)
+            {
+                isMyCompanyPr = true;
+            }
+        }
+    }
+
+    //====================================================
+    protected override async Task OnInitializedAsync()
+    {
+        authState = await _authState;
+        MyClaims = (await _authState).User;
+
+        if (MyClaims.Identity.IsAuthenticated)
+        {
+            // พบปัญหา เมื่อ publish ขึ้น server จริง แม้ยังไม่ได้ login แต่ identity IsAuthenticated เป็น true โดยที่ยังไม่มี claims
+            // ทำให้เกิด error
+            var thisUser = _UserManager.Users.FirstOrDefault(x => x.UserName == MyClaims.Identity.Name);
+            if (thisUser == null)
+            {
+                navigationManager.NavigateTo("Identity/Account/Login?returnUrl=~/" +
+                    navigationManager.ToBaseRelativePath(navigationManager.Uri));
+            }
+            else
+            {
+                //Layout.SidebarToggle = false;
+                MyUserId = Int16.Parse(MyClaims.Claims.FirstOrDefault(c => c.Type == "PrUserId").Value);
+                var myUserName = MyClaims.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name).Value;
+
+                // Load Pr
+                prHeader = await prMainService.GetvPrHeaderAsync(PrId);
+                await SetMyDeptSecPR();
+                isCGConcerning = prHeader.Need_CG_Concerning;
+                isSCAConcerning = prHeader.Need_SCA_Concerning;
+                isISONeed = prHeader.Need_ISO;
+                ObjectiveEdit = prHeader.Objective;
+                CoSignGroupSelect = prHeader.CoSign_Group;
+
+                prItems = await prMainService.GetPrItemsAsync(PrId);
+                PrStatus = (prHeader.Status == null) ? "NEW" : prHeader.Status;
+                PrStatusName = prHeader.PrStatus;
+                prAmount = prHeader.PrAmt;
+                await FindBudgetRange();
+                await loadConfiguration();
+                Mode = "I"; // set เป็น default ไว้ก่อน
+
+                // state of button
+                isStaffChooser = false;
+
+                if (MyClaims.IsInRole("PSManager")) //PSManager
+                {
+                    var myWorkflowAutho = await prDataService.GetWorkflowAuthosAsync(MyUserId);
+                    foreach (var item in myWorkflowAutho)
+                    {
+                        if (item.Dep == "PH")
+                        {
+                            isPM = true;
+                            usersOfRole = await _UserManager.GetUsersInRoleAsync("PH");
+                            if (PrStatus == "PDHO" || PrStatus == "RN")
+                            {
+                                isStaffChooser = true;
+                            }
+                        }
+                        if (item.Dep == "PF")
+                        {
+                            isPM = true;
+                            usersOfRole = await _UserManager.GetUsersInRoleAsync("PF");
+                            if (PrStatus == "PDRY" || PrStatus == "RN")
+                            {
+                                isStaffChooser = true;
+                            }
+                        }
+                    }
+                }
+                if (isPM)
+                {
+                    switch (PrStatus)
+                    {
+                        case "PDRY":
+                        case "PDHO":
+                            Mode = "C";
+                            break;
+                        case "CLOS":
+                            Mode = "X";
+                            isPM = false;
+                            break;
+                        default:
+                            Mode = "I";
+                            break;
+                    }
+                }
+                if (MyClaims.IsInRole("Accountings") && isMyCompanyPr == true && (PrStatus == "PAAC"))
+                {
+                    Mode = "P";
+                }
+                if (MyClaims.IsInRole("SMs") && isMySectionPr == true && (PrStatus == "PASM"))
+                {
+                    Mode = "P";
+                }
+                if (MyClaims.IsInRole("DMs") && isMyDepartmentPr == true && (PrStatus == "PADM"))
+                {
+                    Mode = "P";
+                }
+                if (MyClaims.IsInRole("QCCoSigner") && isMyCompanyPr == true && (PrStatus == "CSQC"))
+                {
+                    Mode = "P";
+                }
+                if (MyClaims.IsInRole("ITCoSigner") && isMyCompanyPr == true && (PrStatus == "CSIT"))
+                {
+                    Mode = "P";
+                }
+                if (MyClaims.IsInRole("SECoSigner") && isMyCompanyPr == true && (PrStatus == "CSSE"))
+                {
+                    Mode = "P";
+                }
+                if (MyClaims.IsInRole("ADCoSigner") && isMyCompanyPr == true && (PrStatus == "CSAD"))
+                {
+                    Mode = "P";
+                }
+                if (MyClaims.IsInRole("PF") && (PrStatus == "PDRY"))
+                {
+                    Mode = "R";
+                }
+                if (MyClaims.IsInRole("PH") && (PrStatus == "PDHO"))
+                {
+                    Mode = "R";
+                    //isPurch = true;
+                }
+                if (MyClaims.IsInRole("Requester") && isMySectionPr == true)
+                { // Yes, I am Requester
+                    isRequester = true;
+                    switch (PrStatus)
+                    {
+                        case "NEW":
+                        case "REJ":
+                            Mode = "V";
+                            await CheckItemAccountCosign(); // do we need Accounting and CoSign approval ?
+                            await FindBudgetRange();
+                            await FindApprovers();
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+                await GenApproveFlow(); // <-- Mode P อยู่ที่นี่
+                await GetRnList();
+                await GetUploadFileList();
+                if (MyClaims.IsInRole("Requester"))
+                {
+                    isDeleteFileDisable = false;
+                }
+            }
+        }
+    }
+
+    //Check Item Account and Cosign
+    bool Need_accounting = false;
+    private async Task CheckItemAccountCosign()
+    {
+        // ยกเลิกการ Check Accounting
+        Need_accounting = true; //ปกติ ไม่ต้องผ่าน Accounting
+                                // Accounting config
+        SystemConfiguration getConfig = await prDataService.GetSystemConfigurationAsync("AC");
+        // ยกเว้นกลุ่ม 1000,2000,7000 ไม่ต้องผ่าน
+        // เพิ่ม "*" คือ ไม่ต้องผ่านทั้งหมด
+        string[] Ags = { "1000", "2000", "7000" };
+        if (getConfig != null)
+        {
+            // Acs = 1000,2000
+            Ags = getConfig.ConfigValue.Split(",");
+        }
+
+        //CoSignGroupSelect = CoSignGroupSelect; //ปกติ ให้ user เลือก Co-sign เอง
+        // Co-Sign config
+        getConfig = await prDataService.GetSystemConfigurationAsync("CO");
+        string[] Cgs = { "1000", "2000" };
+        if (getConfig != null)
+        {
+            // Cgs = 1000,2000
+            Cgs = getConfig.ConfigValue.Split(",");
+        }
+
+        //List<MatRegList> matList = await prDataService.GetMatRegListsAsync();
+
+        // loop ทีละ item
+        foreach (PRItem prItem in prItems)
+        {
+            foreach (var a in Ags) // 1000, หรือ 2000
+            {
+                if (a == "*") // by pass all
+                {
+                    Need_accounting = false;
+                    break;
+                }
+                if (prItem.Material_Group == a) // เจอ 1000 หรือ 2000
+                {
+                    Need_accounting = false; // เฉพาะ case ที่มีอยู่ใน config คือ ต้องผ่าน Account
+                    break;
+                }
+            }
+            foreach (var c in Cgs)
+            {
+                if (prItem.Material_Group == c) // เจอ 1000 หรือ 2000
+                {
+                    //var ml = matList.Where(x => x.Mat_Code == c && x.Mat_Group == prItem.Item_Code.TrimStart('0')).ToList();
+                    bool ml = await prDataService.IsItemCodeInMatListAsync(prItem.Item_Code);
+                    if (ml == false) // ไม่มีอยู่ใน Mat list
+                    {
+                        // ถ้าเป็น 1000,2000 ให้ loop หาใน Mat List
+                        // ถ้า "ไม่เจอ" ใน Mat list ให้ Assign ให้กับ QC
+                        CoSignGroupSelect = "CSQC";
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    // 210628 ปรับใหม่
+
+    //private async Task CheckItemAccountCosign()
+    //{
+    //    // ยกเลิกการ Check Accounting
+    //    foreach (PRItem prItem in prItems)
+    //    {
+    //        List<SystemConfiguration> Css = await prDataService.GetSystemConfigurationsAsync("CS");
+
+    //        // CSIT, CSQC, CSST
+    //        string Cs = "";
+    //        // Css = CSIT: 1000,2000 // CSQC: 3000 // CSST: 4000,5000
+    //        string[] Cgs;
+    //        foreach (var item in Css)
+    //        {
+    //            Cgs = item.ConfigValue.Split(",");
+    //            foreach (var g in Cgs)
+    //            {
+    //                if (prItem.Material_Group == g)
+    //                {
+    //                    Cs = item.ConfigName.Substring(2, 2); // <--- Co-signer Type QC,IT,ST
+    //                    break;
+    //                }
+    //            }
+    //        }
+    //        if (Cs == "") // not match
+    //        {
+    //            // ใช้ QC - DM ของ Company เป็น Co-sign
+    //            Cs = "QC";
+    //        }
+
+    //        // ไปที่ Role Co-Sign
+    //        var coSigners = await _UserManager.GetUsersInRoleAsync("CoSigner");
+    //        List<WorkflowAutho> wfAuthors;
+    //        foreach (var item in coSigners)
+    //        {
+    //            wfAuthors = await prDataService.GetWorkflowAuthosAsync(Int16.Parse(item.PrUserId));
+    //            foreach (var item1 in wfAuthors)
+    //            {
+    //                if (item1.Dep == Cs)
+    //                {
+    //                    CoSignerId = Int16.Parse(item.PrUserId);
+    //                }
+    //            }
+    //        }
+
+
+    //        // หา Company เดียวกัน และ Dept = IT, QC, AD
+
+    //        Need_Cosign = true;
+    //    }
+
+    //}
+
+    private async Task FindBudgetRange()
+    {
+        // find budget range
+        // input : prAmount // find from BudgetRanges
+        List<BudgetRange> budgetRanges = await prDataService.GetBudgetRangeAsync();
+        foreach (BudgetRange budgetRange in budgetRanges)
+        {
+            if (budgetRange.Range_Oper == "LE")
+            {
+                if (prAmount <= budgetRange.Range_Amount)
+                {
+                    thisBudgetRange = budgetRange.Range_No;
+                    thisBudgetRangeName = budgetRange.Range_Name;
+                    break;
+                }
+            }
+            else
+            {
+                if (prAmount > budgetRange.Range_Amount)
+                {
+                    thisBudgetRange = budgetRange.Range_No;
+                    thisBudgetRangeName = budgetRange.Range_Name;
+                    break;
+                }
+            }
+        }
+    }
+
+    // Set approver
+    // SM, DM ได้จาก ODS อยู่แล้ว
+    // L3,4,5 ขึ้นกับ BudgetRange
+    // 211027 เพิ่ม TA, L6
+    int SmId = 0;
+    int DmId = 0;
+    int L3Id = 0;
+    int L4Id = 0;
+    int L5Id = 0;
+    int L6Id = 0;
+    int L7Id = 0;
+    string SmName = "";
+    string DmName = "";
+    string L3Name = "";
+    string L4Name = "";
+    string L5Name = "";
+    string L6Name = "";
+    string L7Name = "";
+    int L3Position = 0;
+    int L4Position = 0;
+    int L5Position = 0;
+    int L6Position = 0;
+    int L7Position = 0;
+
+
+    private async Task FindApprovers()
+    {
+        List<vWorkflowAutho> workflowAuthos;
+        workflowAuthos = await prDataService.GetvWorkflowAuthoAsync(prHeader, "BudgetRange" + thisBudgetRange);
+        // check Accounting
+
+        //int level = 3; // level หลังจาก DM
+        foreach (vWorkflowAutho workflowAutho in workflowAuthos)
+        {
+            if (workflowAutho.Wf_Order > 2)
+            {
+                //switch (level)
+                switch (workflowAutho.Wf_Order) //  3.TA 4.GM 5.PM 6.VP 7.PRS
+                {
+                    case 3:
+                        L3Id = workflowAutho.User_Id;
+                        L3Name = workflowAutho.UserName;
+                        L3Position = workflowAutho.Wf_Order;
+                        break;
+                    case 4:
+                        L4Id = workflowAutho.User_Id;
+                        L4Name = workflowAutho.UserName;
+                        L4Position = workflowAutho.Wf_Order;
+                        break;
+                    case 5:
+                        L5Id = workflowAutho.User_Id;
+                        L5Name = workflowAutho.UserName;
+                        L5Position = workflowAutho.Wf_Order;
+                        break;
+                    case 6:
+                        L6Id = workflowAutho.User_Id;
+                        L6Name = workflowAutho.UserName;
+                        L6Position = workflowAutho.Wf_Order;
+                        break;
+                    case 7:
+                        L7Id = workflowAutho.User_Id;
+                        L7Name = workflowAutho.UserName;
+                        L7Position = workflowAutho.Wf_Order;
+                        break;
+                    default:
+                        break;
+                }
+                //level += 1;
+            }
+        }
+    }
+
+    private async Task SetFinalized()
+    {
+        // Approval Flow structure
+        // GenerateApprovalFlowHead ( vPRHeader, ApproverRole, UserId, UserGrpId, Status, WFOrder, isDisable
+        // ApproverRole:
+        //     "AC" = Accounting
+        //     "CSQC", "CSAD", "CSIT", "CSSE" = cosign แต่ละ แผนก
+        // UserGrdId (ไม่ได้ใช้)
+        // Status = "N" คือ ยังไม่ Approve, "A" คือ Approve แล้ว
+        // WfOrder = workflow order 1...7
+
+
+        string FirstPrStatus = ""; // ถ้าไม่มี Account,Cosign จะไปที่ SM
+                                   // set L3,L4,L5 ไว้ก่อน แต่ยัง disable
+                                   // 1- Acc, 2- CoSign, 3- SM, 4- DM, 5- L3, 6- L4, 7- L5
+
+        // NEW 211027 1- Acc, 2- CoSign, 3- SM, 4- DM, 5- TA, 6- L3, 7- L4, 8- L5, 9- L6
+
+        // First approver อาจเป็น PAAC, (CSAD,CSSE,CSIT,CSQC) หรือ PASM
+        bool IsFirstApprover = false; // false คือ First Approver
+        int thisWfOrder = 1;
+        if (CoSignGroupSelect + "" == "")
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Please select Co-Sign.");
+        }
+        else
+        {
+            isBlocked = true;
+
+            if (await JsRuntime.InvokeAsync<bool>("confirm", $"Confirm to Submit This PR [{prHeader.Pr_No}] ?"))
+            {
+
+            }
+            else
+            {
+
+                isBlocked = false;
+                return;
+            }
+
+
+            // 210927 เพิ่ม approval flow order 0 คือ ผู้ submit PR ใบนี้
+            await prDataService.GenerateApprovalFlow(PrId, 0, "CREATOR", MyUserId, 0, "A", 0, true);
+
+            if (Need_accounting)
+            {
+                await prDataService.GenerateApprovalFlow(PrId, 0, "PAAC", 0, 0, "N", thisWfOrder, false);
+                FirstPrStatus = "PAAC";
+                IsFirstApprover = true; // *** คือ ไม่ใช่ Approver
+                thisWfOrder += 1;
+            }
+            if (CoSignGroupSelect != "--" && CoSignGroupSelect != "") // คือ ไม่ต้องมี co-Sign
+            {
+                await prDataService.GenerateApprovalFlow(PrId, 0, CoSignGroupSelect, 0, 0, "N", thisWfOrder, IsFirstApprover);
+                if (FirstPrStatus == "")
+                {
+                    FirstPrStatus = CoSignGroupSelect; // CSAD,CSSE,CSIT,CSQC // "PACS";
+                }
+                IsFirstApprover = true; // ไม่ใช้ Approver
+                thisWfOrder += 1;
+            }
+            if (FirstPrStatus == "")
+            {
+                FirstPrStatus = "PASM";
+            }
+            await prDataService.GenerateApprovalFlow(PrId, 0, "PASM", SmId, 0, "N", thisWfOrder, IsFirstApprover);
+            await prDataService.GenerateApprovalFlow(PrId, 0, "PADM", DmId, 0, "N", thisWfOrder + 1, true);
+            thisWfOrder = thisWfOrder + 2;
+            if (L3Id != 0)
+            {
+                await prDataService.GenerateApprovalFlow(PrId, L3Position, "PAL2", L3Id, 0, "N", thisWfOrder, true);
+                thisWfOrder += 1;
+            }
+            if (L4Id != 0)
+            {
+                await prDataService.GenerateApprovalFlow(PrId, L4Position, "PAL3", L4Id, 0, "N", thisWfOrder, true);
+                thisWfOrder += 1;
+            }
+            if (L5Id != 0)
+            {
+                await prDataService.GenerateApprovalFlow(PrId, L5Position, "PAL4", L5Id, 0, "N", thisWfOrder, true);
+                thisWfOrder += 1;
+            }
+            if (L6Id != 0)
+            {
+                await prDataService.GenerateApprovalFlow(PrId, L6Position, "PAL5", L6Id, 0, "N", thisWfOrder, true);
+                thisWfOrder += 1;
+            }
+            if (L7Id != 0)
+            {
+                await prDataService.GenerateApprovalFlow(PrId, L7Position, "PAL6", L7Id, 0, "N", thisWfOrder, true);
+                thisWfOrder += 1;
+            }
+
+            //if (Need_Cosign)
+            //{
+            //    if (Need_accounting)
+            //    {
+            //        await prDataService.GenerateApprovalFlow(PrId, 0, "C", DmId, 0, "N", 2, true);
+            //    }
+            //    else
+            //    {
+            //        await prDataService.GenerateApprovalFlow(PrId, 0, "C", 0, 0, "N", 2, false);
+            //        nextPrStatus = "PACS";
+            //    }
+            //}
+
+            // ต่อไป หา PD (Purchas Department Manager) ว่าเป็นที่ HO หรือ RY
+
+            var PurGroup = prHeader.Purchasing_Group;
+            // load PD config
+            List<SystemConfiguration> Pds = await prDataService.GetSystemConfigurationsAsync("PD");
+
+            // ผลลัพธ์ว่าจะไปที่ PD HO หรือ RY
+            string Pd = "";
+            // Pds = PDHO: CM,MP // PDRY: CH
+            string[] Pgs;
+            foreach (var item in Pds)
+            {
+                Pgs = item.ConfigValue.Split(",");
+                foreach (var g in Pgs)
+                {
+                    if (PurGroup.StartsWith(g))
+                    {
+                        Pd = item.ConfigName;
+                    }
+                }
+            }
+            await prDataService.GenerateApprovalFlow(PrId, 0, Pd, 0, 0, "N", thisWfOrder, true);
+            if (Pd == "") // ไม่มี Purchasing Group
+            {
+                await JsRuntime.InvokeAsync<object>("Alert", "Invalid Purchasing Group");
+            }
+
+            /*** Update PR Header Before Send Email *** Kroekpong.S */
+            await prMainService.SetPrStatus(prHeader, FirstPrStatus);
+
+            //*** ย้ายออกนอก loop เปลี่ยนจาก peritem เป็น perdoc
+            await CheckSendNoti();
+
+            await InvokeAsync(StateHasChanged);
+
+            navigationManager.NavigateTo(navigationManager.Uri, forceLoad: true);
+        }
+    }
+
+    private async Task SendNotiMail(string toEmail)
+    {
+        vPRHeader prh = await prMainService.GetvPrHeaderAsync(prHeader.Id);
+        var fMemo = ""; var fRnType = "";
+        EmailMessage emailMessage = new EmailMessage()
+        {
+            PrId = prh.Id.ToString(),
+            PrNo = prh.Pr_No,
+            RequesterInfo = prh.Requester,
+            //RequesterInfo = $"{prh.Requester}, COMPANY: {prh.Company}, DEPARTMENT: {prh.Department}, SECTION:{ prh.Section}",
+            WBS = "",
+            TotalCost = prh.sPrAmt,
+            RequirementDate = (prh.Pr_Date?? DateTime.Now).ToString("dd/MM/yyyy"),
+            StatusName = prh.PrStatus,
+            Objective = prh.Objective,
+            Company = prh.Company,
+            Department = prh.Department,
+            Section = prh.Section,
+            Memo = fMemo,
+            Comment = prh.Comment,
+            RN_TYPE = fRnType
+        };
+
+        await SendNotiMail(toEmail, "Approver", emailMessage);
+    }
+
+    private async Task SendRejectMail(string mtype, string fMemo)
+    {
+        vPRHeader prh = await prMainService.GetvPrHeaderAsync(prHeader.Id);
+        EmailMessage emailMessage = new EmailMessage()
+        {
+            PrId = prh.Id.ToString(),
+            PrNo = prh.Pr_No,
+            RequesterInfo = prh.Requester,
+            WBS = "",
+            TotalCost = prh.sPrAmt,
+            RequirementDate = (prh.Pr_Date ?? DateTime.Now).ToString("dd/MM/yyyy"),
+            StatusName = prh.PrStatus,
+            Objective = prh.Objective,
+            Company = prh.Company,
+            Department = prh.Department,
+            Section = prh.Section,
+            Memo = fMemo,
+            Comment = prh.Comment
+        };
+
+        var usr = _UserManager.Users.FirstOrDefault(x => x.UserName.ToUpper() == prh.Requester.ToUpper());
+        if (usr != null)
+        {
+            await SendNotiMail(usr.Email, mtype, emailMessage);
+        }
+
+    }
+
+
+    private async Task SendNotiMail(string toEmail, string type, EmailMessage emailMessage)
+    {
+
+        try
+        {
+            string subj = $"PR status of PR No. : {emailMessage.PrNo}";
+            if (type == "Reject")
+            {
+                subj = $"Workflow PR on Web has [Reject] for Tracking SAP PR No. : {emailMessage.PrNo}";
+            }else if (type == "Staff_Assign")
+            {
+                subj = $"Workflow PR on Web has [Assign] for Tracking SAP PR No. : {emailMessage.PrNo}";
+            }else if (type == "Re-Assign")
+            {
+                subj = $"Workflow PR on Web has [Re-Assign] for Tracking SAP PR No. : {emailMessage.PrNo}";
+            }
+
+            MailKitService.SendNotiMail(toEmail, subj, emailMessage, type);
+
+        }
+        catch (Exception ex)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Cannot send Notification Email.");
+            navigationManager.NavigateTo(navigationManager.Uri, forceLoad: true);
+        }
+    }
+
+    private async Task LoopSendAll(string groupRole)
+    {
+        // get all user in Role
+        mailUsersOfRole = await _UserManager.GetUsersInRoleAsync(groupRole);
+        foreach (var item in mailUsersOfRole)
+        {
+            await SendNotiMail(item.Email);
+        }
+    }
+
+    private async Task CheckSendNoti()
+    {
+        // load approval flow ของ Pr ปัจจุบัน
+        var thisAFs = await prDataService.GetvApprovalFlowPrHeadAsync(PrId);
+        List<ListOfString> ListODS;
+        foreach (var item in thisAFs)
+        {
+            // ไปยัง Is disable = false
+            if (item.Is_disabled == false)
+            {
+                // ถ้าเป็น role loop ส่งทุกราย
+                // ถ้าเป็น user ส่ง
+                switch (item.Approver_role)
+                {
+                    case "PAAC":
+                    case "CSAD":
+                    case "CSQC":
+                    case "CSIT":
+                    case "CSSE":
+                        //get Sm of MyODS
+                        switch (item.Approver_role)
+                        {
+                            case "PAAC":
+                                mailUsersOfRole = await _UserManager.GetUsersInRoleAsync("Accountings");
+                                break;
+                            case "CSAD":
+                                mailUsersOfRole = await _UserManager.GetUsersInRoleAsync("ADCoSigner");
+                                break;
+                            case "CSQC":
+                                mailUsersOfRole = await _UserManager.GetUsersInRoleAsync("QCCoSigner");
+                                break;
+                            case "CSIT":
+                                mailUsersOfRole = await _UserManager.GetUsersInRoleAsync("ITCoSigner");
+                                break;
+                            case "CSSE":
+                                mailUsersOfRole = await _UserManager.GetUsersInRoleAsync("SECoSigner");
+                                break;
+                            default:
+                                break;
+                        }
+                        foreach (var usr0 in mailUsersOfRole)
+                        {
+                            ListODS = await prDataService.GetOListFromUserIdAsync(Int16.Parse(usr0.PrUserId));
+                            foreach (var ods in ListODS)
+                            {
+                                if (ods.StringValue == thisPrO)
+                                {
+                                    await SendNotiMail(usr0.Email);
+                                }
+                            }
+                        }
+                        break;
+                    case "PASM":
+                        //get Sm of MyODS
+                        mailUsersOfRole = await _UserManager.GetUsersInRoleAsync("SMs");
+                        foreach (var usr0 in mailUsersOfRole)
+                        {
+                            ListODS = await prDataService.GetODSListFromUserIdAsync(Int16.Parse(usr0.PrUserId));
+                            foreach (var ods in ListODS)
+                            {
+                                if (ods.StringValue == thisPrODS)
+                                {
+                                    await SendNotiMail(usr0.Email);
+                                }
+                            }
+                        }
+                        break;
+                    case "PADM":
+                        //get Sm of MyODS
+                        mailUsersOfRole = await _UserManager.GetUsersInRoleAsync("DMs");
+                        foreach (var usr0 in mailUsersOfRole)
+                        {
+                            ListODS = await prDataService.GetODListFromUserIdAsync(Int16.Parse(usr0.PrUserId));
+                            foreach (var ods in ListODS)
+                            {
+                                if (ods.StringValue == thisPrOD)
+                                {
+                                    await SendNotiMail(usr0.Email);
+                                }
+                            }
+                        }
+                        break;
+                    case "PAL2":
+                    case "PAL3":
+                    case "PAL4":
+                    case "PAL5":
+                    case "PAL6":
+                        var usr = _UserManager.Users.FirstOrDefault(x => x.PrUserId == item.Approver_id.ToString());
+                        if (usr != null)
+                        {
+                            await SendNotiMail(usr.Email);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+
+    }
+
+    PrItemDetail prItemDetail;
+    private async Task LoadSingleItem(PRItem prItem1)
+    {
+        isItemDlgVisible = true;
+        //prItem = await prDataService.GetSinglePrItemAsync(Id, prItem1.Item_No);
+        await prItemDetail.InitThisItem(prItem1, PrId);
+    }
+
+    private void Navigate(PRItem prItem1)
+    {
+        isBlocked = true;
+        navigationManager.NavigateTo($"pritem/{PrId}/{prItem1.Item_No}", true);
+    }
+
+    private void RNClick(int id)
+    {
+        isBlocked = true;
+        navigationManager.NavigateTo($"RnForm/V/{id}/0", true);
+    }
+
+    public void OnFileRemove(RemovingEventArgs args)
+    {
+        args.PostRawFile = false;
+    }
+
+    public async Task SetDelete()
+    {
+        if (await JsRuntime.InvokeAsync<bool>("confirm", "Please confirm deleting this PR."))
+        {
+            // เปลี่ยน Approval_Flow. af_version ให้ เป็น ver ถัดไป = disable อัตโนมัติ
+            await prDataService.UpdateDisableApprovalFlowAsync(PrId);
+            // set Status ของ Pr เป็น DELETE
+            PRHeader thisPrHeader = await prMainService.GetPrHeaderAsync(prHeader.Id);
+            thisPrHeader.Status = "DEL";
+            await prMainService.UpdatePrHeaderAsync(thisPrHeader);
+            navigationManager.NavigateTo(navigationManager.Uri, true);
+        }
+    }
+
+    public async Task SetPurchaseComplete(bool PrClose)
+    {
+        PRHeader thisPrHeader = await prMainService.GetPrHeaderAsync(prHeader.Id);
+
+        var PurGroup = thisPrHeader.Purchasing_Group;
+        // ผลลัพธ์ว่าจะไปที่ PD HO หรือ RY
+        string Pd = "PCOMP";
+        if (!PrClose) {
+            // load PD config
+            List<SystemConfiguration> Pds = await prDataService.GetSystemConfigurationsAsync("PD");
+
+            // Pds = PDHO: CM,MP // PDRY: CH
+            string[] Pgs;
+            foreach (var item in Pds)
+            {
+                Pgs = item.ConfigValue.Split(",");
+                foreach (var g in Pgs)
+                {
+                    if (PurGroup.StartsWith(g))
+                    {
+                        Pd = item.ConfigName;
+                    }
+                }
+            }
+        }
+
+        thisPrHeader.Status = Pd;
+        await prMainService.UpdatePrHeaderAsync(thisPrHeader);
+        navigationManager.NavigateTo(navigationManager.Uri, true);
+    }
+
+    public async Task SetUnHold()
+    {
+        PRHeader thisPrHeader = await prMainService.GetPrHeaderAsync(prHeader.Id);
+        thisPrHeader.Status = "CLOS";
+        await prMainService.UpdatePrHeaderAsync(thisPrHeader);
+        navigationManager.NavigateTo(navigationManager.Uri, true);
+    }
+
+
+    bool isRejectVisible = false;
+    string RejectReason = "";
+    private void SetReject()
+    {
+        // Reject Note
+        isRejectVisible = true;
+    }
+    private void CancelReject()
+    {
+        // Reject Note
+        isRejectVisible = false;
+    }
+
+    private async Task ReAssingStaff()
+    {
+        isBlocked = true;
+        if (await JsRuntime.InvokeAsync<bool>("confirm", "Confirm Re-Assign This PR ?"))
+        {
+
+            //PRHeader thisPrHeader = await prMainService.GetPrHeaderAsync(prHeader.Id);
+            //thisPrHeader.Status = "CLOS";
+            await prMainService.ReAssingStaff(prHeader.Id);
+
+            vPRHeader prh = await prMainService.GetvPrHeaderAsync(prHeader.Id);
+            EmailMessage emailMessage = new EmailMessage()
+            {
+                PrId = prh.Id.ToString(),
+                PrNo = prh.Pr_No,
+                RequesterInfo = prh.Requester,
+                WBS = "",
+                TotalCost = prh.sPrAmt,
+                RequirementDate = (prh.Pr_Date ?? DateTime.Now).ToString("dd/MM/yyyy"),
+                StatusName = prh.PrStatus,
+                Objective = prh.Objective,
+                Company = prh.Company,
+                Department = prh.Department,
+                Section = prh.Section,
+                //Memo = fMemo,
+                Comment = prh.Comment
+            };
+
+
+            var mailUsersOfRole = await _UserManager.GetUsersInRoleAsync("PSManager");
+            foreach (var usr0 in mailUsersOfRole)
+            {
+                await SendNotiMail(usr0.Email , "Re-Assign", emailMessage);
+            }
+
+            navigationManager.NavigateTo(navigationManager.Uri, true);
+
+        }
+        else
+        {
+
+            isBlocked = false;
+            return;
+        }
+        //await Task.Delay(900);
+
+    }
+
+    public string generateID()
+    {
+        return Guid.NewGuid().ToString("N");
+    }
+
+    private async Task ConfirmReject()
+    {
+        isBlocked = true;
+        if (await JsRuntime.InvokeAsync<bool>("confirm", "Confirm Reject This PR ?"))
+        {
+
+        }
+        else
+        {
+            isBlocked = false;
+            return;
+        }
+
+        isRejectVisible = false;
+        // save as memo
+        RejectReason = "Reject:" + RejectReason;
+        vPrMemo prMemo = new vPrMemo
+        {
+            MemoWhoID = MyUserId,
+            MemoMsg = RejectReason,
+            MemoWhen = DateTime.Now,
+            PrID = PrId,
+            Id = generateID()
+            //Id = new Random().Next(300, 900).ToString()
+        };
+        await prDataService.InsertvPrMemoAsync(prMemo);
+
+        // เปลี่ยน Approval_Flow. af_version ให้ เป็น ver ถัดไป = disable อัตโนมัติ
+        await prDataService.UpdateDisableApprovalFlowAsync(PrId);
+        // set Status ของ Pr เป็น REJECT
+        PRHeader thisPrHeader = await prMainService.GetPrHeaderAsync(prHeader.Id);
+        thisPrHeader.Status = "REJ";
+        await prMainService.UpdatePrHeaderAsync(thisPrHeader);
+
+        // Send Reject Mail
+        await SendRejectMail("Reject", RejectReason);
+
+        navigationManager.NavigateTo(navigationManager.Uri, forceLoad: true);
+        await JsRuntime.InvokeVoidAsync("alert", "PR has been rejected! :" + RejectReason); // Alert
+    }
+
+    //******** Approve PR ***********
+    private async Task SetApproved()
+    {
+        isBlocked = true;
+        if (await JsRuntime.InvokeAsync<bool>("confirm", "Confirm Approved This PR ?"))
+        {
+
+        }
+        else
+        {
+            isBlocked = false;
+            return;
+        }
+
+
+        //string nextApproverRole;
+        string nextPRStatus = "";
+
+        myApproval_flow = await prDataService.GetApprovalFlowFromIdAsync(thisApprovalFlowId);
+        // ทำการบันทึก Status การ Approve
+        myApproval_flow.Status = "A";
+        myApproval_flow.When_end = DateTime.Now;
+        myApproval_flow.Approver_id = MyUserId;
+        await prDataService.UpdateApprovalFlowAsync(myApproval_flow);
+
+        // ทำการส่งต่อไปที่ approver ลำดับถัดไป
+        nextPRStatus = "END";
+        var nextApprovalFlowId = await prDataService.UpdateApprovalFlowEnableNext(myApproval_flow);
+        if (nextApprovalFlowId != 0)
+        {
+            var nextApprovalflow = await prDataService.GetApprovalFlowFromIdAsync(nextApprovalFlowId);
+            nextPRStatus = nextApprovalflow.Approver_role;
+            // mail to approver
+            //var nextApprover = _UserManager.Users.FirstOrDefault(x => x.PrUserId == nextApprovalflow.Approver_id.ToString());
+            //if (nextApprover != null)
+            //{
+            //    var toEmail = nextApprover.Email;
+            //    //PrNoti nextPrNoti = new PrNoti()
+            //    //{
+            //    //    PrSAPNo = prHeader.Pr_No,
+            //    //    PrId = prHeader.Id,
+            //    //    PrStatus = "",
+            //    //    ApproveStatus = "",
+            //    //    AsRole = ""
+            //    //};
+            //    //await EmailService.SendEmailAsync(toEmail, "Waiting for your approval.", nextPrNoti);
+            //    string fromEmail = "TPP-TRWF06@th.tpcc-tpac.com";
+            //    vPRHeader prh = await prMainService.GetvPrHeaderAsync(prHeader.Id);
+
+            //    EmailMessage emailMessage = new EmailMessage()
+            //    {
+            //        PrNo = prh.Pr_No,
+            //        RequesterInfo = prh.Requester + ", COMPANY: " + prh.Company + ",DEPARTMENT: " + prh.Department + ", SECTION:" + prh.Section,
+            //        WBS = "",
+            //        TotalCost = prh.sPrAmt,
+            //        RequirementDate = (prh.Release_Date ?? DateTime.Now).ToString("dd/MM/yyyy"),
+            //        StatusName = prh.PrStatus
+            //    };
+
+            //    //toEmail = "bunlue@gmail.com";
+
+            //    MailKitService.SendNoti(fromEmail, toEmail, "Workflow assigned for PR No." + prh.Pr_No, emailMessage);
+
+            //}
+        }
+
+        // Update PR Status
+        PRHeader thisPrHeader = await prMainService.GetPrHeaderAsync(prHeader.Id);
+        thisPrHeader.Status = nextPRStatus;
+        await prMainService.UpdatePrHeaderAsync(thisPrHeader);
+
+        // และ Mail to Next Approver
+        await CheckSendNoti();
+
+        //navigationManager.NavigateTo("/PrList");
+        navigationManager.NavigateTo(navigationManager.Uri, forceLoad: true);
+        await JsRuntime.InvokeVoidAsync("alert", "PR has been Approved! :"); // Alert
+    }
+
+
+    Boolean isCGConcerning = false;
+    Boolean isSCAConcerning = false;
+    Boolean isISONeed = false;
+    String ObjectiveEdit;
+
+    private void ModeEdit() // อาจเป็น NEW หรือ RNIN หรือ RNCN
+    {
+        Mode = "E";
+    }
+
+    private void ModeModify()
+    {
+        isBlocked = true;
+        navigationManager.NavigateTo($"predit/{PrId}");
+    }
+
+
+    private async Task SaveEdit()
+    {
+        PRHeader ActualPrHeader = await prMainService.GetPrHeaderAsync(PrId);
+        ActualPrHeader.Need_CG_Concerning = isCGConcerning;
+        ActualPrHeader.Need_SCA_Concerning = isSCAConcerning;
+        ActualPrHeader.Need_ISO = isISONeed;
+        ActualPrHeader.Objective = ObjectiveEdit;
+        ActualPrHeader.CoSign_Group = CoSignGroupSelect;
+        await prMainService.UpdatePrHeaderAsync(ActualPrHeader);
+        Mode = "V";
+    }
+
+    private void CancelEdit()
+    {
+        isCGConcerning = prHeader.Need_CG_Concerning;
+        isSCAConcerning = prHeader.Need_SCA_Concerning;
+        isISONeed = prHeader.Need_ISO;
+        ObjectiveEdit = prHeader.Objective;
+        switch (prHeader.Status)
+        {
+            case "RNIN":
+                Mode = "FI";
+                break;
+            case "RNCN":
+                Mode = "FC";
+                break;
+            default:
+                Mode = "V";
+                break;
+        }
+    }
+
+    private async Task CloseItemDlg()
+    {
+        // check if all item Close
+        bool PrClose  = true;
+        foreach (var item in prItems)
+        {
+            if (item.PR_Closed == false)
+            {
+                PrClose = false;
+            }
+        }
+
+        if (PrClose == true)
+        {
+            await SetPurchaseComplete(true);
+        }
+        else if (prHeader.Status == "PCOMP")
+        {
+            await SetPurchaseComplete(false);
+        }
+
+        Grid.Refresh();
+        isItemDlgVisible = false;
+    }
+
+    public async Task DeleteAttach(int attachId)
+    {
+        if (await JsRuntime.InvokeAsync<bool>("confirm", "Please confirm deleting this file."))
+        {
+            var fileName = await prDataService.DeleteUploadAttachAsync(attachId);
+            File.Delete(env.WebRootPath + UploadPath + fileName);
+            await GetUploadFileList();
+            StateHasChanged();
+        }
+    }
+
+    // Upload File
+    private bool IsVisibleChild { get; set; } = false;
+
+    private void OpenUploadDialog()
+    {
+        this.IsVisibleChild = true;
+    }
+    public async Task CloseUploadDialog()
+    {
+        //IsVisibleChild = false;
+        //await GetUploadFileList();
+        navigationManager.NavigateTo($"prform/{PrId}", true);
+        //StateHasChanged();
+    }
+
+    List<UploadFile> uploadFiles;
+    private async Task GetUploadFileList()
+    {
+        // 1= PrItem
+        uploadFiles = await prDataService.GetUploadFileListAsync(1, PrId);
+    }
+
+    // print
+
+    public async Task PrintPrForm(MouseEventArgs args)
+    {
+        string isTPAC1 = "";
+        string isTPAC2 = "";
+        string isTPAC3 = "";
+        string isTPCC1 = "";
+        string isTPCC2 = "";
+        string isMEPT = "";
+
+        isBlocked = true;
+        // prepare data
+        if (prHeader.Plant == "PA01")
+        {
+            isTPAC1 = "X";
+        }
+        else if (prHeader.Plant == "PA02")
+        {
+            isTPAC2 = "X";
+        }
+        else if (prHeader.Plant == "PA03")
+        {
+            isTPAC3 = "X";
+        }
+        else if (prHeader.Plant == "PC01")
+        {
+            isTPCC1 = "X";
+        }
+        else if (prHeader.Plant == "PC02")
+        {
+            isTPCC2 = "X";
+        }
+        if (prHeader.Plant == "MP01")
+        {
+            isMEPT = "X";
+        }
+
+        if (prHeader.Plant == "MP51")
+        {
+            isMEPT = "X";
+        }
+
+        string PrNo;
+        PrNo = prHeader.Pr_No + "  Tracking No. " + prHeader.Tracking_No;
+
+
+        string Purchaser = "";
+        //get Purchaser from PRItem
+        var DistinctPurchasers = prItems.GroupBy(x => x.Purchasing_Staff).Select(y => y.First());
+        foreach (var item in DistinctPurchasers)
+        {
+            Purchaser += (Purchaser.Length == 0 ? "" : ", ") + item.Purchasing_Staff;
+        }
+
+        float SubTotal = 0;
+        float TotalAmt = 0;
+
+        string dateRec;
+        if (prItems[0].Staff_assign_date.Year < 1900)
+        {
+            dateRec = "-";
+        }
+        else
+            dateRec = prItems[0].Staff_assign_date.ToString("d/M/yyyy");
+
+        var Params = new Dictionary<string, string>() {
+            {"PR_No", PrNo},
+            {"Objective",prHeader.Objective},
+            {"Budget",prHeader.sPrAmt},
+            {"Department", prHeader.Department},
+            {"Requester", prHeader.Requester },
+            {"Purchaser", Purchaser },
+            {"SMName",SmNamePDF },
+            {"DMName",DmNamePDF },
+            {"L3Name",L3NamePDF },
+            {"L4Name",L4NamePDF },
+            {"L5Name",L5NamePDF },
+            {"L6Name",L6NamePDF },
+            {"L7Name",L7NamePDF },
+            {"isTPAC1",isTPAC1 },
+            {"isTPAC2",isTPAC2 },
+            {"isTPAC3",isTPAC3 },
+            {"isTPCC1",isTPCC1 },
+            {"isTPCC2",isTPCC2 },
+            {"isMEPT",isMEPT },
+
+            {"isAD_CO","CSAD"==prHeader.CoSign_Group? "On":"Off"},
+            {"isIT_CO","CSIT"==prHeader.CoSign_Group? "On":"Off"},
+            {"isSE_CO","CSSE"==prHeader.CoSign_Group? "On":"Off"},
+            {"isNO_CO","--"==prHeader.CoSign_Group? "On":"Off"},
+            {"isQC_CO","CSQC"==prHeader.CoSign_Group? "On":"Off"},
+
+            {"isCG", prHeader.Need_CG_Concerning? "X":""},
+            {"isISO",prHeader.Need_ISO? "X":""},
+            {"isSCA",prHeader.Need_SCA_Concerning? "X":""},
+
+            {"IssuingDate",prItems[0].Requistion_date.ToString("d/M/yyyy") },
+            {"DateReceive",dateRec },
+
+            {"PR_No_MEPT",prHeader.Pr_No },
+            {"Tracking_No", prHeader.Tracking_No},
+            {"DesiredVendor", prItems[0].Desired_Vendor},
+            {"Comment",prHeader.Comment}
+      };
+
+        StateHasChanged();
+
+        for (int i = 0; i < prItems.Count; i++)
+        {
+            int priceUnit;
+            priceUnit = prItems[i].Price_Unit == 0 ? 1 : prItems[i].Price_Unit;
+            SubTotal = prItems[i].Price_PR * prItems[i].Quantity / priceUnit;
+            TotalAmt += SubTotal;
+
+            Params.Add("Item_" + i.ToString(), (i + 1).ToString());
+            Params.Add("Item_Description_" + i.ToString(), prItems[i].Item_Description);
+            if (Params["isMEPT"] == "X")
+            {
+                Params.Add("Quantity_" + i.ToString(), prItems[i].Quantity.ToString());
+            }
+            else
+            {
+                Params.Add("Quantity_" + i.ToString(), prItems[i].Quantity.ToString() + "  " + prItems[i].UOM);
+            }
+            Params.Add("Material_Group_" + i.ToString(), prItems[i].Item_Code.TrimStart(new Char[] { '0' }));
+            Params.Add("Cost_" + i.ToString(), SubTotal.ToString("N"));
+            Params.Add("WBS_" + i.ToString(), prItems[i].Cost_Center + prItems[i].WBS_Code);
+            var Delivery_date = prItems[i].Delivery_date;
+            Params.Add("DateNeed_" + i.ToString(), Delivery_date == null ? "" : Delivery_date.ToString("d/M/yyyy"));
+            Params.Add("UOM_" + i.ToString(), prItems[i].UOM);
+            Params.Add("UnitPrice_" + i.ToString(), prItems[i].Price_PR.ToString("N") + prItems[i].Currency + " / " + prItems[i].Price_Unit + prItems[i].UOM);
+            Params.Add("Currency_" + i.ToString(), prItems[i].Currency);
+        }
+        Params.Add("TotalAmt", TotalAmt.ToString("N"));
+
+        var pdf = new PrOnWeb.PDF.Report7(env);
+
+        pdf.OpenNewTab(JsRuntime, Params, prItems.Count, "Report.PDF");
+
+        isBlocked = false;
+    }
+
+    public async Task SetSnStatus(string RnStatus)
+    {
+        ReturningNote thisRn = await prDataService.GetReturningNoteFromPRAsync(PrId);
+        if (thisRn != null)
+        {
+            thisRn.Rn_Status = RnStatus;
+            await prDataService.UpdateRnAsync(thisRn);
+        }
+    }
+
+    public async Task IgnoreRN()
+    {
+        await prMainService.SetPrStatus(prHeader, "RNIG");
+        await SetSnStatus("REQ. IGNORE");
+    }
+    public async Task AcceptRN()
+    {
+        await prMainService.SetPrStatus(prHeader, "RNCF");
+        await SetSnStatus("REQ. CONFIRM");
+    }
+    public async Task EditInfo()
+    {
+        await prMainService.SetPrStatus(prHeader, "RNCF");
+        await SetSnStatus("REQ. CONFIRM");
+    }
+    public async Task DeletePR()
+    {
+        await prMainService.SetPrStatus(prHeader, "DEL");
+        await SetSnStatus("PR DELETED");
+    }
+
+    private void CreateRN()
+    {
+        navigationManager.NavigateTo($"RnForm/G/{PrId}/0");
+    } 
+}

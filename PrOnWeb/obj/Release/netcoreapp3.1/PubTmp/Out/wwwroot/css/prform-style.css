@@ -1,0 +1,104 @@
+﻿
+.control_wrapper {
+    width: 350px;
+    margin: 0 auto;
+}
+/*
+.e-tab .e-tab-header .e-toolbar-item {
+    background: transparent;
+    border-top: 2px solid #6A87C1;
+    text-align: center;
+}
+
+.e-tab.e-fill.e-disable .e-tab-header .e-toolbar-item.e-active .e-tab-wrap:focus {
+    background: #317ab9;
+}
+
+.e-tab .e-tab-header .e-toolbar-item.e-active.e-ileft .e-tab-text {
+    color: #4767A7;
+    font-size: small;
+    font-weight: 600;
+}
+
+.e-tab .e-tab-header .e-toolbar-item.e-ileft .e-tab-text {
+    color: white;
+    font-size: small;
+    font-weight: 600;
+}
+
+.e-tab .e-tab-header {
+    background-color: #6A87C1;
+    padding-left: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+    .e-tab .e-tab-header .e-toolbar-item.e-active {
+        background: white;
+    }*/
+
+.e-grid .e-headercell {
+    background-color: #CADAFA;
+}
+
+/*.e-grid .e-headercelldiv {
+    font-weight: 600;
+    font-size: smaller;
+}
+
+.e-grid .e-headercell .e-headercelldiv {
+    font-size: x-small; 
+}*/
+
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+
+.urgent-pr {
+    animation: blinker 1.5s linear infinite;
+    color: red;
+    margin-left: 10px;
+}
+
+.prform-header {
+    padding-bottom: 9px;
+    margin: 10px 0 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.e-grid .e-rowcell {
+    border-style: solid;
+    border-width: 1px;
+}
+
+.status {
+    background-color: #4CAF50;
+    padding: 5px 10px;
+    color: white;
+}
+/* Green */
+#listbox-control {
+    width: 350px;
+    margin: auto;
+    font-size: xx-small;
+}
+
+.app-label-name {
+    font-size: 12px;
+    color: #1e90ff;
+}
+.app-label-date {
+    font-size: 10px;
+    color: indianred;
+}
+
+
+@@media screen and (max-width: 590px) {
+    #listbox-control {
+        width: 100%;
+    }
+}

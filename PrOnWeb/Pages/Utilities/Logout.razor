@@ -1,0 +1,9 @@
+﻿@page "/logmeout"
+@inject NavigationManager navigationManager
+
+@code{
+    protected override async Task OnInitializedAsync()
+    {        
+        navigationManager.NavigateTo("Identity/Account/LogOut", forceLoad: true);
+    }
+}

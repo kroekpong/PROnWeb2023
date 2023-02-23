@@ -1,0 +1,550 @@
+﻿@page "/Notification"
+@using Syncfusion.Blazor.Buttons
+@using PrOnWeb.Data
+@using System.Security.Claims;
+@using Microsoft.AspNetCore.Identity;
+@inject PrOnWeb.Services.PrDataService prDataService
+@inject PrOnWeb.Services.PrMainService prMainService
+@inject NavigationManager navigationManager
+@inject UserManager<ApplicationUser> _UserManager
+@attribute [Authorize]
+
+
+
+
+
+<h3>Notification</h3>
+
+@if (prNotis == null)
+{
+    <p><em>No Data...</em></p>
+}
+else
+{
+    @*<div class="pr-list-noti">
+        <SfCheckBox @bind-Checked="@isActive" @onclick="@ActiveClick">Show only Active Transaction</SfCheckBox>
+    </div>*@
+
+    
+    @foreach (PrNoti prn in prNotis)
+    {
+<div class="pr-list-noti">
+    <strong>PR No. </strong><a href="@navigationManager.Uri" @onclick="@(() => Navigate(prn.PrId))"> @prn.PrSAPNo </a>
+    <strong>Status:</strong> @prn.PrStatus <strong>Role:</strong> @prn.AsRole <span style="color:red">@prn.ApproveStatus</span>
+</div>
+    }
+    <hr />
+    @foreach (PrNoti prn in prNotisP)
+    {
+<div class="pr-list-noti">
+    <strong>PR No. </strong><a href="@navigationManager.Uri" @onclick="@(() => Navigate(prn.PrId))"> @prn.PrSAPNo</a>
+    <strong>Status:</strong> @prn.PrStatus <span style="color:red">@prn.ApproveStatus</span>
+</div>
+    }
+
+}
+
+@if (isBlocked)
+{
+    <div class="loader"> <div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+}
+
+
+
+@code {
+    // Who Am I
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+    [CascadingParameter]
+    private Task<AuthenticationState> _authState { get; set; }
+    private AuthenticationState authState;
+    ClaimsPrincipal MyClaims = new ClaimsPrincipal();
+
+    [CascadingParameter]
+    public MainLayout Layout { get; set; }
+
+    int myUserId;
+
+    Boolean isAccounting;
+    Boolean isCoSign;
+    Boolean isActive = true;
+    bool isBlocked = true;
+    List<Approval_flow> approval_Flows = new List<Approval_flow>();
+
+    List<PrNoti> prNotis = new List<PrNoti>();
+    List<PrNoti> prNotisP = new List<PrNoti>();
+    List<PrNoti> prNotisTmp = new List<PrNoti>();
+    List<PrNoti> prNotisPTmp = new List<PrNoti>();
+    PrNoti prNoti;
+    //public class PrNoti
+    //{
+    //    public int Priority { get; set; }
+    //    public int PrId { get; set; }
+    //    public string PrStatus { get; set; }
+    //    public string ApproveStatus { get; set; }
+    //    public string AsRole { get; set; }
+    //    public bool Active { get; set; }
+    //}
+
+    public class DistinctItemComparer : IEqualityComparer<PrNoti>
+    {
+        public bool Equals(PrNoti x, PrNoti y)
+        {
+            return x.Priority == y.Priority &&
+                x.PrId == y.PrId &&
+                x.PrStatus == y.PrStatus &&
+                x.ApproveStatus == y.ApproveStatus &&
+                x.AsRole == y.AsRole &&
+                x.Active == y.Active;
+        }
+        public int GetHashCode(PrNoti obj)
+        {
+            return obj.Priority.GetHashCode() ^
+            obj.PrId.GetHashCode() ^
+            obj.PrStatus.GetHashCode() ^
+            obj.ApproveStatus.GetHashCode() ^
+            obj.AsRole.GetHashCode() ^
+            obj.Active.GetHashCode();
+        }
+    }
+
+    // สำหรับฝ่าย purchase
+    private async Task PurchaseNotice()
+    {
+        List<VPrList> prItems = new List<VPrList>();
+        string myPD = "";
+        if (MyClaims.IsInRole("PH"))
+        {
+            myPD = "PDHO";
+        }
+        if (MyClaims.IsInRole("PF"))
+        {
+            myPD = "PDRY";
+        }
+
+        if (MyClaims.IsInRole("PSManager"))
+        {
+            await AddToNoti("PSManager", myPD, "Purchasing Manager", "Pending staff assignment");
+            if (prNotisTmp != null)
+            {
+                prNotisTmp = prNotisTmp.Distinct(new DistinctItemComparer()).ToList();
+            }
+        }
+
+        // My Name = staff ที่ได้รับ Assign
+        prItems = await prMainService.GetVPrListsPurchasingStaffAsync(myUserId, myPD);
+        int priority = 9;
+        string approveStatus = "Done";
+        string PurStatus = "";
+        bool active = false;
+        foreach (var item in prItems)
+        {
+            priority = 0;
+            if (item.Status == myPD)
+            {
+                approveStatus = "Waiting for Purchasing";
+                PurStatus = await prDataService.GetStatusNameAsync(myPD);
+                active = true;
+                var prHeaderTmp = await prMainService.GetvPrHeaderAsync(item.Id);
+                prNoti = new PrNoti()
+                {
+                    Priority = priority,
+                    PrSAPNo = prHeaderTmp.Pr_No,
+                    PrId = item.Id,
+                    PrStatus = PurStatus,
+                    ApproveStatus = approveStatus,
+                    AsRole = "",
+                    Active = active
+                };
+                prNotisPTmp.Add(prNoti);
+            }
+        }
+        //if (prNotisPTmp != null)
+        //{
+        prNotisPTmp = prNotisPTmp.Distinct(new DistinctItemComparer()).ToList();
+        //}
+    }
+
+    private async Task PurchaseNotiFromRN()
+    {
+        // Noti PR ที่ อยู่ในสถานะ RN และ RN นั้น เป็นของเรา (Purchasing Staff)
+        int priority = 9;
+        bool active = true;
+
+        string statuses;
+         //statuses = "'RNNEW','RNCR', 'RNIG','RNCF', 'RNCL'";
+        statuses = "'RNNEW','RNCR', 'RNIG','RNCF'";
+        List<VReturningNote> rns = await prDataService.GetVRnListFromUserIdStatusAsync(myUserId, statuses);
+        vPRHeader prHeaderTmp;
+        foreach (var item in rns)
+        {
+            prHeaderTmp = await prMainService.GetvPrHeaderAsync(item.Pr_Id);
+            prNoti = new PrNoti()
+            {
+                Priority = priority,
+                PrSAPNo = prHeaderTmp.Pr_No,
+                PrId = item.Pr_Id,
+                PrStatus = "RN-" + item.Rn_Status_Name,
+                ApproveStatus = "",
+                AsRole = "Purchaser",
+                Active = active
+            };
+            prNotisTmp.Add(prNoti);
+        }
+        if (prNotisPTmp != null)
+        {
+            prNotisPTmp = prNotisPTmp.Distinct(new DistinctItemComparer()).ToList();
+        }
+    }
+
+    private async Task AddToNoti(string role, string prStatus, string statusName, string approveStatusMsg = "Waiting for approval")
+    {
+        // If I am in Role CoSigner, Accounting
+        // Find all ApprovalFlow with PrStatus (PAAC,CS..) เฉพาะพวกยังไม่ Approve (N) พวก Approve แล้วใช้ User
+        // << Company >>
+        List<vApproval_flow> approval_Flows;
+        if (MyClaims.IsInRole(role))
+        {
+            approval_Flows = await prDataService.GetvApprovalFlowForStatusActiveAsync(prStatus, "N");
+            vPRHeader prHeaderTmp;
+            foreach (var item in approval_Flows)
+            {
+                prHeaderTmp = await prMainService.GetvPrHeaderAsync(item.Pr_id);
+                if (prHeaderTmp != null && myCompanies.Contains(prHeaderTmp.Company))
+                {
+                    prNoti = new PrNoti()
+                    {
+                        Priority = 0,
+                        PrSAPNo = prHeaderTmp.Pr_No,
+                        PrId = item.Pr_id,
+                        PrStatus = prHeaderTmp.PrStatus,
+                        ApproveStatus = approveStatusMsg,
+                        AsRole = statusName,
+                        Active = true
+                    };
+                    prNotisTmp.Add(prNoti);
+                }
+            }
+        }
+    }
+
+    private async Task RoleApprovalNotice()
+    {
+        // Role Approval
+        // .. CoSigner
+        // .. Accountings
+        // .. SMs
+        // Company and Dept
+        // .. WorkflowAuthos
+
+        await AddToNoti("ITCoSigner", "CSIT", "CoSign");
+        await AddToNoti("QCCoSigner", "CSQC", "CoSign");
+        await AddToNoti("ADCoSigner", "CSAD", "CoSign");
+        await AddToNoti("SECoSigner", "CSSE", "CoSign");
+        await AddToNoti("Accountings", "PAAC", "Accounting");
+        if (prNotisTmp != null)
+        {
+            prNotisTmp = prNotisTmp.Distinct(new DistinctItemComparer()).ToList();
+        }
+    }
+
+    // Notification สำหรับ Approver
+    // Search ตาม User ID
+    private async Task ApprovalNoticeMyName()
+    {
+        List<vApproval_flow> approval_Flows;
+        approval_Flows = await prDataService.GetvApprovalFlowForUserIdAsync(myUserId);
+        string approveStatus = "";
+        int priority = 9;
+        string asRole = "";
+        bool active = true;
+        vPRHeader prHeaderTmp;
+        foreach (var item in approval_Flows)
+        {
+            active = true;
+            prHeaderTmp = await prMainService.GetvPrHeaderAsync(item.Pr_id);
+            if (item.Status == "A")
+            {
+                active = false;
+                approveStatus = "Approved";
+                priority = 9;
+            }
+            else
+            {
+                if (item.Is_disabled)
+                {
+                    active = false;
+                    approveStatus = "To be approved";
+                    priority = 5;
+                }
+                else
+                {
+                    approveStatus = "Waiting for approval";
+                    priority = 0;
+                }
+            }
+
+            switch (item.Approver_role)
+            {
+                case "PAAC":
+                    asRole = "Accounting";
+                    break;
+                case "CSIT":
+                case "CSSE":
+                case "CSQC":
+                case "CSAD":
+                    asRole = "CoSign";
+                    break;
+                case "PASM":
+                    asRole = "SM";
+                    break;
+                case "PADM":
+                    asRole = "DM";
+                    break;
+                case "PAL2":
+                    asRole = "High Level Approver [3]";
+                    break;
+                case "PAL3":
+                    asRole = "High Level Approver [4]";
+                    break;
+                case "PAL4":
+                    asRole = "High Level Approver [5]";
+                    break;
+                case "PAL5":
+                    asRole = "High Level Approver [6]";
+                    break;
+                case "PAL6":
+                    asRole = "High Level Approver [7]";
+                    break;
+
+                default:
+                    break;
+            }
+            prNoti = new PrNoti()
+            {
+                Priority = priority,
+                PrSAPNo = prHeaderTmp.Pr_No,
+                PrId = item.Pr_id,
+                PrStatus = prHeaderTmp.PrStatus,
+                ApproveStatus = approveStatus,
+                AsRole = asRole,
+                Active = active
+            };
+            prNotisTmp.Add(prNoti);
+        }
+
+        // add Noti ตาม Role : Accounting, CoSign
+        if (prNotisTmp != null)
+        {
+            prNotisTmp = prNotisTmp.Distinct(new DistinctItemComparer()).ToList();
+        }
+    }
+
+    private void AddPrToNoti(List<vPRHeader> vPrs)
+    {
+        foreach (var item in vPrs)
+        {
+            prNoti = new PrNoti()
+            {
+                Priority = priority,
+                PrSAPNo = item.Pr_No,
+                PrId = item.Id,
+                PrStatus = item.PrStatus,
+                ApproveStatus = approveStatus,
+                AsRole = asRole,
+                Active = active
+            };
+            prNotisTmp.Add(prNoti);
+        }
+    }
+
+    private void AddPrToNoti(List<PrListModel> prls)
+    {
+        foreach (var item in prls)
+        {
+            prNoti = new PrNoti()
+            {
+                Priority = priority,
+                PrSAPNo = item.Pr_No,
+                PrId = item.Id,
+                PrStatus = item.Appr_Status,
+                ApproveStatus = approveStatus,
+                AsRole = asRole,
+                Active = active
+            };
+            prNotisTmp.Add(prNoti);
+        }
+    }
+
+
+    List<vPRHeader> vPrHeaders;
+    string approveStatus;
+    int priority;
+    string asRole;
+    bool active;
+    string myODSs;
+    string myODs;
+    string[] myCompanies;
+
+    private async Task RoleNotification()
+    {
+        if (MyClaims.IsInRole("Requester"))
+        {
+
+            // ==1== PR : NEW ของ Section ของเรา
+            approveStatus = "New/Rejected";
+            priority = 9;
+            asRole = "Requester";
+            active = true;
+            vPrHeaders = await prDataService.GetPrHeadersFromStatusAsync(myUserId, "'NEW','REJ'");
+            AddPrToNoti(vPrHeaders);
+            // ==2== กลุ่ม RN ต้องใช้ status ของ RN มา
+            approveStatus = "";
+            vPrHeaders = await prDataService.GetVPRHeaderForReqRNAsync(myUserId, "'RNIN','RNAJ','RNCN','RNNA'");
+            AddPrToNoti(vPrHeaders);
+            // ==3==
+            approveStatus = "";
+            vPrHeaders = await prDataService.GetVPrHeadersMyStatusAsync(myUserId, "'WAJ'");
+            AddPrToNoti(vPrHeaders);
+        }
+        if (MyClaims.IsInRole("SMs"))
+        {
+            approveStatus = "Pending Approval";
+            priority = 9;
+            asRole = "SM";
+            active = true;
+
+            // ตัวนี้ใช้โครงสร้าง PRList
+            AddPrToNoti(await prMainService.GetPrListApprovalNameAsyncCase3_1("SM", myODSs));
+
+        }
+        if (MyClaims.IsInRole("DMs"))
+        {
+            approveStatus = "Pending Approval";
+            priority = 9;
+            asRole = "DM";
+            active = true;
+            // ตัวนี้ใช้โครงสร้าง PRList
+            AddPrToNoti(await prMainService.GetPrListApprovalNameAsyncCase3_1("DM", myODs));
+        }
+
+        if (prNotisTmp != null)
+        {
+            prNotisTmp = prNotisTmp.Distinct(new DistinctItemComparer()).ToList();
+        }
+    }
+
+    Boolean isFirstLoad = true;
+    //=================================================
+    protected override async Task OnInitializedAsync()
+    {
+      
+        authState = await _authState;
+        MyClaims = (await _authState).User;
+
+        if (isFirstLoad && MyClaims.Identity.IsAuthenticated)
+        {
+            isFirstLoad = false;
+
+            // พบปัญหา เมื่อ publish ขึ้น server จริง แม้ยังไม่ได้ login แต่ identity IsAuthenticated เป็น true โดยที่ยังไม่มี claims
+            // ทำให้เกิด error
+            var thisUser = _UserManager.Users.FirstOrDefault(x => x.UserName == MyClaims.Identity.Name);
+            if (thisUser == null)
+            {
+                navigationManager.NavigateTo("Identity/Account/Login");
+            }
+            else
+            {
+
+                //Layout.SidebarToggle = false;
+                myUserId = Int16.Parse(MyClaims.Claims.FirstOrDefault(c => c.Type == "PrUserId").Value);
+                myODSs = await prDataService.GetODSsFromUserIdAsync(myUserId);
+                myODs = await prDataService.GetODsFromUserIdAsync(myUserId);
+                var listCompany = await prDataService.GetCompanyListFromUserIdAsync(myUserId);
+                List<string> listCompanyStr = new List<string>();
+                foreach (var item in listCompany)
+                {
+                    listCompanyStr.Add(item.StringValue);
+                }
+                myCompanies = listCompanyStr.ToArray();
+
+                try
+                {
+                    // ค้นหา PR ทั้งหมด ที่อยู่ใน workflow ของเรา และ Status ไม่เป็น Close, Delete
+                    await RoleNotification();
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Role Notification Error.");
+                }
+                try
+                {
+                    // ค้นจาก User Id ใน Approval Flow
+                    await ApprovalNoticeMyName();
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Approver Name Notification Error.");
+                }
+
+                try
+                {
+                    // ค้นจาก Role ใน Approval Flows เฉพาะที่ยังไม่  Approve
+                    await RoleApprovalNotice();
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Role Approver Notification Error.");
+                }
+
+                try
+                {
+                    //prNotis = prNotisTmp.OrderBy(x => x.Priority).ToList();
+                    await PurchaseNotice();
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Purchaser Notification Error.");
+                }
+                try
+                {
+                    //prNotisP = prNotisPTmp.OrderBy(x => x.Priority).ToList();
+                    await PurchaseNotiFromRN();
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Purchaser Notification Returning Note Error.");
+                }
+
+                isActive = false;
+                ActiveClick();
+            }
+
+            isBlocked = false;
+        }
+    }
+
+    private void ActiveClick()
+    {
+        if (isActive == true)
+        {
+            isActive = false;
+            prNotis = prNotisTmp.OrderBy(x => x.Priority).ToList();
+            prNotisP = prNotisPTmp.OrderBy(x => x.Priority).ToList();
+        }
+        else
+        {
+            isActive = true;
+            prNotis = prNotisTmp.OrderBy(x => x.Priority).Where(x => x.Active == true).ToList();
+            prNotisP = prNotisPTmp.OrderBy(x => x.Priority).Where(x => x.Active == true).ToList();
+        }
+
+        StateHasChanged();
+
+    }
+
+    private void Navigate(int Pr_Id)
+    {
+        navigationManager.NavigateTo($"prform/{Pr_Id}",true);
+    }
+}

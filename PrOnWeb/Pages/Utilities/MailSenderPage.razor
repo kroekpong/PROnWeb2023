@@ -1,0 +1,178 @@
+﻿@page "/MailUtil"
+@inject EmailServices.IEmailService EmailService
+@inject EmailServices.IMailKitEmailService MailKitService
+@inject PrOnWeb.Services.PrDataService prDataService
+@inject PrOnWeb.Services.PrMainService prMainService
+@attribute [Authorize(Roles = "Administrators")]
+
+<h3>Simulate Approval Mail Sender</h3>
+<table>
+    <tr>
+        <td>
+            <label>Email: </label>
+        </td>
+        <td>
+            <input placeholder="Email" @bind-value="@toEmail" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>PR #: </label>
+        </td>
+        <td>
+            <input placeholder="PR #" @bind-value="@PrNo" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>PR Header Id: </label>
+        </td>
+        <td>
+            <input placeholder="PR Header Id" @bind-value="@PrHeaderId" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>PR Status: </label>
+        </td>
+        <td>
+            <input placeholder="PR Status" @bind-value="@PrStatus" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Approval Status: </label>
+        </td>
+        <td>
+            <input placeholder="Approval Status" @bind-value="@ApprovalStatus" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Role: </label>
+        </td>
+        <td>
+            <input placeholder="Role" @bind-value="@Role" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Type: </label>
+        </td>
+        <td>
+            <input placeholder="Type" @bind-value="@Type" />
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <button @onclick="Sender">
+                Send
+            </button>
+        </td>
+    </tr>
+</table>
+<br />
+<h3>Mail Sender</h3>
+<table>
+    <tr>
+        <td>
+            <label>Email: </label>
+        </td>
+        <td>
+            <input placeholder="Email" @bind-value="@toEmail" type="text" width="200" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Subject: </label>
+        </td>
+        <td>
+            <input placeholder="Subject" @bind-value="@sSubject" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Body: </label>
+        </td>
+        <td>
+            <textarea placeholder="Body" @bind="@sBody" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Type: </label>
+        </td>
+        <td>
+            <input placeholder="Type" @bind-value="@Type" />
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <button @onclick="PlainSender">
+                Send
+            </button>
+        </td>
+    </tr>
+</table>
+
+@code {
+    string fromEmail = "TPP-PrOnWeb@th.tpcc-tpac.com";
+    string toEmail = "Saravut.tant@th.tpcc-tpac.com";
+    //string fromEmail = "no-reply@beko.com";
+    //string toEmail = "kroekpong@gmail.com";
+    string PrNo = "0001-0002-0003";
+    string PrHeaderId = "23031";
+    string PrStatus = "Pending Approval";
+    string ApprovalStatus = "No";
+    string Role = "Approval";
+    string Type = "Approver";
+
+    private async void Sender()
+    {
+        //PrNoti nextPrNoti = new PrNoti()
+        //{
+        //    PrSAPNo = PrNo,
+        //    PrId = Int32.Parse(PrHeaderId),
+        //    PrStatus = PrStatus,
+        //    ApproveStatus = ApprovalStatus,
+        //    AsRole = Role
+        //};
+
+        vPRHeader prh = await prMainService.GetvPrHeaderAsync(Int32.Parse(PrHeaderId));
+
+        EmailMessage emailMessage = new EmailMessage()
+        {
+            PrId = prh.Id.ToString(),
+            PrNo = prh.Pr_No,
+            //RequesterInfo = prh.Requester + ", COMPANY: " + prh.Company + ",DEPARTMENT: " + prh.Department + ", SECTION:" + prh.Section,
+            RequesterInfo = prh.Requester,
+            WBS = "",
+            TotalCost = prh.sPrAmt,
+            RequirementDate = (prh.Release_Date ?? DateTime.Now).ToString("dd/MM/yyyy"),
+            StatusName = prh.PrStatus,
+            Objective = prh.Objective,
+
+            Company = prh.Company,
+            Department = prh.Department,
+            Section = prh.Section,
+            Memo = "",
+            Comment = prh.Comment,
+            RN_TYPE = ""
+        };
+
+        MailKitService.SendNoti(fromEmail, toEmail, "Workflow assigned for PR No." + prh.Pr_No, emailMessage, Type);
+        //MailKitService.SendNotiTest(fromEmail, toEmail, "Workflow assigned for PR No." + prh.Pr_No, emailMessage, Type);
+        //await EmailService.SendEmailAsync(toEmail, "Waiting for your approval.", nextPrNoti);
+    }
+
+    string sSubject = "ACtion Required";
+    string sBody = "Test Sending Email from Web App";
+
+    private void PlainSender()
+    {
+        //await EmailService.SendPlainEmailAsync(toEmail, sSubject, sBody);
+        MailKitService.Send("TPP-PrOnWeb@th.tpcc-tpac.com", toEmail, sSubject, sBody);
+    }
+}

@@ -1,0 +1,64 @@
+﻿@page "/"
+@namespace PrOnWeb.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PR Web App</title>
+    <base href="~/" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="css/site.css" rel="stylesheet" />
+    <link href="_content/Syncfusion.Blazor/styles/bootstrap4.css" rel="stylesheet" />
+
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
+
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/gradient/assets/css/bootstrap/css/bootstrap.min.css">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/gradient/assets/icon/themify-icons/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/gradient/assets/icon/font-awesome/css/font-awesome.min.css">
+
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/gradient/assets/icon/icofont/css/icofont.css">
+
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/gradient/assets/icon/icofont/css/icofont.css">
+    <!-- Notification.css -->
+    <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/gradient/assets/pages/notification/notification.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/gradient/assets/css/animate.css/css/animate.css">
+
+    <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/gradient/assets/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/gradient/assets/css/bootstrap-select.min.css">
+
+
+
+
+</head>
+<body>
+    <app>
+        <component type="typeof(App)" render-mode="ServerPrerendered" />
+    </app>
+
+    <div id="blazor-error-ui">
+        <environment include="Staging,Production">
+            An error has occurred. This application may no longer respond until reloaded.
+        </environment>
+        <environment include="Development">
+            An unhandled exception has occurred. See browser dev tools for details.
+        </environment>
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+
+    <script src="_framework/blazor.server.js"></script>
+    <script src="~/js/pdfAction.js"></script>
+</body>
+</html>

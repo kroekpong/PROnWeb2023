@@ -1,0 +1,504 @@
+﻿@page "/UserProfile/{userName}"
+@attribute [Authorize(Roles = "Administrators")]
+@inject PrOnWeb.Services.PrDataService prDataService
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.Popups
+@using Syncfusion.Blazor.DropDowns
+@using Syncfusion.Blazor.Notifications
+@using Microsoft.AspNetCore.Identity;
+@inject RoleManager<IdentityRole> _RoleManager
+@inject UserManager<ApplicationUser> _UserManager
+@inject IJSRuntime JsRuntime
+@attribute [Authorize]
+
+<div id="b-header">
+    User Profile
+</div>
+
+@if (thisUser == null)
+{
+    <textarea>loading...</textarea>
+}
+else
+{
+    <div class="row">
+        <div class="col">
+            <SfButton OnClick="SaveChange" CssClass="b-button" IsPrimary="true" Content="Save"></SfButton>
+            <SfCheckBox @bind-Checked="@isActiveUser" Label="Active User"></SfCheckBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div id="b-horbar">
+                General Information
+            </div>
+            <div class="row">
+                <div class="col-7">
+                    <SfTextBox CssClass="e-outline" Placeholder="User Name" @bind-Value="@thisUser.UserName" FloatLabelType="@FloatLabelType.Auto" Readonly="true"></SfTextBox>
+                </div>
+                <div class="col-5">
+                    <SfTextBox CssClass="e-outline" Placeholder="Id" @bind-Value="@thisUser.PrUserId" FloatLabelType="@FloatLabelType.Auto" Readonly="true"></SfTextBox>
+                </div>
+                @*<div class="col-6">
+            <SfTextBox CssClass="e-outline" Placeholder="Position" @bind-Value="@thisUser.Position" FloatLabelType="@FloatLabelType.Always"></SfTextBox>
+        </div>*@
+            </div>
+            <div class="row">
+                <div class="col">
+                    <SfTextBox CssClass="e-outline" Placeholder="Full Name" @bind-Value="@thisUser.FullName" FloatLabelType="@FloatLabelType.Auto" Readonly="true"></SfTextBox>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <SfTextBox CssClass="e-outline" Placeholder="Email" @bind-Value="@thisUser.Email" FloatLabelType="@FloatLabelType.Auto" Readonly="true"></SfTextBox>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <SfDatePicker CssClass="e-outline" Placeholder="Lockout End Date" @bind-Value="@thisUser.LockoutEnd" FloatLabelType="@FloatLabelType.Auto" Format="dd/MM/yyyy"></SfDatePicker>
+                </div>
+                <div class="col-6" style="margin-top: 1.5rem;">
+                    @if (thisUser.LockoutEnd > DateTime.Now)
+                    {
+                        <span style="color: red; ">User is Lockouted.</span>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-1">
+            <div class="row">
+
+            </div>
+        </div>
+        <div class="col-4">
+            <div id="b-horbar">
+                Roles
+            </div>
+            <div>
+                <RoleSelector Selected="Selected" NoSelected="NotSelected"></RoleSelector>
+            </div>
+        </div>
+    </div>
+}
+
+<SfDialog Width="400" Target="#target" IsModal="true" @bind-Visible="isAddWorkflowVisible">
+    <DialogTemplates>
+        <Header> Add Workflow </Header>
+        <Content>
+
+            <div class="row control_wrapper">
+                <SfDropDownList TItem="Master_Org" TValue="string" Placeholder="Organization" DataSource="@allMasterOrgs" @bind-Value="@SelOrg">
+                    <DropDownListFieldSettings Text="Org" Value="Org"></DropDownListFieldSettings>
+                </SfDropDownList>
+                <SfDropDownList TItem="Master_Dep" TValue="string" Placeholder="Department" DataSource="@allMasterDeps" @bind-Value="@SelDep">
+                    <DropDownListFieldSettings Text="Dep" Value="Dep"></DropDownListFieldSettings>
+                </SfDropDownList>
+                <SfDropDownList TItem="Master_Sec" TValue="string" Placeholder="Section" DataSource="@allMasterSecs" @bind-Value="@SelSec">
+                    <DropDownListFieldSettings Text="Sec" Value="Sec"></DropDownListFieldSettings>
+                </SfDropDownList>
+                <label class="control-label">Budget Range :</label>
+                <div class="row control_wrapper">
+                    <SfCheckBox @bind-Checked="@setRange1" Label="Budget Range 1"></SfCheckBox>
+                </div>
+                <div class="row control_wrapper">
+                    <SfCheckBox @bind-Checked="@setRange2" Label="Budget Range 2"></SfCheckBox>
+                </div>
+                <div class="row control_wrapper">
+                    <SfCheckBox @bind-Checked="@setRange3" Label="Budget Range 3"></SfCheckBox>
+                </div>
+                <div class="row control_wrapper">
+                    <SfCheckBox @bind-Checked="@setRange4" Label="Budget Range 4"></SfCheckBox>
+                </div>
+                <div class="row control_wrapper">
+                    <SfCheckBox @bind-Checked="@setRange5" Label="Budget Range 5"></SfCheckBox>
+                </div>
+                <div class="control-label">
+                    Workflow Order (Approved)
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <SfNumericTextBox TValue="int" Min=0 Max=7 Step=1 @bind-Value="@SelWFOrder"></SfNumericTextBox>
+                    </div>
+                </div>
+                <div class="control-label">
+                    Position
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <SfNumericTextBox TValue="int" Min=0 Max=7 Step=1 @bind-Value="@SelWFPos"></SfNumericTextBox>
+                    </div>
+                </div>
+                <br />
+        @*0.for Dept-Section 1.SM 2.DM 3.TA 4.GM 5.PM 6.VP 7.PRS*@
+            </div>
+
+        </Content>
+    </DialogTemplates>
+    <DialogButtons>
+        <DialogButton Content="Save" IsPrimary="true" OnClick="@OnSaveWorkflowClick" />
+        <DialogButton Content="Cancel" OnClick="@OnCloseWorkflowClick" />
+    </DialogButtons>
+    <DialogAnimationSettings Effect="@DialogEffect.None"></DialogAnimationSettings>
+</SfDialog>
+
+<SfToast @ref="ToastObj" Title="User Profile" Content="@ToastContent"> </SfToast>
+
+<style>
+    .control_wrapper {
+        width: 250px;
+        margin: 0 auto;
+        padding: 5px 5px 5px 5px;
+    }
+
+    .content-wrapper {
+        width: 35%;
+        margin: 0 auto;
+        min-width: 185px;
+    }
+
+    .e-float-input.e-numeric.e-input-group {
+        margin-top: 40px;
+    }
+
+    .control-label {
+        padding: 24px 0px 10px 0px;
+        font-size: 12px;
+    }
+</style>
+
+@if (workFlowAuthos == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div id="b-horbar">
+        Authorization List
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <SfButton OnClick="OnAddWorkflowClick" CssClass="b-button" IsPrimary="true" Content="Add Workflow"></SfButton>
+            <SfButton OnClick="OnEditWorkflowClick" CssClass="b-button" IsPrimary="true" Content="Edit Workflow"></SfButton>
+        </div>
+        <div class="col-1">
+            <SfNumericTextBox TValue="int" Min=0 Max=7 Step=1 @bind-Value="@SelWFOrder"></SfNumericTextBox>
+        </div>
+        <div class="col-3">
+            <SfButton OnClick="OnSetWorkflowOrder" CssClass="b-button" IsPrimary="true" Content="Set Workflow Order (Approved)"></SfButton>
+        </div>
+    </div>
+    @*<div class="row">
+        <div class="col-4"> &nbsp;</div>
+        <div class="col-6" style="font-size:smaller;">
+            0.for Dept-Section 1.SM 2.DM 3.TA 4.GM 5.PM 6.VP 7.PRS
+        </div>
+    </div>*@
+    <div class="row">
+        <div class="col">
+            <SfGrid @ref="WFgrid" DataSource="@workFlowAuthos" AllowPaging="true">
+                <GridSelectionSettings Mode="Syncfusion.Blazor.Grids.SelectionMode.Row"></GridSelectionSettings>
+                <GridColumns>
+                    <GridColumn Width="40">
+                        <Template>
+                            @{
+                                var wfa0 = (context as WorkflowAutho);
+                                <span @onclick="@(() => DeleteWorkFlowAutho(wfa0))"><span class="oi oi-trash" aria-hidden="true"></span></span>
+                            }
+                        </Template>
+                    </GridColumn>
+                    <GridColumn Field=@nameof(WorkflowAutho.Id) HeaderText="Id" IsPrimaryKey="true" Visible="false"></GridColumn>
+                    <GridColumn Field=@nameof(WorkflowAutho.Org) HeaderText="Company" Width="110px"></GridColumn>
+                    <GridColumn Field=@nameof(WorkflowAutho.Dep) HeaderText="Department" Width="110px"></GridColumn>
+                    <GridColumn Field=@nameof(WorkflowAutho.Sec) HeaderText="Section" Width="110px"></GridColumn>
+                    <GridColumn Field=@nameof(WorkflowAutho.Wf_Order) HeaderText="Workflow Order"  ></GridColumn>
+                    <GridColumn Field=@nameof(WorkflowAutho.Wf_Position) HeaderText="Position"  ></GridColumn>
+                    <GridColumn Field=@nameof(WorkflowAutho.BudgetRange1) HeaderText="Budget R1" DisplayAsCheckBox="true"></GridColumn>
+                    <GridColumn Field=@nameof(WorkflowAutho.BudgetRange2) HeaderText="Budget R2" DisplayAsCheckBox="true"></GridColumn>
+                    <GridColumn Field=@nameof(WorkflowAutho.BudgetRange3) HeaderText="Budget R3" DisplayAsCheckBox="true"></GridColumn>
+                    <GridColumn Field=@nameof(WorkflowAutho.BudgetRange4) HeaderText="Budget R4" DisplayAsCheckBox="true"></GridColumn>
+                    <GridColumn Field=@nameof(WorkflowAutho.BudgetRange5) HeaderText="Budget R5" DisplayAsCheckBox="true"></GridColumn>
+                    @*<GridColumn Field=@nameof(WorkflowAutho.Wf_Order) HeaderText="Order "></GridColumn>*@
+                </GridColumns>
+            </SfGrid>
+        </div>
+    </div>
+}
+
+<style>
+    .multiple-selector {
+        display: flex;
+    }
+
+    .selectable-ul {
+        height: 200px;
+        overflow-y: auto;
+        list-style-type: none;
+        width: 170px;
+        padding: 0;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+    }
+
+        .selectable-ul li {
+            cursor: pointer;
+            border-bottom: 1px #eee solid;
+            padding: 2px 10px;
+            font-size: 14px;
+        }
+
+            .selectable-ul li:hover {
+                background-color: #08c;
+            }
+
+    .multiple-selector-buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 5px;
+    }
+
+        .multiple-selector-buttons button {
+            margin: 5px;
+        }
+</style>
+
+@code {
+    [Parameter] public string userName { get; set; }
+    int PrUserId;
+
+    List<WorkflowAutho> workFlowAuthos;
+    ApplicationUser thisUser;
+
+    bool isAddWorkflowVisible = false;
+
+    //private List<MultipleSelectorModel> AllRoles = new List<MultipleSelectorModel>();
+    //private List<MultipleSelectorModel> Selected = new List<MultipleSelectorModel>();
+    //private List<MultipleSelectorModel> NotSelected = new List<MultipleSelectorModel>();
+    private List<Master_Role> AllRoles = new List<Master_Role>();
+    private List<Master_Role> Selected = new List<Master_Role>();
+    private List<Master_Role> NotSelected = new List<Master_Role>();
+
+
+    //List<MasterDimension> allMasterDimension;
+    bool isActiveUser;
+    List<Master_Org> allMasterOrgs;
+    List<Master_Dep> allMasterDeps;
+    List<Master_Sec> allMasterSecs;
+    string SelOrg = "";
+    string SelDep = "";
+    string SelSec = "";
+    int SelWFOrder = 0;
+    int SelWFPos = 0;
+    bool setRange1 = false;
+    bool setRange2 = false;
+    bool setRange3 = false;
+    bool setRange4 = false;
+    bool setRange5 = false;
+
+    public class masOrgs
+    {
+        public string OrgId { get; set; }
+        public string OrgText { get; set; }
+    }
+    public class masDeps
+    {
+        public string DepId { get; set; }
+        public string DepText { get; set; }
+    }
+    public class masSecs
+    {
+        public string SecId { get; set; }
+        public string SecText { get; set; }
+    }
+
+    IList<string> thisUserRoles;
+
+    //=========================================================
+    protected override async Task OnInitializedAsync()
+    {
+        thisUser = _UserManager.Users.FirstOrDefault(x => x.UserName == userName);
+        isActiveUser = thisUser.EmailConfirmed;
+        PrUserId = Int32.Parse(thisUser.PrUserId);
+
+        thisUserRoles = await _UserManager.GetRolesAsync(thisUser);
+
+        var allRole = _RoleManager.Roles.OrderBy(x => x.Name).ToList();
+        List<Master_Role> MasterRoles = new List<Master_Role>();
+        foreach (var item in allRole)
+        {
+            MasterRoles.Add(new Master_Role { Id = item.Id, Role = item.Name });
+        };
+
+        foreach (Master_Role item in MasterRoles)
+        {
+            if (thisUserRoles.Contains(item.Role))
+            {
+                Selected.Add(item);
+            }
+            else
+                NotSelected.Add(item);
+        }
+
+        //var AllRoles = _RoleManager.Roles.Select(x => new MultipleSelectorModel(x.Id.ToString(), x.Name)).ToList();
+        //foreach (MultipleSelectorModel item in AllRoles)
+        //{
+        //    if (roles.Contains(item.Value))
+        //    {
+        //        Selected.Add(item);
+        //    }
+        //    else
+        //        NotSelected.Add(item);
+        //}
+
+        //Selected = SelectedGenres.Select(x => new MultipleSelectorModel(x.Id.ToString(), x.Name)).ToList();
+        //NotSelected = NotSelectedGenres.Select(x => new MultipleSelectorModel(x.Id.ToString(), x.Name)).ToList();
+
+        workFlowAuthos = await prDataService.GetWorkflowAuthosAsync(PrUserId);
+
+        //allMasterDimension = await prDataService.GetMasterDimensionsAsync();
+        allMasterOrgs = await prDataService.GetMasterOrgsAsync();
+        allMasterDeps = await prDataService.GetMasterDepsAsync();
+        allMasterSecs = await prDataService.GetMasterSecsAsync();
+    }
+
+    public async Task SaveChange()
+    {
+        // remove existing Role
+        foreach (var role in thisUserRoles)
+        {
+            var result = await _UserManager.RemoveFromRoleAsync(thisUser, role);
+        }
+        // add Selected Role
+        foreach (Master_Role item in Selected)
+        {
+            var result = await _UserManager.AddToRoleAsync(thisUser, item.Role);
+        }
+
+        thisUser.EmailConfirmed = isActiveUser;
+        var result1 = await _UserManager.UpdateAsync(thisUser);
+        await this.ToastObj.Show(Toast[0]);
+    }
+
+    private async Task OnCloseWorkflowClick(Object args)
+    {
+        isAddWorkflowVisible = false;
+        WFgrid.Refresh();
+    }
+
+    private async Task OnSaveWorkflowClick(Object args)
+    {
+        if (isEditMode) // update
+        {
+            thisWFAutho.User_Id = PrUserId;
+            thisWFAutho.Org = SelOrg;
+            thisWFAutho.Dep = SelDep;
+            thisWFAutho.Sec = SelSec;
+            thisWFAutho.Wf_Order = SelWFOrder;
+            thisWFAutho.Wf_Position = SelWFPos;
+            thisWFAutho.BudgetRange1 = setRange1;
+            thisWFAutho.BudgetRange2 = setRange2;
+            thisWFAutho.BudgetRange3 = setRange3;
+            thisWFAutho.BudgetRange4 = setRange4;
+            thisWFAutho.BudgetRange5 = setRange5;
+            await prDataService.UpdateWorkflowAsync(thisWFAutho);
+
+        }
+        else // add mode
+        {
+            thisWFAutho = new WorkflowAutho()
+            {
+                User_Id = PrUserId,
+                Org = SelOrg,
+                Dep = SelDep,
+                Sec = SelSec,
+                Wf_Order = SelWFOrder,
+                Wf_Position = SelWFPos,
+                BudgetRange1 = setRange1,
+                BudgetRange2 = setRange2,
+                BudgetRange3 = setRange3,
+                BudgetRange4 = setRange4,
+                BudgetRange5 = setRange5
+            };
+            await prDataService.CreateWorkflowAuthoAsync(thisWFAutho);
+        }
+        isAddWorkflowVisible = false;
+        workFlowAuthos = await prDataService.GetWorkflowAuthosAsync(PrUserId);
+        WFgrid.Refresh();
+    }
+
+    public bool isEditMode = true;
+    private void OnAddWorkflowClick(Object args)
+    {
+        isEditMode = false;
+        SelOrg = "";
+        SelDep = "";
+        SelSec = "";
+        SelWFOrder = 0;
+        SelWFPos = 0;
+        setRange1 = false;
+        setRange2 = false;
+        setRange3 = false;
+        setRange4 = false;
+        setRange5 = false;
+        isAddWorkflowVisible = true;
+    }
+
+    private async Task OnSetWorkflowOrder(Object args)
+    {
+        if (await JsRuntime.InvokeAsync<bool>("confirm", "This will override all workflow order of this user ? "))
+        {
+            foreach (var item in workFlowAuthos)
+            {
+                item.Wf_Order = SelWFOrder;
+                item.Wf_Position = SelWFPos;
+                await prDataService.UpdateWorkflowAsync(item);
+            }
+        }
+    }
+
+    SfGrid<WorkflowAutho> WFgrid;
+    WorkflowAutho thisWFAutho;
+
+    private async Task OnEditWorkflowClick(Object args)
+    {
+        List<WorkflowAutho> values = await WFgrid.GetSelectedRecords();
+        if (values.Count > 0)
+        {
+            isEditMode = true;
+            thisWFAutho = values.First();
+            SelOrg = thisWFAutho.Org;
+            SelDep = thisWFAutho.Dep;
+            SelSec = thisWFAutho.Sec;
+            SelWFOrder = thisWFAutho.Wf_Order;
+            SelWFPos = thisWFAutho.Wf_Position;
+            setRange1 = thisWFAutho.BudgetRange1;
+            setRange2 = thisWFAutho.BudgetRange2;
+            setRange3 = thisWFAutho.BudgetRange3;
+            setRange4 = thisWFAutho.BudgetRange4;
+            setRange5 = thisWFAutho.BudgetRange5;
+            isAddWorkflowVisible = true;
+        }
+        WFgrid.Refresh();
+    }
+
+    private List<ToastModel> Toast = new List<ToastModel>
+{
+        new ToastModel{ Title = "Success!", Content="Profile Saved." },
+        new ToastModel{ Title = "Success!", Content="Role Updated." },
+        new ToastModel{ Title = "Success!", Content="Role Deleted." },
+    };
+    public string ToastContent = "Content of Toast";
+    SfToast ToastObj;
+
+    private async Task DeleteWorkFlowAutho(WorkflowAutho wfa)
+    {
+        if (await JsRuntime.InvokeAsync<bool>("confirm", "Confirm deleting this Workflow Items ?"))
+        {
+            await prDataService.DeleteWorkflowAuthoAsync(wfa);
+            workFlowAuthos = await prDataService.GetWorkflowAuthosAsync(PrUserId);
+            WFgrid.Refresh();
+        }
+    }
+}

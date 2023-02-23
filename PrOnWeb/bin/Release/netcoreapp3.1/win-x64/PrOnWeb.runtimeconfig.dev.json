@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\bunlue\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\bunlue\\.nuget\\packages"
+    ]
+  }
+}

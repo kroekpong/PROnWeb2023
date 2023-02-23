@@ -1,0 +1,132 @@
+﻿@page "/roles"
+@attribute [Authorize(Roles = "Administrators")]
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.Popups
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Notifications
+@inject IJSRuntime JsRuntime;
+
+@using Microsoft.AspNetCore.Identity;
+@inject PrOnWeb.Services.PrDataService prDataService
+@inject RoleManager<IdentityRole> _RoleManager
+@inject UserManager<ApplicationUser> _UserManager
+@inject NavigationManager navigationManager
+
+
+@if (allRole == null)
+{
+    <em>No data</em>
+}
+else
+{
+    <div class="bg-secondary p-2 h6 text-white font-weight-bolder">
+        Roles
+    </div>
+    <div class="row">
+        <div class="col-lg-6 control-section">
+            <div class="content-wrapper">
+                <SfGrid @ref="Grid" DataSource="@allRole" AllowPaging="false" Height="315">
+                    <GridEditSettings AllowAdding="true" AllowDeleting="true" AllowEditing="true" Mode="EditMode.Dialog"></GridEditSettings>
+                    <GridEvents RowSelecting="ActionClick" TValue="IdentityRole"></GridEvents>
+                    <GridColumns>
+                        <GridColumn Field=@nameof(IdentityRole.Id) HeaderText="Id" IsPrimaryKey="true" Visible="false"></GridColumn>
+                        <GridColumn Field=@nameof(IdentityRole.Name) HeaderText="Role Name" Width="140"></GridColumn>
+                    </GridColumns>
+                </SfGrid>
+                <SfButton OnClick="CreateRole" CssClass="b-button" IsPrimary="true" Content="Add Role"></SfButton>
+            </div>
+        </div>
+        <div class="col-lg-6 control-section">
+            <div class="content-wrapper">
+                <SfGrid @ref="UserGrid" DataSource="@usersOfRole" AllowPaging="true" Height="315">
+                    <GridColumns>
+                        <GridColumn Field=@nameof(ApplicationUser.PrUserId) HeaderText="Id" Visible="false"></GridColumn>
+                        <GridColumn Field=@nameof(ApplicationUser.UserName) HeaderText="User Name" Width="100">
+                            <Template>
+                                @{
+                                    var appUsr0 = (context as ApplicationUser);
+                                    <div><a href="@navigationManager.Uri" @onclick="@(() => Navigate(appUsr0))">@appUsr0.UserName</a></div>
+                                }
+                            </Template>
+                        </GridColumn>
+                        <GridColumn Field=@nameof(ApplicationUser.FullName) HeaderText="Full Name" Width="140"></GridColumn>
+                    </GridColumns>
+                </SfGrid>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+
+    public List<IdentityRole> allRole { get; set; }
+    List<Master_Role> rolesList;
+    SfGrid<IdentityRole> Grid;
+    SfGrid<ApplicationUser> UserGrid;
+    string RoleName;
+    Master_Role SelectedRole;
+    List<ApplicationUser> usersOfRole;
+    IList<ApplicationUser> iUsersOfRole;
+
+    public bool ConfirmDlgVisible { get; set; } = false;
+    public bool flag { get; set; } = false;
+
+    protected override void OnInitialized()
+    {
+        var x = _RoleManager.Roles.ToList();
+        allRole = _RoleManager.Roles.OrderBy(x=>x.Name).ToList();
+    }
+
+    public void HideDialog(Object e)
+    {
+        this.ConfirmDlgVisible = false;
+    }
+
+    private void GetRoleList()
+    {
+        rolesList = new List<Master_Role>();
+        var AllRoles = _RoleManager.Roles.ToList();
+        foreach (var item in AllRoles)
+        {
+            var x = new Master_Role();
+            x.Id = item.Id;
+            x.Role = item.Name;
+            rolesList.Add(x);
+        }
+    }
+    // set Role ใหม่ที่นี่ ระบบจะนำเข้าไปใน database
+    List<String> MasterRoleList = new List<string>()
+{
+     "ITCoSigner",
+    "QCCoSigner",
+    "ADCoSigner",
+    "SECoSigner",
+    "Approver"
+   };
+
+    private async Task CreateRole()
+    {
+        foreach (var role in MasterRoleList)
+        {
+            var RoleResult = await _RoleManager.FindByNameAsync(role);
+            if (RoleResult == null)
+            {
+                await _RoleManager.CreateAsync(new IdentityRole(role));
+            }
+        }
+    }
+
+    public async Task ActionClick(RowSelectingEventArgs<IdentityRole> args)
+    {
+        iUsersOfRole = await _UserManager.GetUsersInRoleAsync(args.Data.Name);
+        usersOfRole = iUsersOfRole.OrderBy(x => x.UserName).ToList();
+    }
+
+    private void Navigate(ApplicationUser appUsr)
+    {
+        navigationManager.NavigateTo($"UserProfile/{appUsr.UserName}");
+    }
+
+
+}
+

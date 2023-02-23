@@ -1,0 +1,1412 @@
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\appsettings.Development.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\appsettings.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.StaticWebAssets.xml
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.exe
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.deps.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.runtimeconfig.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.runtimeconfig.dev.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.pdb
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.Views.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.Views.pdb
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\CsvHelper.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Authorization.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Components.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Metadata.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.JSInterop.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\dotnet-aspnet-codegenerator-design.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\NuGet.Frameworks.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Syncfusion.Blazor.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Syncfusion.ExcelExport.Net.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Syncfusion.Licensing.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Syncfusion.PdfExport.Net.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\System.Composition.AttributedModel.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\System.Composition.Convention.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\System.Composition.Hosting.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\System.Composition.Runtime.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\System.Composition.TypedParts.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.csprojAssemblyReference.cache
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.AssemblyInfoInputs.cache
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.AssemblyInfo.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.csproj.CoreCompileInputs.cache
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.RazorComponent.input.cache
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\App.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Administration.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\AuthorityMap.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Configuration.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Index.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Memo.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Notification.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrForm.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrItemDetail.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrList.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\RnForm.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\RnList.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Roles.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\RoleSelector.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Upload.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\UserList.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\UserProfile.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Users.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Shared\LoginDisplay.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Shared\MainLayout.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Shared\NavMenu.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\_Imports.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.RazorComponent.output.cache
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\PrOnWeb.dll
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.TagHelpers.input.cache
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.TagHelpers.output.cache
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.RazorCoreGenerate.cache
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\App.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Administration.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\AuthorityMap.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Configuration.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Index.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Memo.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Notification.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\PrForm.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\PrItemDetail.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\PrList.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\RnForm.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\RnList.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Roles.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\RoleSelector.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Upload.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\UserList.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\UserProfile.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Users.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Shared\LoginDisplay.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Shared\MainLayout.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Shared\NavMenu.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\_Imports.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\AccessDenied.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ConfirmEmail.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ConfirmEmailChange.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ExternalLogin.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ForgotPassword.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ForgotPasswordConfirmation.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Lockout.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\LoginWithRecoveryCode.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\LogOut.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Disable2fa.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\DownloadPersonalData.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Email.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\EnableAuthenticator.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ExternalLogins.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\GenerateRecoveryCodes.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Index.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\PersonalData.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ResetAuthenticator.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ShowRecoveryCodes.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\TwoFactorAuthentication.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_Layout.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_StatusMessage.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\RegisterConfirmation.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ResetPassword.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ResetPasswordConfirmation.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_StatusMessage.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Error.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Shared\_LoginPartial.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Error.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Shared\_Layout.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Shared\_LoginPartial.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\_Host.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.RazorAssemblyInfo.cache
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.RazorAssemblyInfo.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\staticwebassets\PrOnWeb.StaticWebAssets.Manifest.cache
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\staticwebassets\PrOnWeb.StaticWebAssets.xml
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\scopedcss\bundle\PrOnWeb.styles.css
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.RazorTargetAssemblyInfo.cache
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.RazorTargetAssemblyInfo.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.Views.pdb
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.csproj.CopyComplete
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.dll
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.pdb
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.genruntimeconfig.cache
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\web.config
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\appsettings.Development.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\appsettings.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\PrOnWeb.deps.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\PrOnWeb.runtimeconfig.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Common.Logging.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Common.Logging.Core.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Hangfire.AspNetCore.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Hangfire.Core.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Hangfire.SqlServer.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\itext.barcodes.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\itext.forms.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\itext.io.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\itext.kernel.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\itext.layout.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\itext.pdfa.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\itext.sign.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\itext.styledxmlparser.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\itext.svg.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\ca\Hangfire.Core.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\es\Hangfire.Core.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\fa\Hangfire.Core.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\fr\Hangfire.Core.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\nl\Hangfire.Core.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\pt-BR\Hangfire.Core.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\pt-PT\Hangfire.Core.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\pt\Hangfire.Core.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\zh-TW\Hangfire.Core.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\zh\Hangfire.Core.resources.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\unix\lib\netstandard2.0\System.Data.SqlClient.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\web.config
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\appsettings.Development.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\appsettings.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\PrOnWeb.deps.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\PrOnWeb.runtimeconfig.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\iTextSharp.LGPLv2.Core.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\System.Text.Encoding.CodePages.dll
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Text.Encoding.CodePages.dll
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\ImportData.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\MasterDataConfig.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Pdf.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrReport.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Test.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\ImportData.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\MasterDataConfig.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Pdf.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\PrReport.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Test.razor.g.cs
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\web.config
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\appsettings.Development.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\appsettings.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\PrOnWeb.deps.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\PrOnWeb.runtimeconfig.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\web.config
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\appsettings.Development.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\appsettings.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\PrOnWeb.deps.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\PrOnWeb.runtimeconfig.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\web.config
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\appsettings.Development.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\appsettings.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\PrOnWeb.deps.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\PrOnWeb.runtimeconfig.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\web.config
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\appsettings.Development.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\appsettings.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\PrOnWeb.deps.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\PrOnWeb.runtimeconfig.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\Publish\web.config
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\Publish\appsettings.Development.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\Publish\appsettings.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\Publish\PrOnWeb.deps.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\Publish\PrOnWeb.runtimeconfig.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\web.config
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\appsettings.Development.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\appsettings.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\PrOnWeb.deps.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\PrOnWeb.runtimeconfig.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\web.config
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\appsettings.Development.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\appsettings.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\PrOnWeb.deps.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\PrOnWeb.runtimeconfig.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\web.config
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\appsettings.Development.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\appsettings.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\PrOnWeb.deps.json
+C:\Users\bunlue\source\repos\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\Publish\PrOnWeb.runtimeconfig.json
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\web.config
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Publish\web.config
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Publish\PrOnWeb.deps.json
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Publish\PrOnWeb.runtimeconfig.json
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\PrOnWeb.deps.json
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\PrOnWeb.runtimeconfig.json
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\appsettings.Development.json
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\appsettings.json
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Publish\appsettings.Development.json
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Publish\appsettings.json
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\appsettings.Development.json
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\appsettings.json
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.StaticWebAssets.xml
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.exe
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.deps.json
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.runtimeconfig.json
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.runtimeconfig.dev.json
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.pdb
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.Views.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.Views.pdb
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Common.Logging.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Common.Logging.Core.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\CsvHelper.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Hangfire.AspNetCore.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Hangfire.Core.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Hangfire.SqlServer.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\itext.barcodes.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\itext.forms.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\itext.io.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\itext.kernel.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\itext.layout.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\itext.pdfa.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\itext.sign.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\itext.styledxmlparser.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\itext.svg.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\iTextSharp.LGPLv2.Core.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Authorization.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Components.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Components.Forms.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Components.Web.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Metadata.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.Workspaces.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Options.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Identity.Client.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.JSInterop.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\dotnet-aspnet-codegenerator-design.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Newtonsoft.Json.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\NuGet.Frameworks.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\BouncyCastle.Crypto.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Syncfusion.Blazor.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Syncfusion.ExcelExport.Net.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Syncfusion.Licensing.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\Syncfusion.PdfExport.Net.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\System.Collections.Immutable.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\System.Composition.AttributedModel.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\System.Composition.Convention.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\System.Composition.Hosting.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\System.Composition.Runtime.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\System.Composition.TypedParts.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\System.Data.SqlClient.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\System.Runtime.Caching.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\System.Text.Encoding.CodePages.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\ca\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\es\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\fa\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\fr\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\nl\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\pt-BR\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\pt-PT\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\pt\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\zh-TW\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\zh\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\unix\lib\netstandard2.0\System.Data.SqlClient.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Text.Encoding.CodePages.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.AssemblyInfoInputs.cache
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.AssemblyInfo.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.csproj.CoreCompileInputs.cache
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.MvcApplicationPartsAssemblyInfo.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.MvcApplicationPartsAssemblyInfo.cache
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.RazorComponent.input.cache
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\App.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Administration.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\AuthorityMap.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Configuration.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\ImportData.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Index.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\MasterDataConfig.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Memo.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Notification.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Pdf.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrForm.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrItemDetail.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrReport.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\RnForm.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\RnList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Roles.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\RoleSelector.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Test.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Upload.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\UserList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\UserProfile.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Users.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Shared\LoginDisplay.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Shared\MainLayout.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Shared\NavMenu.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\_Imports.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.RazorComponent.output.cache
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\PrOnWeb.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.TagHelpers.input.cache
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.TagHelpers.output.cache
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.RazorCoreGenerate.cache
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\App.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Administration.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\AuthorityMap.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Configuration.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\ImportData.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Index.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\MasterDataConfig.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Memo.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Notification.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Pdf.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\PrForm.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\PrItemDetail.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\PrList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\PrReport.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\RnForm.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\RnList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Roles.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\RoleSelector.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Test.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Upload.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\UserList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\UserProfile.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Users.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Shared\LoginDisplay.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Shared\MainLayout.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Shared\NavMenu.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\_Imports.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\AccessDenied.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ConfirmEmail.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ConfirmEmailChange.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ExternalLogin.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ForgotPassword.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ForgotPasswordConfirmation.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Lockout.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\LoginWithRecoveryCode.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\LogOut.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Disable2fa.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\DownloadPersonalData.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Email.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\EnableAuthenticator.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ExternalLogins.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\GenerateRecoveryCodes.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Index.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\PersonalData.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ResetAuthenticator.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ShowRecoveryCodes.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\TwoFactorAuthentication.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_Layout.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_StatusMessage.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\RegisterConfirmation.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ResetPassword.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ResetPasswordConfirmation.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_StatusMessage.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Error.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Shared\_LoginPartial.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Error.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Shared\_Layout.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Shared\_LoginPartial.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\_Host.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.RazorAssemblyInfo.cache
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.RazorAssemblyInfo.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\staticwebassets\PrOnWeb.StaticWebAssets.Manifest.cache
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\staticwebassets\PrOnWeb.StaticWebAssets.xml
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\scopedcss\bundle\PrOnWeb.styles.css
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.RazorTargetAssemblyInfo.cache
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.RazorTargetAssemblyInfo.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.Views.pdb
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.csproj.CopyComplete
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.pdb
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.genruntimeconfig.cache
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Initial.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Parent.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\TextboxComponent.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.Resources.SfResources.resources
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.csproj.GenerateResource.cache
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Initial.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Parent.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\TextboxComponent.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\RNPrintForm.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\RNPrintForm.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\ImportLog.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\ImportLog.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Utilities\FileBrowser.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Utilities\MailSenderPage.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Utilities\FileBrowser.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Utilities\MailSenderPage.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Utilities\AllPrList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Utilities\AllPrList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\appsettings_Ori.json
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\MailKit.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\MimeKit.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\bin\Release\netcoreapp3.1\NETCore.MailKit.dll
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Utilities\TestUpload.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Utilities\TestUpload.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Shared\EmptyLayout.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Shared\EmptyLayout.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\UserRole.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\UserRole.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\RnReport.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\RnReport.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Utilities\Logout.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Utilities\RedirectToLogin.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Utilities\Logout.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Utilities\RedirectToLogin.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\web.config
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Publish\web.config
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\appsettings.Development.json
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\appsettings.json
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\appsettings_Ori.json
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Publish\appsettings.Development.json
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Publish\appsettings.json
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Publish\PrOnWeb.deps.json
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Publish\PrOnWeb.runtimeconfig.json
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\appsettings.Development.json
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\appsettings.json
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\PrOnWeb.deps.json
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Publish\Publish\PrOnWeb.runtimeconfig.json
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.StaticWebAssets.xml
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.exe
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.deps.json
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.runtimeconfig.json
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.runtimeconfig.dev.json
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.pdb
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.Views.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\PrOnWeb.Views.pdb
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Common.Logging.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Common.Logging.Core.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\CsvHelper.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Hangfire.AspNetCore.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Hangfire.Core.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Hangfire.SqlServer.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\itext.barcodes.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\itext.forms.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\itext.io.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\itext.kernel.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\itext.layout.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\itext.pdfa.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\itext.sign.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\itext.styledxmlparser.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\itext.svg.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\iTextSharp.LGPLv2.Core.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\MailKit.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Authorization.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Components.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Components.Forms.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Components.Web.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Metadata.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.Workspaces.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Options.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.Identity.Client.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.JSInterop.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\dotnet-aspnet-codegenerator-design.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\MimeKit.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\NETCore.MailKit.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Newtonsoft.Json.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\NuGet.Frameworks.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\BouncyCastle.Crypto.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Syncfusion.Blazor.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Syncfusion.ExcelExport.Net.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Syncfusion.Licensing.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\Syncfusion.PdfExport.Net.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\System.Collections.Immutable.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\System.Composition.AttributedModel.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\System.Composition.Convention.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\System.Composition.Hosting.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\System.Composition.Runtime.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\System.Composition.TypedParts.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\System.Data.SqlClient.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\System.Runtime.Caching.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\System.Text.Encoding.CodePages.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\ca\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\es\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\fa\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\fr\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\nl\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\pt-BR\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\pt-PT\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\pt\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\zh-TW\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\zh\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\unix\lib\netstandard2.0\System.Data.SqlClient.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Text.Encoding.CodePages.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.csprojAssemblyReference.cache
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.Resources.SfResources.resources
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.csproj.GenerateResource.cache
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.AssemblyInfoInputs.cache
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.AssemblyInfo.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.csproj.CoreCompileInputs.cache
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.MvcApplicationPartsAssemblyInfo.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.MvcApplicationPartsAssemblyInfo.cache
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.RazorComponent.input.cache
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\App.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Administration.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\AuthorityMap.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Configuration.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\ImportData.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\ImportLog.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Index.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Initial.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\MasterDataConfig.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Memo.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Notification.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Parent.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Pdf.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrForm.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrItemDetail.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrReport.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\RnForm.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\RnList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\RNPrintForm.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\RnReport.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Roles.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\RoleSelector.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Shared\EmptyLayout.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Test.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\TextboxComponent.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Upload.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\UserList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\UserProfile.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\UserRole.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Users.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Utilities\AllPrList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Utilities\FileBrowser.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Utilities\Logout.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Utilities\MailSenderPage.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Utilities\RedirectToLogin.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Utilities\TestUpload.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Shared\LoginDisplay.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Shared\MainLayout.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Shared\NavMenu.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\_Imports.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.RazorComponent.output.cache
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\PrOnWeb.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.TagHelpers.input.cache
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.TagHelpers.output.cache
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.RazorCoreGenerate.cache
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\App.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Administration.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\AuthorityMap.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Configuration.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\ImportData.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\ImportLog.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Index.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Initial.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\MasterDataConfig.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Memo.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Notification.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Parent.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Pdf.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\PrForm.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\PrItemDetail.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\PrList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\PrReport.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\RnForm.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\RnList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\RNPrintForm.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\RnReport.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Roles.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\RoleSelector.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Shared\EmptyLayout.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Test.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\TextboxComponent.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Upload.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\UserList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\UserProfile.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\UserRole.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Users.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Utilities\AllPrList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Utilities\FileBrowser.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Utilities\Logout.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Utilities\MailSenderPage.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Utilities\RedirectToLogin.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Utilities\TestUpload.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Shared\LoginDisplay.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Shared\MainLayout.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Shared\NavMenu.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\_Imports.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\AccessDenied.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ConfirmEmail.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ConfirmEmailChange.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ExternalLogin.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ForgotPassword.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ForgotPasswordConfirmation.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Lockout.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\LoginWithRecoveryCode.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\LogOut.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Disable2fa.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\DownloadPersonalData.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Email.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\EnableAuthenticator.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ExternalLogins.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\GenerateRecoveryCodes.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Index.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\PersonalData.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ResetAuthenticator.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ShowRecoveryCodes.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\TwoFactorAuthentication.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_Layout.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_StatusMessage.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\RegisterConfirmation.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ResetPassword.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ResetPasswordConfirmation.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_StatusMessage.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Error.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Shared\_LoginPartial.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Error.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Shared\_Layout.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Shared\_LoginPartial.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\_Host.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.RazorAssemblyInfo.cache
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.RazorAssemblyInfo.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\staticwebassets\PrOnWeb.StaticWebAssets.Manifest.cache
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\staticwebassets\PrOnWeb.StaticWebAssets.xml
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\scopedcss\bundle\PrOnWeb.styles.css
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.RazorTargetAssemblyInfo.cache
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.RazorTargetAssemblyInfo.cs
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.Views.pdb
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.csproj.CopyComplete
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.dll
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.pdb
+D:\WORK\2019\PH\PR Online\Source Code\Backup\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.genruntimeconfig.cache
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.Properties.Resources.resources
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Publish\Publish\web.config
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Publish\web.config
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\appsettings_Ori.json
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Publish\appsettings.Development.json
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Publish\appsettings.json
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Publish\PrOnWeb.deps.json
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Publish\PrOnWeb.runtimeconfig.json
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Publish\Publish\appsettings.Development.json
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Publish\Publish\appsettings.json
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Publish\Publish\PrOnWeb.deps.json
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Publish\Publish\PrOnWeb.runtimeconfig.json
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\appsettings.Development.json
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\appsettings.json
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\PrOnWeb.StaticWebAssets.xml
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\PrOnWeb.exe
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\PrOnWeb.deps.json
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\PrOnWeb.runtimeconfig.json
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\PrOnWeb.runtimeconfig.dev.json
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\PrOnWeb.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\PrOnWeb.pdb
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\PrOnWeb.Views.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\PrOnWeb.Views.pdb
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Common.Logging.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Common.Logging.Core.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\CsvHelper.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Hangfire.AspNetCore.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Hangfire.Core.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Hangfire.SqlServer.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\itext.barcodes.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\itext.forms.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\itext.io.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\itext.kernel.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\itext.layout.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\itext.pdfa.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\itext.sign.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\itext.styledxmlparser.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\itext.svg.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\iTextSharp.LGPLv2.Core.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\MailKit.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Authorization.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Components.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Components.Forms.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Components.Web.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Metadata.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.Workspaces.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.Extensions.Options.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.Identity.Client.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.JSInterop.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\dotnet-aspnet-codegenerator-design.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\MimeKit.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\NETCore.MailKit.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Newtonsoft.Json.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\NuGet.Frameworks.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\BouncyCastle.Crypto.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Syncfusion.Blazor.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Syncfusion.ExcelExport.Net.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Syncfusion.Licensing.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\Syncfusion.PdfExport.Net.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\System.Collections.Immutable.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\System.Composition.AttributedModel.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\System.Composition.Convention.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\System.Composition.Hosting.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\System.Composition.Runtime.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\System.Composition.TypedParts.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\System.Data.SqlClient.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\System.Runtime.Caching.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\System.Text.Encoding.CodePages.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\ca\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\es\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\fa\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\fr\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\nl\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\pt-BR\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\pt-PT\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\pt\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\zh-TW\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\zh\Hangfire.Core.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\runtimes\unix\lib\netstandard2.0\System.Data.SqlClient.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Text.Encoding.CodePages.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.csproj.AssemblyReference.cache
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.Properties.Resources.resources
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.Resources.SfResources.resources
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.csproj.GenerateResource.cache
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.GeneratedMSBuildEditorConfig.editorconfig
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.AssemblyInfoInputs.cache
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.AssemblyInfo.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.csproj.CoreCompileInputs.cache
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.MvcApplicationPartsAssemblyInfo.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.MvcApplicationPartsAssemblyInfo.cache
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.RazorComponent.input.cache
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\App.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Administration.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\AuthorityMap.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Configuration.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\ImportData.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\ImportLog.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Index.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Initial.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\MasterDataConfig.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Memo.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Notification.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Parent.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Pdf.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrCreate.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrEdit.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrForm.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrItemDetail.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrReport.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrReportUser.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\RnForm.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\RnList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\RNPrintForm.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\RnReport.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Roles.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\RoleSelector.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Shared\EmptyLayout.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Shared\LoadingScreen.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Test.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\TextboxComponent.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Upload.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\UserList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\UserProfile.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\UserRole.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Users.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Utilities\AllPrList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Utilities\FileBrowser.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Utilities\Logout.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Utilities\MailSenderPage.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Utilities\RedirectToLogin.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Utilities\TestUpload.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Shared\LoginDisplay.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Shared\MainLayout.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\Shared\NavMenu.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\_Imports.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.RazorComponent.output.cache
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\RazorDeclaration\PrOnWeb.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.TagHelpers.input.cache
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.TagHelpers.output.cache
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.RazorCoreGenerate.cache
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\App.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Administration.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\AuthorityMap.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Configuration.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\ImportData.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\ImportLog.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Index.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Initial.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\MasterDataConfig.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Memo.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Notification.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Parent.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Pdf.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\PrCreate.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\PrEdit.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\PrForm.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\PrItemDetail.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\PrList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\PrReport.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\PrReportUser.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\RnForm.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\RnList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\RNPrintForm.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\RnReport.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Roles.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\RoleSelector.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Shared\EmptyLayout.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Shared\LoadingScreen.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Test.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\TextboxComponent.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Upload.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\UserList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\UserProfile.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\UserRole.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Users.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Utilities\AllPrList.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Utilities\FileBrowser.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Utilities\Logout.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Utilities\MailSenderPage.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Utilities\RedirectToLogin.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Utilities\TestUpload.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Shared\LoginDisplay.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Shared\MainLayout.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Shared\NavMenu.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\_Imports.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\AccessDenied.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ConfirmEmail.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ConfirmEmailChange.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ExternalLogin.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ForgotPassword.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ForgotPasswordConfirmation.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Lockout.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Login - Copy.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\LoginWithRecoveryCode.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\LogOut.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Disable2fa.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\DownloadPersonalData.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Email.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\EnableAuthenticator.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ExternalLogins.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\GenerateRecoveryCodes.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Index.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\PersonalData.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ResetAuthenticator.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ShowRecoveryCodes.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\TwoFactorAuthentication.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_Layout.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_StatusMessage.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\RegisterConfirmation.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ResetPassword.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ResetPasswordConfirmation.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_StatusMessage.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Error.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Shared\_LoginPartial.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Error.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Shared\_Layout.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Shared\_LoginPartial.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\_Host.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.RazorAssemblyInfo.cache
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.RazorAssemblyInfo.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\staticwebassets\PrOnWeb.StaticWebAssets.Manifest.cache
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\staticwebassets\PrOnWeb.StaticWebAssets.xml
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\scopedcss\bundle\PrOnWeb.styles.css
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.RazorTargetAssemblyInfo.cache
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.RazorTargetAssemblyInfo.cs
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.Views.pdb
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.csproj.CopyComplete
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.dll
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.pdb
+D:\WORK\2019\PH\PR Online\Source Code\Khotdee\Code\New\PrOnWebDev\obj\Release\netcoreapp3.1\PrOnWeb.genruntimeconfig.cache
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.csproj.AssemblyReference.cache
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\PrOnWeb.GeneratedMSBuildEditorConfig.editorconfig
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrCreate.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrEdit.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrReportUser.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Shared\LoadingScreen.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\PrCreate.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\PrEdit.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\PrReportUser.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Pages\Shared\LoadingScreen.razor.g.cs
+D:\WORK\2019\PH\PR Online\Source Code\PrOnWeb\obj\Release\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Login - Copy.cshtml.g.cs

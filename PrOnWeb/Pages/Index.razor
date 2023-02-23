@@ -1,0 +1,83 @@
+﻿@page "/"
+@using System.Security.Claims;
+@using System.Security.Principal;
+@using Microsoft.AspNetCore.Components.Authorization;
+@using Syncfusion.Blazor.Buttons;
+@using Syncfusion.Blazor.Popups;
+@using Syncfusion.Blazor.Inputs;
+@using Microsoft.AspNetCore.Identity;
+@inject PrOnWeb.Services.PrDataService prDataService
+@inject UserManager<ApplicationUser> _UserManager
+@inject PrOnWeb.Services.ImportCSV import
+@inject NavigationManager navigationManager
+@attribute [Authorize]
+
+@*@inject Microsoft.AspNetCore.Http.IHttpContextAccessor contextAccessor*@
+
+<h3>Welcome to PR On Web System</h3>
+
+@*<div>
+        HttpContext: @(contextAccessor.HttpContext?.User?.Identity?.Name ?? "No HttpContext name")
+    </div>
+    <div>
+        WindowsIdentity: @(WindowsIdentity.GetCurrent()?.Name ?? "No windows identity")
+    </div>
+    <div>
+        ClaimsPrincipal: @(ClaimsPrincipal.Current?.Identity?.Name ?? "No claims principal")
+    </div>
+    <div>
+        Find First User: @(user)
+    </div>*@
+
+<AuthorizeView>
+    <Authorized>
+        <p><b>@FullName</b> 
+        <a href="Identity/Account/Manage/ChangePassword">Change My Password</a></p>
+        @*<a href="Identity/Account/Manage">Manage my account</a>
+        <div><a href="notification">My notifications</a></div>*@
+        <Notification></Notification>
+    </Authorized>
+    <NotAuthorized>
+        <p>You are not Log in</p>
+        <b>Please <a href="Identity/Account/Login">Log in</a> here</b>
+    </NotAuthorized>
+</AuthorizeView>
+
+
+@code {
+    public string CurrenetUser0aName { get; set; } // should be replace by Claims
+
+    [CascadingParameter]
+    private Task<AuthenticationState> _authState { get; set; }
+    ClaimsPrincipal CurrentUser = new ClaimsPrincipal();
+
+    private AuthenticationState authState;
+
+    private string FullName;
+    private string user;
+    public IList<string> CurrentRoles;
+
+    protected override async Task OnInitializedAsync()
+    {
+        authState = await _authState;
+        CurrentUser = (await _authState).User;
+
+        if (CurrentUser.Identity.IsAuthenticated)
+        {
+            var thisUser = _UserManager.Users.FirstOrDefault(x => x.UserName == CurrentUser.Identity.Name);
+            FullName = "";
+            if (thisUser != null)
+            {
+                FullName = thisUser.FullName;
+            }
+            else
+            {
+                navigationManager.NavigateTo("Identity/Account/Login");
+            }
+        }
+        else
+        {
+            navigationManager.NavigateTo("Identity/Account/Login");
+        }
+    }
+}

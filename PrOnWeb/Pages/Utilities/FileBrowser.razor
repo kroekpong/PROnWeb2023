@@ -1,0 +1,82 @@
+﻿@page "/FileBrowser"
+@using System.IO
+@using Syncfusion.Blazor.Grids
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment _env
+@attribute [Authorize(Roles = "Administrators")]
+
+<h3>FileBrowser</h3>
+@if (FolderContents == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <span>CSV In</span>
+    <SfGrid DataSource="@FolderContents" AllowPaging="true" AllowResizing="true" Width="600px">
+        <GridSortSettings>
+            <GridSortColumns>
+                <GridSortColumn Field="Id" Direction="SortDirection.Descending"></GridSortColumn>
+            </GridSortColumns>
+        </GridSortSettings>
+        <GridColumns>
+            <GridColumn Field=@nameof(DataTable.FileName) HeaderText="Name" Width="80"></GridColumn>
+            <GridColumn Field=@nameof(DataTable.FileDate) HeaderText="Date" Width="50"></GridColumn>
+            <GridColumn Field=@nameof(DataTable.FileSize) HeaderText="Size" Width="30"></GridColumn>
+        </GridColumns>
+    </SfGrid>
+    <span>Raw Data Archive</span>
+    <SfGrid DataSource="@ArchiveFolderContents" AllowPaging="true" AllowResizing="true" Width="600px">
+        <GridSortSettings>
+            <GridSortColumns>
+                <GridSortColumn Field="Id" Direction="SortDirection.Descending"></GridSortColumn>
+            </GridSortColumns>
+        </GridSortSettings>
+        <GridColumns>
+            <GridColumn Field=@nameof(DataTable.FileName) HeaderText="Name" Width="80"></GridColumn>
+            <GridColumn Field=@nameof(DataTable.FileDate) HeaderText="Date" Width="50"></GridColumn>
+            <GridColumn Field=@nameof(DataTable.FileSize) HeaderText="Size" Width="30"></GridColumn>
+        </GridColumns>
+    </SfGrid>}
+@code {
+    public class DataTable
+    {
+        public string FileName { get; set; }
+        public long FileSize { get; set; }
+        public DateTime FileDate { get; set; }
+    }
+
+    DataTable ShowContent;
+    List<DataTable> FolderContents;
+    List<DataTable> ArchiveFolderContents;
+    FileInfo fInfo;
+
+    private List<DataTable> LoadFolderContent(string folder)
+    {
+        var folderContent = new List<DataTable>();
+        string[] RawFiles = Directory.GetFiles(folder, "*.*");
+        if (RawFiles.Count() > 0)
+        {
+            foreach (var rawFile in RawFiles)
+            {
+                fInfo = new FileInfo(rawFile);
+                ShowContent = new DataTable()
+                {
+                    FileName = fInfo.Name,
+                    FileSize = fInfo.Length,
+                    FileDate = fInfo.CreationTime
+                };
+                folderContent.Add(ShowContent);
+            }
+        }
+        return folderContent;
+
+    }
+
+    protected override void OnInitialized()
+    {
+        var filePath = _env.WebRootPath + "\\CSVin";
+        FolderContents = LoadFolderContent(filePath);
+        filePath = _env.WebRootPath + "\\RawDataArchive";
+        ArchiveFolderContents = LoadFolderContent(filePath);
+    }
+}

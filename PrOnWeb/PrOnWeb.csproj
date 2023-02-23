@@ -1,0 +1,78 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-PrOnWeb-C6A173BE-C61D-44B7-981D-1250EBEAA274</UserSecretsId>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20210429054109_Update_210429_1.cs" />
+    <Compile Remove="Data\Migrations\20210429054109_Update_210429_1.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210429055155_210429_2.cs" />
+    <Compile Remove="Data\Migrations\20210429055155_210429_2.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210619091158_Update_210619_3.cs" />
+    <Compile Remove="Data\Migrations\20210619091158_Update_210619_3.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210712035536_Update_210712_1.cs" />
+    <Compile Remove="Data\Migrations\20210712035536_Update_210712_1.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\Resources\PRForm.pdf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="211118 Fix.zip" />
+    <None Remove="NetSuite Account.txt" />
+    <None Remove="PRForm - Copy.pdf" />
+    <None Remove="PRFormx.pdf" />
+    <None Remove="PrOnWeb_2.zip" />
+    <None Remove="ScaffoldingReadMe.txt" />
+    <None Remove="TestPDFForm.pdf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="27.1.1" />
+    <PackageReference Include="Hangfire" Version="1.7.18" />
+    <PackageReference Include="itext7" Version="7.1.13" />
+    <PackageReference Include="iTextSharp.LGPLv2.Core" Version="1.7.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="NETCore.MailKit" Version="2.0.3" />
+    <PackageReference Include="Syncfusion.Blazor" Version="18.3.0.50" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Connected Services\" />
+    <Folder Include="wwwroot\RawDataArchive\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\CoStorage\0010225842.CSV" />
+    <None Include="wwwroot\Resources\Approver_Email_Template.html" />
+    <None Include="wwwroot\Resources\PRForm.pdf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,187 @@
+﻿@page "/rnreport"
+@using System.Security.Claims
+@using Syncfusion.Blazor.Grids
+@using Syncfusion.Blazor.Buttons
+@inject PrOnWeb.Services.PrDataService prDataService
+@inject PrOnWeb.Services.PrMainService prMainService
+@inject NavigationManager navigationManager
+@attribute [Authorize]
+
+@if (RnReports == null)
+{
+    <p><em>No Data...</em></p>
+}
+else
+{
+    <h3>Returning Note Report</h3>
+    <div class="row" style="margin-bottom: 5px;">
+        <div class="col-2">
+            <SfCheckBox @bind-Checked="@isChecked" @onclick="@onClickCheck">Date need filter </SfCheckBox>
+        </div>
+        <div class="col-3">
+            <SfDateRangePicker Placeholder="Choose a Range" ShowClearButton="true" Readonly="@(!isChecked)"
+                               @bind-StartDate="@StartValue" @bind-EndDate="@EndValue" Format="dd/MM/yyyy">
+            </SfDateRangePicker>
+        </div>
+        <div class="col-2">
+            <SfButton @onclick="clickFilter" IsPrimary="true" Disabled="!isChecked">Apply Filter</SfButton>
+        </div>
+    </div>
+
+    <SfGrid ID="Grid_RnReport" @ref="GridRef" DataSource="@RnReports" AllowPaging="true" AllowGrouping="true" AllowResizing="true"
+            AllowFiltering="true" Toolbar="@(new List<string>() { "Print", "ExcelExport", "Search" })" AllowExcelExport="true">
+        <GridEvents OnToolbarClick="ToolbarClickHandler" TValue="RnReportModel"></GridEvents>
+        <GridColumns>
+            @*<GridColumn Field=@nameof(RnReportModel.Rn_Id) HeaderText="RN No." Width="100"></GridColumn>*@
+            <GridColumn Field=@nameof(RnReportModel.Rn_Id) HeaderText="RN No."  Width="120">
+                <Template>
+                    @{
+                        var Rn0 = (context as RnReportModel);
+                        <div><a href="@navigationManager.Uri" @onclick="@(() => Navigate(Rn0.Id))">@Rn0.Rn_Id</a></div>
+                    }
+                </Template>
+            </GridColumn>
+            @*<GridColumn Field=@nameof(RnReportModel.Pr_No) HeaderText="PR NO." TextAlign="TextAlign.Center" Width="120">
+        </GridColumn>*@
+
+            <GridColumn Field=@nameof(RnReportModel.Pr_No) HeaderText="PR No."  Width="120">
+                <Template>
+                    @{
+                        var Rn0 = (context as RnReportModel);
+                        <div><a href="@navigationManager.Uri" @onclick="@(() => NavigatePR(Rn0.Pr_Id))">@Rn0.Pr_No</a></div>
+                    }
+                </Template>
+            </GridColumn>
+
+            <GridColumn Field=@nameof(RnReportModel.Tracking_No) HeaderText="Tracking No." Width="100"></GridColumn>
+            <GridColumn Field=@nameof(RnReportModel.Item_No) HeaderText="Item" Width="63">
+                <Template>
+                    @{
+                        var pr0 = (context as RnReportModel);
+                        <div style="text-align: center;">@pr0.Item_No.TrimStart(new Char[] { '0' })</div>
+                    }
+                </Template>
+
+            </GridColumn>
+            <GridColumn Field=@nameof(RnReportModel.Item_Description) HeaderText="Desciption" Width="218"></GridColumn>
+            <GridColumn Field=@nameof(RnReportModel.Quantity) HeaderText="Quantity" Width="100" TextAlign="TextAlign.Right"></GridColumn>
+            <GridColumn Field=@nameof(RnReportModel.UOM) HeaderText="Unit" Width="55"></GridColumn>
+            <GridColumn Field=@nameof(RnReportModel.Item_Code) HeaderText="MAT code" Width="95" TextAlign="TextAlign.Right">
+                <Template>
+                    @{
+                        var pr0 = (context as RnReportModel);
+                        <div>@pr0.Item_Code.TrimStart(new Char[] { '0' })</div>
+                    }
+                </Template>
+            </GridColumn>
+            <GridColumn Field=@nameof(RnReportModel.Budget) HeaderText="Budget" Width="95" Format="n2"></GridColumn>
+            <GridColumn Field=@nameof(RnReportModel.Date_Need) HeaderText="Date need" Width="100" Format="d/M/yyyy"></GridColumn>
+            <GridColumn Field=@nameof(RnReportModel.Company) HeaderText="Company" Width="77"></GridColumn>
+            <GridColumn Field=@nameof(RnReportModel.Plant) HeaderText="Plant" Width="77"></GridColumn>
+            <GridColumn Field=@nameof(RnReportModel.Department) HeaderText="Dept" Width="60"></GridColumn>
+            <GridColumn Field=@nameof(RnReportModel.Staff_assign_date) HeaderText="Date received" Width="100" Format="d/M/yyyy"></GridColumn>
+            <GridColumn Field=@nameof(RnReportModel.Purchasing_Staff) HeaderText="Purchaser" Width="100"></GridColumn>
+            <GridColumn Field=@nameof(RnReportModel.Rn_Type_Name) HeaderText="Requester" Width="100"></GridColumn>
+            <GridColumn Field=@nameof(RnReportModel.Rn_Status_Name) HeaderText="Status" Width="100"></GridColumn>
+            @*            <GridColumn Field=@nameof(RnReportModel.UserName) HeaderText="Pending At" Width="100"></GridColumn>*@
+            <GridColumn Field=@nameof(RnReportModel.PendingDay) HeaderText="Pending days" Width="100" TextAlign="TextAlign.Right"></GridColumn>
+        </GridColumns>
+    </SfGrid>
+}
+
+<style>
+    .e-extlink:before {
+        content: '\e785';
+    }
+
+    .e-grid .e-headercelldiv {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .e-grid .e-rowcell {
+        font-size: 12px;
+    }
+</style>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+    [CascadingParameter]
+    private Task<AuthenticationState> _authState { get; set; }
+    private AuthenticationState authState;
+    ClaimsPrincipal MyClaims = new ClaimsPrincipal();
+    SfGrid<RnReportModel> GridRef;
+
+    List<RnReportModel> RnReports;
+    private string fullName;
+    [CascadingParameter]
+    public MainLayout Layout { get; set; }
+
+    public DateTime? StartValue { get; set; } = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+    public DateTime? EndValue { get; set; }
+    bool isChecked = false;
+    int myUserId;
+    string myCompanies;
+    string filter;
+
+    protected override async Task OnInitializedAsync()
+    {
+        //vPrLists = await prDataService.GetVPrListAsync();
+
+        authState = await _authState;
+        MyClaims = (await _authState).User;
+
+        if (MyClaims.Identity.IsAuthenticated)
+        {
+            //Layout.SidebarToggle = false;
+            EndValue = StartValue.Value.AddMonths(1);
+            myUserId = Int16.Parse(MyClaims.Claims.FirstOrDefault(c => c.Type == "PrUserId").Value);
+            myCompanies = await prDataService.GetCompaniesFromUserIdAsync(myUserId);
+
+            var myUserName = MyClaims.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name).Value;
+            filter = "'RNNEW','RNCR','RNCN','RNIN','RNAJ','RNIG','RNCF','RNPASM','RNPADM','RNNA'";
+            RnReports = await prDataService.GetRnReportAsync(filter, myCompanies);
+
+        }
+    }
+
+    private async Task clickFilter()
+    {
+        string startDate = (StartValue ?? DateTime.Now).ToString("dd/MM/yyyy");
+        string endDate = (EndValue ?? DateTime.Now).ToString("dd/MM/yyyy");
+        RnReports = await prDataService.GetRnReportAsync(filter, myCompanies, startDate, endDate);
+
+        GridRef.Refresh();
+    }
+
+    private async Task onClickCheck()
+    {
+        isChecked = !isChecked;
+        if (!isChecked)
+        {
+            RnReports = await prDataService.GetRnReportAsync(filter, myCompanies);
+            GridRef.Refresh();
+        }
+    }
+
+    public async Task ToolbarClickHandler(Syncfusion.Blazor.Navigations.ClickEventArgs args)
+    {
+        if (args.Item.Id == "Grid_RnReport_excelexport") //Id is combination of Grid's ID and itemname
+        {
+            await this.GridRef.ExcelExport();
+        }
+    }
+
+    private void Navigate(int? Id)
+    {
+        navigationManager.NavigateTo($"RnForm/V/{Id}/0",true);
+    }
+
+    private void NavigatePR(int? Id)
+    {
+        navigationManager.NavigateTo($"prform/{Id}", true);
+    }
+
+
+}

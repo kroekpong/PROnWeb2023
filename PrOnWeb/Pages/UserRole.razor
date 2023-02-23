@@ -1,0 +1,225 @@
+﻿@page "/UserRole"
+@using Microsoft.AspNetCore.Identity;
+@inject PrOnWeb.Services.PrDataService prDataService
+@inject RoleManager<IdentityRole> _RoleManager
+@inject UserManager<ApplicationUser> _UserManager
+@inject NavigationManager navigationManager
+
+@if (RoleMenu == null)
+{
+    <em>No data</em>
+}
+else
+{
+    <div class="bg-secondary p-2 h6 text-white font-weight-bolder">
+        Roles
+    </div>
+    <div class="row" style="height: 400px;">
+        <div class="col-lg-6 control-section">
+            <div class="content-wrapper">
+                <SfGrid @ref="Grid" DataSource="@RoleMenu" AllowPaging="false" Height="315">
+                    <GridEvents RowSelecting="ActionClick" TValue="IdText"></GridEvents>
+                    <GridColumns>
+                        <GridColumn Field=@nameof(IdText.Id) HeaderText="Id" IsPrimaryKey="true" Visible="false"></GridColumn>
+                        <GridColumn Field=@nameof(IdText.Text) HeaderText="Groups" Width="140"></GridColumn>
+                    </GridColumns>
+                </SfGrid>
+            </div>
+        </div>
+        <div class="col-lg-6 control-section">
+            <div class="content-wrapper">
+                <SfGrid @ref="UserGrid" DataSource="@usersOfRole" Height="315">
+                    <GridColumns>
+                        <GridColumn Field=@nameof(IdText.Id) HeaderText="Id" Visible="false"></GridColumn>
+                        @if (IsODS)
+                        {
+                            <GridColumn Field=@nameof(IdText.Text) HeaderText="User Name" Width="100">
+                                <Template>
+                                    @{
+                                        var appUsr0 = (context as IdText);
+                                        <div><a href="@navigationManager.Uri" @onclick="@(() => Navigate(appUsr0))">@appUsr0.Text</a></div>
+                                    }
+                                </Template>
+                            </GridColumn>
+                        }
+                        else
+                        {
+                            <GridColumn Field=@nameof(IdText.Text) HeaderText="User Name" Width="100" />
+
+                        }
+                    </GridColumns>
+                </SfGrid>
+            </div>
+        </div>
+    </div>
+    @if (ShowODS)
+    {
+
+        <h3>@selectedODS</h3>
+        <div class="row">
+            <div class="col-lg-6 control-section">
+                <div class="content-wrapper">
+                    <SfGrid @ref="GridODS" DataSource="@ODSMenu" AllowPaging="false" Height="315">
+                        <GridEvents OnRecordClick="ActionClickODS" TValue="IdText"></GridEvents>
+                        <GridColumns>
+                            <GridColumn Field=@nameof(IdText.Id) HeaderText="Id" IsPrimaryKey="true" Visible="false"></GridColumn>
+                            <GridColumn Field=@nameof(IdText.Text) HeaderText="Groups" Width="140"></GridColumn>
+                        </GridColumns>
+                    </SfGrid>
+                </div>
+            </div>
+            @if (ShowFinalName)
+            {
+                <div class="col-lg-6 control-section">
+                    <div class="content-wrapper">
+                        <SfGrid @ref="UserGridODS" DataSource="@showODSWfs" Height="315">
+                            <GridColumns>
+                                @*                            <GridColumn Field=@nameof(WorkflowAutho.Id) HeaderText="Id" Visible="false"></GridColumn>*@
+                                <GridColumn Field=@nameof(WorkflowAutho.Org) HeaderText="User Name" Width="100">
+                                    <Template>
+                                        @{
+                                            var appUsr0 = (context as WorkflowAutho);
+                                            <div><a href="@navigationManager.Uri" @onclick="@(() => GotoUser(appUsr0))">@appUsr0.Org</a></div>
+                                        }
+                                    </Template>
+
+                                </GridColumn>
+                            </GridColumns>
+                        </SfGrid>
+                    </div>
+                </div>
+            }
+        </div>
+        <br /><br />
+        <div class="row">
+            <div class="col-12">
+                <div class="content-wrapper">
+                    <SfGrid @ref="GridOrder" DataSource="@vWorkflowAuthoOrders" AllowPaging="false" >
+                        <GridColumns>
+                            <GridColumn Field=@nameof(vWorkflowAuthoOrder.Id) HeaderText="Id" Width="40" IsPrimaryKey="true"></GridColumn>
+                            <GridColumn Field=@nameof(vWorkflowAuthoOrder.UserName) HeaderText="Name" Width="100"></GridColumn>
+                            @*<GridColumn Field=@nameof(vWorkflowAuthoOrder.Position) HeaderText="Pos" Width="30"></GridColumn>*@
+                            <GridColumn Field=@nameof(vWorkflowAuthoOrder.WF_order) HeaderText="Order" Width="30"></GridColumn>
+                            <GridColumn Field=@nameof(vWorkflowAuthoOrder.BR1) HeaderText="BR1" Width="20"></GridColumn>
+                            <GridColumn Field=@nameof(vWorkflowAuthoOrder.BR2) HeaderText="BR2" Width="20"></GridColumn>
+                            <GridColumn Field=@nameof(vWorkflowAuthoOrder.BR3) HeaderText="BR3" Width="20"></GridColumn>
+                            <GridColumn Field=@nameof(vWorkflowAuthoOrder.BR4) HeaderText="BR4" Width="20"></GridColumn>
+                            <GridColumn Field=@nameof(vWorkflowAuthoOrder.BR5) HeaderText="BR5" Width="20"></GridColumn>
+                        </GridColumns>
+                    </SfGrid>
+                </div>
+            </div>
+        </div>
+
+    }
+}
+
+@code {
+
+    SfGrid<IdText> Grid;
+    SfGrid<IdText> UserGrid;
+    SfGrid<IdText> GridODS;
+    SfGrid<WorkflowAutho> UserGridODS;
+    SfGrid<vWorkflowAuthoOrder> GridOrder;
+    List<IdText> usersOfRole;
+    List<IdText> usersOfRoleODS;
+    IList<ApplicationUser> iUsersOfRole;
+    bool IsODS = false;
+    bool ShowODS = false;
+    bool ShowFinalName = false;
+    List<WorkflowAutho> oDSWfs;
+    List<WorkflowAutho> showODSWfs;
+    List<vWorkflowAuthoOrder> vWorkflowAuthoOrders;
+    string selectedODS;
+
+    List<IdText> RoleMenu = new List<IdText>() {
+        new IdText(){ Id= "1", Text= "PSManager" },
+        new IdText(){ Id= "2", Text= "PF" },
+        new IdText(){ Id= "3", Text= "PH" },
+        new IdText(){ Id= "4", Text= "Accountings" },
+        new IdText(){ Id= "5", Text= "ADCosigner" },
+        new IdText(){ Id= "6", Text= "QCCosigner" },
+        new IdText(){ Id= "7", Text= "SECosigner" },
+        new IdText(){ Id= "8", Text= "ITCosigner" },
+        new IdText(){ Id= "9", Text= "Company-Department-Section" }
+    };
+    List<IdText> ODSMenu = new List<IdText>() {
+        new IdText(){ Id= "1", Text= "Requester" },
+        new IdText(){ Id= "2", Text= "SMs" },
+        new IdText(){ Id= "3", Text= "DMs" },
+        new IdText(){ Id= "4", Text= "Approver" },
+        new IdText(){ Id= "5", Text= "L3" },
+        new IdText(){ Id= "6", Text= "L4" },
+        new IdText(){ Id= "7", Text= "L5" },
+        new IdText(){ Id= "8", Text= "L6" },
+        new IdText(){ Id= "9", Text= "L7" }
+    };
+
+    //============================================
+    protected override void OnInitialized()
+    {
+        ShowODS = false;
+    }
+
+    public async Task ActionClick(RowSelectingEventArgs<IdText> args)
+    {
+        if (args.Data.Id == "9")
+        {
+            var ODSs = await prDataService.GetAllODSsAsync();
+            usersOfRole = new List<IdText>();
+            foreach (var item in ODSs)
+            {
+                usersOfRole.Add(new IdText() { Id = item, Text = item });
+            }
+            selectedODS = "";
+            ShowODS = false;
+            showODSWfs = null;
+            IsODS = true;
+        }
+        else
+        {
+            iUsersOfRole = await _UserManager.GetUsersInRoleAsync(args.Data.Text);
+            var Users = iUsersOfRole.OrderBy(x => x.UserName).ToList();
+            usersOfRole = new List<IdText>();
+            foreach (var item in Users)
+            {
+                usersOfRole.Add(new IdText() { Id = item.Id, Text = item.UserName });
+            }
+            IsODS = false;
+            ShowODS = false;
+        }
+    }
+
+    public void ActionClickODS(RecordClickEventArgs<IdText> args)
+    {
+        int wfOrder = Int16.Parse(args.RowData.Id);
+        ShowFinalName = true;
+
+        if (wfOrder < 5)
+        {
+            // **** Org = User Name, Dep = Role Name ****
+            showODSWfs = oDSWfs.Where(x => x.Dep == args.RowData.Text).ToList();
+        }
+        else // BR3,4,5
+        {
+            wfOrder = wfOrder - 2;
+            showODSWfs = oDSWfs.Where(x => x.Wf_Order == wfOrder && x.Dep == "Approver").ToList();
+        }
+    }
+
+    private async Task Navigate(IdText idText)
+    {
+        ShowODS = true;
+        selectedODS = idText.Text;
+        //showODSWfs = new List<WorkflowAutho>();
+        // **** Org = User Name, Dep = Role Name ****
+        oDSWfs = await prDataService.GetAllODSsAsync(selectedODS);
+        vWorkflowAuthoOrders = await prDataService.GetVWorkflowAuthoOrdersAsync(selectedODS);
+        ShowFinalName = false;
+    }
+    private async Task GotoUser(WorkflowAutho wfA)
+    {
+        navigationManager.NavigateTo($"UserProfile/{wfA.Org}");
+    }
+}
+

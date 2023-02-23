@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>\\Trwf06\pr_online$</_PublishTargetUrl>
+    <History>True|2021-07-08T09:52:31.6952384Z;True|2021-07-08T14:00:45.1594350+07:00;False|2021-07-08T13:35:05.1114789+07:00;</History>
+  </PropertyGroup>
+</Project>

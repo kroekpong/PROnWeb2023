@@ -1,0 +1,675 @@
+﻿@using System.IO;
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.DropDowns
+@using Syncfusion.Blazor.Popups
+@using PrOnWeb.Data
+@using System.Security.Claims;
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<ApplicationUser> _UserManager
+@inject NavigationManager navigationManager
+@inject IJSRuntime JsRuntime
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment env
+@inject PrOnWeb.Services.PrDataService prDataService
+@inject PrOnWeb.Services.PrMainService prMainService
+
+@if (thisPrItem == null)
+{
+    <p><em>Loading Data...</em></p>
+}
+else
+{
+<div class="content-wrapper">
+    @*<div class="row">
+            @if (isShowButton)
+            {
+                <div class="col-md-4">
+                    <SfButton IsPrimary="true" OnClick="@SetApproveStatusA">Approve </SfButton>
+                    <SfButton OnClick="@SetApproveStatusR">Reject </SfButton>
+                </div>
+                <hr />
+
+            }
+        </div>*@
+    @*<div class="row">
+                <div>
+                    <SfButton IsPrimary="true">Returning Note </SfButton>
+                </div>
+            </div>
+        <table border="0">
+                <tr>
+                    <td style="height: 20px; background-color:white;">&nbsp;</td>
+                    <td align="left" style="background-color:navy; color:white">&nbsp;&nbsp;Item Details</td>
+                    <td style="height: 20px; background-color:white;">&nbsp;</td>
+                </tr>
+            </table>*@
+    <div class="row">
+        <div class="col-md-4">
+            <SfTextBox CssClass="e-style" Placeholder="Item Code" @bind-Value="@thisPrItem.Item_Code" FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+        </div>
+        <div class="col-md-8">
+            <SfTextBox CssClass="e-style" Placeholder="Item Description" @bind-Value="@thisPrItem.Item_Description" FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <SfTextBox CssClass="e-style" Placeholder="Material Group" @bind-Value="@thisPrItem.Material_Group" FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+        </div>
+        <div class="col-md-8">
+            <SfTextBox CssClass="e-style" Placeholder="Material Group Description" @bind-Value="@thisPrItem.Material_Group_Des" FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <SfTextBox CssClass="e-style" Placeholder="Quantity" @bind-Value="@prQty" FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+        </div>
+        <div class="col-2">
+            <SfTextBox CssClass="e-style" Placeholder="Unit" @bind-Value="@thisPrItem.UOM" FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+        </div>
+        <div class="col-2">
+            <SfTextBox CssClass="e-style" Placeholder="Currency" @bind-Value="@thisPrItem.Currency" FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+        </div>
+        <div class="col-3">
+            <SfDatePicker CssClass="e-style" Placeholder="Req Date" @bind-Value="@thisPrItem.Requistion_date" FloatLabelType="@FloatLabelType.Always" Format="d/M/yyyy" Readonly="true"></SfDatePicker>
+        </div>
+        <div class="col-3">
+            <SfDatePicker CssClass="e-style" Placeholder="Delivery Date" @bind-Value="@thisPrItem.Delivery_date" FloatLabelType="@FloatLabelType.Always" Format="d/M/yyyy" Readonly="true"></SfDatePicker>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <SfTextBox CssClass="e-style" Placeholder="GL Account" @bind-Value="@thisPrItem.GL_Account" FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+        </div>
+        <div class="col-md-4">
+            <SfTextBox CssClass="e-style" Placeholder="Cost center" @bind-Value="@thisPrItem.Cost_Center" FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+        </div>
+        <div class="col-md-4">
+            <SfTextBox CssClass="e-style" Placeholder="WBS" @bind-Value="@thisPrItem.WBS_Code" FloatLabelType="@FloatLabelType.Always" Readonly="true"></SfTextBox>
+        </div>
+    </div>
+
+    @if (isPurchaser) { isNotPurchaser = false; }
+    <hr />
+    <div class="row align-content-end">
+        <div class="col-md-3">
+            <SfTextBox CssClass="e-style" Placeholder="PO Number" @bind-Value="@thisPrItem.PO_No" FloatLabelType="@FloatLabelType.Always" Readonly="@isNotPurchaser"></SfTextBox>
+        </div>
+        <div class="col-md-3">
+            <SfDatePicker CssClass="e-style" Placeholder="PO Date" @bind-Value="@thisPrItem.PO_DATE" FloatLabelType="@FloatLabelType.Always" Format="d/M/yyyy" Readonly="@isNotPurchaser"></SfDatePicker>
+        </div>
+        <div class="col-md-3">
+            <SfTextBox CssClass="e-style" Placeholder="PO Item No." @bind-Value="@thisPrItem.PO_ITEM_NO" FloatLabelType="@FloatLabelType.Always" Readonly="@isNotPurchaser"></SfTextBox>
+        </div>
+        @*<div class="col-md-3">
+                <SfDatePicker CssClass="e-style" Placeholder="Good Receive Date" @bind-Value="@thisPrItem.GRDate" FloatLabelType="@FloatLabelType.Always" Format="d/M/yyyy" Readonly="@isCanGRDATE"></SfDatePicker>
+            </div>*@
+        <div style="padding-top:20px;">
+            @if (thisPrItem.Delete_Status != null && thisPrItem.Delete_Status.StartsWith("DEL"))
+            {
+                <span style="color: red; font-size:medium;">This item is Deleted</span>
+            }
+        </div>
+    </div>
+    <hr />
+    <div class="row align-items-end">
+        <div class="col-md-3">
+                <SfDatePicker CssClass="e-style" Placeholder="Good Receive Date" @bind-Value="@thisPrItem.GRDate" FloatLabelType="@FloatLabelType.Always" Format="d/M/yyyy" Readonly="@disCanGRDATE"></SfDatePicker>
+        </div>
+        @*<div class="col-6">
+            <span>Purchasing Staff:</span>
+            @if (isStaffChooser == true)
+            {
+                <div class="col-9">
+                    <SfDropDownList TItem="ApplicationUser" TValue="int" PopupHeight="230px" Placeholder="Select Purchasing Staff"
+                                    @bind-Value="@thisPrItem.Purchasing_Staff_Id" DataSource="@usersOfRole">
+                        <DropDownListFieldSettings Text="UserName" Value="PrUserId"></DropDownListFieldSettings>
+                    </SfDropDownList>
+                </div>
+                <div class="col-3">
+                    <SfButton OnClick="@OnSaveStaff" IsPrimary="true">Save Staff</SfButton>
+                </div>
+            }
+            else
+            {
+                <SfTextBox CssClass="e-style" Placeholder="Purchasing Staff" @bind-Value="@thisPrItem.Purchasing_Staff" FloatLabelType="@FloatLabelType.Never" Readonly="true"></SfTextBox>
+            }
+        </div>*@
+
+    <div class="col-sm-8 text-right">
+
+        @if (isPurchaser)
+        {
+            <SfButton CssClass="b-button  " IsPrimary="true" OnClick="@onSaveItemSave"><i class="fa fa-save"></i> Save Edit </SfButton>
+            @if (thisPrItem.PR_Closed == true)
+            {
+                <SfButton CssClass="b-button btn-info" OnClick="@onCloseItemSave"><i class="fa fa-refresh"></i> Un-Close this item</SfButton>
+            }
+            else
+            {
+                <SfButton CssClass="b-button btn-danger" OnClick="@onCloseItemSave"><i class="fa fa-close"></i> Close this item</SfButton>
+            }
+                    <SfCheckBox @bind-Checked="@thisPrItem.PR_Closed" Disabled="true">Close</SfCheckBox>
+        }else if (!disCanGRDATE)
+        {
+            <SfButton CssClass="b-button  " IsPrimary="true" OnClick="@onSaveItemSave"><i class="fa fa-save"></i> Save Edit </SfButton>
+        }
+
+        
+
+    </div>
+    </div>
+</div>
+}
+<style>
+    .e-xdelete-icon::before {
+        content: '\e745';
+    }
+</style>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+    [CascadingParameter]
+    private Task<AuthenticationState> _authState { get; set; }
+    private AuthenticationState authState;
+    ClaimsPrincipal MyClaims = new ClaimsPrincipal();
+    int myUserId;
+    int thisPrId;
+
+    //[Parameter]
+    public PRItem thisPrItem { get; set; }
+    [Parameter] public EventCallback onDlgClose { get; set; }
+
+    bool isPMHO = false;// Head Office Purchasing Manager
+    bool isPMRY = false;// Rayong Purchasing Manager
+    bool isPurchaser = false;
+    bool isNotPurchaser = true;
+    bool isPRCreateWeb = false;
+    bool disCanGRDATE = true;
+
+    bool isStaffChooser = false;
+    bool isCloseAble = false;
+
+    //bool isShowButton = false;
+    //bool isRnExist = false;
+    bool isItemCloseNotEditable = true;
+    string prQty = "0.00";
+    //List<UserTable> userTables;
+    Approval_flow myApproval_flow;
+    //List<Approval_flow> approval_Flows;
+    IList<ApplicationUser> usersOfRole;
+
+    //public string UploadPath = "images";
+    //public int MaxUploadFileSize = 10000000;
+    //public List<SystemConfiguration> configs;
+
+    double ItemAmt;
+
+    //=============================================================
+    protected override async Task OnInitializedAsync()
+    {
+        authState = await _authState;
+        MyClaims = (await _authState).User;
+
+        if (MyClaims.Identity.IsAuthenticated)
+        {
+            myUserId = Int16.Parse(MyClaims.Claims.FirstOrDefault(c => c.Type == "PrUserId").Value);
+            if (MyClaims.IsInRole("PSManager"))
+            {
+                var myWorkflowAutho = await prDataService.GetWorkflowAuthosAsync(myUserId);
+                foreach (var item in myWorkflowAutho)
+                {
+                    if (item.Dep == "PH")
+                    {
+                        isPMHO = true;
+                    }
+                    if (item.Dep == "PF")
+                    {
+                        isPMRY = true;
+                    }
+                }
+            }
+
+            if (MyClaims.IsInRole("Requester"))
+            {
+                disCanGRDATE = false;
+            }
+            else
+            {
+                disCanGRDATE = true;
+            }
+
+        }
+
+        //if (thisPrItem != null && thisPrItem.PrHeaders != null && thisPrItem.PrHeaders.Pr_No.StartsWith("PRW"))
+        //    {
+        //    isPRCreateWeb = true;
+        //    }
+
+        // List of purchasing stuff
+        // RY or HO
+        if (isPMRY)
+        {
+            usersOfRole = await _UserManager.GetUsersInRoleAsync("PF");
+        }
+        else if (isPMHO)
+        {
+            usersOfRole = await _UserManager.GetUsersInRoleAsync("PH");
+        }
+        else
+        {
+            IList<ApplicationUser> usersOfRole1 = await _UserManager.GetUsersInRoleAsync("PF");
+            IList<ApplicationUser> usersOfRole2 = await _UserManager.GetUsersInRoleAsync("PH");
+            usersOfRole = usersOfRole1.Concat(usersOfRole2).ToList();
+        }
+    }
+
+    public int SelectedStaffId;
+    public string ChangeValue { get; set; } = "";
+
+    public async Task OnSaveStaff()
+    {
+        SelectedStaffId = thisPrItem.Purchasing_Staff_Id;
+        thisPrItem.Purchasing_Staff = usersOfRole.Where(x => x.PrUserId == SelectedStaffId.ToString()).FirstOrDefault().UserName;
+        thisPrItem.Staff_assign_date = DateTime.Now;
+        await prMainService.UpdatePRItemAsync(thisPrItem);
+
+        // check ว่า ได้ assign ครบทุกรายการหรือยัง
+        List<PRItem> prItems;
+        prItems = await prMainService.GetPrItemsAsync(thisPrId);
+        bool isAllAssign = true;
+        foreach (var item in prItems)
+        {
+            if (item.Purchasing_Staff_Id == 0 && item.PR_Closed == false && !item.Delete_Status.StartsWith("DELE"))
+            {
+                isAllAssign = false;
+            }
+        }
+        int thisApprovalFlowId = 0;
+        if (isAllAssign)
+        {
+            var thisPrApproval_Flows = await prDataService.GetvApprovalFlowPrHeadAsync(thisPrId);
+            foreach (var item in thisPrApproval_Flows)
+            {
+                if (item.Approver_role.StartsWith("PD"))
+                {
+                    thisApprovalFlowId = item.Id;
+                }
+            }
+            if (thisApprovalFlowId != 0)
+            {
+                myApproval_flow = await prDataService.GetApprovalFlowFromIdAsync(thisApprovalFlowId);
+                // ทำการบันทึก Status การ Approve
+                myApproval_flow.Status = "A";
+                myApproval_flow.When_end = DateTime.Now;
+                myApproval_flow.Approver_id = myUserId;
+                await prDataService.UpdateApprovalFlowAsync(myApproval_flow);
+            }
+        }
+        await onDlgClose.InvokeAsync("");
+    }
+
+    public async Task InitThisItem(PRItem PrItem, int PrId)
+    {
+        thisPrId = PrId;
+        if (PrItem != null)
+        {
+            var thisPrHeader = await prMainService.GetvPrHeaderAsync(PrId);
+            var prStatus = thisPrHeader.Status;
+
+            thisPrItem = PrItem;
+            prQty = thisPrItem.Quantity.ToString("0.00");
+            // ปัญหา Price Unit เป็น 0
+            ItemAmt = thisPrItem.Quantity * thisPrItem.Price_PR / thisPrItem.Price_Unit;
+
+            // Choose staff ได้ เฉพาะ : Status = PDxx, และ เป็น PR ของเรา และ item นี้ยังไม่ close
+            isStaffChooser = false;
+            if (thisPrItem.PR_Closed != true &&
+                (((prStatus == "PDRY" || prStatus == "RN") && isPMRY) || ((prStatus == "PDHO" || prStatus == "RN") && isPMHO)))
+            {
+                isStaffChooser = true;
+            }
+
+            isPurchaser = false;
+            if (thisPrItem.Purchasing_Staff_Id == myUserId) // I am the purchaser
+            {
+                isPurchaser = true;
+            }
+
+
+            //var rn = await prDataService.GetReturningNoteFromItemAsync(thisPrItem.Id);
+            //if (rn == null)
+            //{
+            //    isRnExist = false;
+            //}
+            //else isRnExist = true;
+
+            // get current Item status
+            //approval_Flows = await prDataService.GetApprovalFlowAsync(thisPrItem.Id);
+            //foreach (Approval_flow approval_Flow in approval_Flows)
+            //{
+            //    // if approver_role = A and status = N or M and I'm isAccounting then ShowButton
+            //    if (approval_Flow.Approver_role == "A" && approval_Flow.Status == "N")
+            //    {
+            //        List<WorkflowAutho> x = await prDataService.GetWorkflowAuthosAsync(myUserId);
+            //        if (x.Any()) // some member
+            //        {
+            //            if (x.First().IsAccount)
+            //            {
+            //                myApproval_flow = approval_Flow;
+            //                isShowButton = true;
+            //            };
+            //        }
+            //    }
+            //    if (approval_Flow.Approver_role == "C" && approval_Flow.Status == "N")
+            //    {
+            //        List<WorkflowAutho> x = await prDataService.GetWorkflowAuthosAsync(myUserId);
+            //        if (x.Any()) // some member
+            //        {
+            //            if (x.First().IsCoSign)
+            //            {
+            //                myApproval_flow = approval_Flow;
+            //                isShowButton = true;
+            //            };
+            //        }
+            //    }
+            //    if (approval_Flow.Approver_id == myUserId)
+            //    {
+            //        myApproval_flow = approval_Flow;
+            //        if (approval_Flow.Status == "N")
+            //        {
+            //            isShowButton = true;
+            //        }
+            //    }
+            //    //else
+            //    //    isShowButton = false;
+            //}
+            //await GetUploadFileList();
+
+
+
+
+            if (thisPrItem.PR_Closed == false) // ถ้า ยังไม่close
+            {
+                isPurchaser = false;
+                if (thisPrItem.Purchasing_Staff_Id == myUserId) // I am the purchaser
+                {
+                    isPurchaser = true;
+                    isItemCloseNotEditable = false;
+                }
+                if (MyClaims.IsInRole("Requester"))
+                {
+                    isItemCloseNotEditable = true;
+                }
+                else
+                {
+                    isItemCloseNotEditable = false;
+                }
+            }
+            else // item closed
+            {
+                isItemCloseNotEditable = true;
+            }
+
+
+
+            this.StateHasChanged();
+        }
+    }
+
+    //private async Task loadConfiguration()
+    //{
+    //    configs = await prDataService.GetSystemConfigurationsAsync();
+    //    UploadPath = configs.Where(y => y.ConfigName == "FUPATH")
+    //        .Select(x => x.ConfigValue)
+    //        .FirstOrDefault();
+    //    int FuSize = Int32.Parse(configs.Where(y => y.ConfigName == "FUSIZE")
+    //        .Select(x => x.ConfigValue)
+    //        .FirstOrDefault());
+    //    MaxUploadFileSize = FuSize;
+    //}
+
+    //private async Task SetApproveStatusA()
+    //{
+    //    await SetApproveFlowStatusAsync("A");
+    //}
+
+    //private async Task SetApproveStatusR()
+    //{
+    //    await SetApproveFlowStatusAsync("R");
+    //}
+
+    //private async Task SetApproveFlowStatusAsync(string status)
+    //{
+    //    isShowButton = false;
+    //    myApproval_flow.Status = status;
+    //    myApproval_flow.When_end = DateTime.Now;
+    //    await prDataService.UpdateApprovalFlowAsync(myApproval_flow);
+    //    // Enable Next Approval Flow
+    //    Approval_flow resultApproval_flow;
+    //    if (status == "A") // only Approved
+    //    {
+    //        switch (myApproval_flow.Approver_role)
+    //        {
+    //            case "A":
+    //                // enable "C"
+    //                resultApproval_flow = approval_Flows.Find(x => x.Approver_role == "C");
+    //                if (resultApproval_flow != null)
+    //                {
+    //                    resultApproval_flow.Is_disabled = false;
+    //                    await prDataService.UpdateApprovalFlowAsync(myApproval_flow);
+    //                };
+    //                break;
+    //            case "C":
+    //                resultApproval_flow = approval_Flows.Find(x => x.Approver_role == "S");
+    //                if (resultApproval_flow != null)
+    //                {
+    //                    resultApproval_flow.Is_disabled = false;
+    //                    await prDataService.UpdateApprovalFlowAsync(myApproval_flow);
+    //                };
+    //                break;
+    //            case "S":
+    //                resultApproval_flow = approval_Flows.Find(x => x.Approver_role == "D");
+    //                if (resultApproval_flow != null)
+    //                {
+    //                    resultApproval_flow.Is_disabled = false;
+    //                    await prDataService.UpdateApprovalFlowAsync(myApproval_flow);
+    //                };
+    //                break;
+    //            case "D":
+    //                resultApproval_flow = approval_Flows.Find(x => x.Approver_role == "L3");
+    //                if (resultApproval_flow != null)
+    //                {
+    //                    resultApproval_flow.Is_disabled = false;
+    //                    await prDataService.UpdateApprovalFlowAsync(myApproval_flow);
+    //                };
+    //                break;
+    //            default:
+    //                break;
+    //        }
+    //    }
+    //    //Update PrHeader Status
+    //    await CheckAndSetPrStatus();
+    //    //this.IsVisible = false;
+    //    navigationManager.NavigateTo("prform/" + thisPrId);
+    //    this.StateHasChanged();
+    //}
+
+    private async Task CheckAndSetPrStatus()
+    {
+        // อันนี้ดูจาก PrItem รวมของทุก Item ใน Pr เดียวกัน
+        List<Approval_flow> approval_Flows = await prDataService.GetApprovalFlowPrHeadAsync(thisPrId);
+        Boolean allDMVerified = true;
+        Boolean L3Available = false;
+
+        //Boolean availableDM = false;
+        // DM approve --> L3 or Purchasing
+
+        foreach (Approval_flow approval_Flow in approval_Flows)
+        {
+            if (approval_Flow.Approver_role == "D")
+            {
+                if (approval_Flow.Status != "A")
+                {
+                    allDMVerified = false;
+                }
+            }
+            if (approval_Flow.Approver_role == "L3")
+            { L3Available = true; }
+        }
+        if (allDMVerified == true)
+        {
+            if (L3Available == true)
+            {
+                await prMainService.SetPrStatus(thisPrId, "PAL3");
+            }
+            else
+                await prMainService.SetPrStatus(thisPrId, "PURS");
+        }
+
+        //foreach (Approval_flow approval_flow in approval_Flows)
+        //{
+        //    if (approval_flow.Status != "A")
+        //    {
+        //        switch (approval_flow.Approver_role)
+        //        {
+        //            case "A": // A ของ รายการนี้ Approve แล้ว
+
+        //            case "C":
+        //                allACVerified = false;
+        //                break;
+        //            case "S":
+        //                allSMVerified = false;
+        //                break;
+        //            case "D":
+        //                allDMVerified = false;
+        //                break;
+        //            default:
+        //                break;
+        //        }
+        //    }
+        //else
+        //{
+        //    if (approval_flow.Approver_role == "S")
+        //    {
+        //        availableSM = true;
+        //    }
+        //    if (approval_flow.Approver_role == "D")
+        //    {
+        //        availableDM = true;
+        //    }
+        //}
+
+        //    if (allDMVerified) // && availableDM)
+        //    {
+        //        // determine next step ---> L3 or Purchasing
+
+        //    }
+        //    else if (allSMVerified) // && availableSM)
+        //    {
+        //        await SetPendingApproverSMDM(thisPrId, "PADM");
+        //}
+        //    else
+        //    await SetPendingApproverSMDM(thisPrId, "PASM");
+    }
+
+    // NextStatus = PASM, PADM
+    //private async Task SetPendingApproverSMDM(int PrId, string NextStatus)
+    //{
+    //    int SmDm = 0;
+    //    await prDataService.SetPrStatus(PrId, NextStatus);
+    //    switch (NextStatus)
+    //    {
+    //        case "PASM":
+    //            //who is our SM
+    //            SmDm = await prDataService.GetSmDmUserId(PrId, true);
+    //            await prDataService.GenerateApprovalFlow(thisPrItem, "S", SmDm, 0, "N");
+    //            break;
+    //        case "PADM":
+    //            //who is our DM
+    //            SmDm = await prDataService.GetSmDmUserId(PrId, false);
+    //            await prDataService.GenerateApprovalFlow(thisPrItem, "D", SmDm, 0, "N");
+    //            break;
+    //        default:
+    //            break;
+    //    }
+    //}
+
+    //public async Task DeleteAttach(int attachId)
+    //{
+    //    if (await JsRuntime.InvokeAsync<bool>("confirm", "Please confirm deleting this file."))
+    //    {
+    //        var fileName = await prDataService.DeleteUploadAttachAsync(attachId);
+    //        File.Delete(env.WebRootPath + UploadPath + fileName);
+    //    }
+    //}
+
+    // Upload File
+    //private string Target { get; set; } = "body";
+    //private bool IsVisibleChild { get; set; } = false;
+
+    //private void OpenUploadDialog()
+    //{
+    //    this.Target = "#dialog.e-dialog";
+    //    this.IsVisibleChild = true;
+    //}
+    //public void CloseUploadDialog()
+    //{
+    //    IsVisibleChild = false;
+    //}
+
+    //List<UploadFile> uploadFiles;
+    //private async Task GetUploadFileList()
+    //{
+    //    // 1= PrItem
+    //    uploadFiles = await prDataService.GetUploadFileListAsync(1, thisPrItem.Id);
+    //}
+
+    private void OnRnClick()
+    {
+        //IsVisible = false;
+        navigationManager.NavigateTo($"RnForm/G/{thisPrId}/{thisPrItem.Id}");
+    }
+
+    private async Task onCloseItemSave()
+    {
+        thisPrItem.PR_Closed = !thisPrItem.PR_Closed;
+        await prMainService.UpdatePRItemAsync(thisPrItem);
+        await onDlgClose.InvokeAsync("");
+    }
+
+    //public async Task SetPurchaseComplete(bool PrClose)
+    //{
+    //    PRHeader thisPrHeader = await prMainService.GetPrHeaderAsync(thisPrId);
+
+    //    var PurGroup = thisPrHeader.Purchasing_Group;
+    //    // ผลลัพธ์ว่าจะไปที่ PD HO หรือ RY
+    //    string Pd = "PCOMP";
+
+    //    List<SystemConfiguration> Pds = await prDataService.GetSystemConfigurationsAsync("PD");
+
+    //    string[] Pgs;
+    //    foreach (var item in Pds)
+    //    {
+    //        Pgs = item.ConfigValue.Split(",");
+    //        foreach (var g in Pgs)
+    //        {
+    //            if (PurGroup.StartsWith(g))
+    //            {
+    //                Pd = item.ConfigName;
+    //            }
+    //        }
+    //    }
+
+    //    thisPrHeader.Status = Pd;
+    //    await prMainService.UpdatePrHeaderAsync(thisPrHeader);
+    //}
+
+    private async Task onSaveItemSave()
+    {
+        await prMainService.UpdatePRItemAsync(thisPrItem);
+        await onDlgClose.InvokeAsync("");
+
+    }
+
+}

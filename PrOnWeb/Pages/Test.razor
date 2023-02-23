@@ -1,0 +1,28 @@
+﻿@page "/tests"
+@using Syncfusion.Blazor.Grids
+@inject PrOnWeb.Services.PrDataService prData
+<h3>test</h3>
+
+<div class="col-lg-6 control-section">
+    <div class="content-wrapper">
+        <div class="row">
+            <SfGrid DataSource="@allUsers" AllowPaging="true" Height="315">
+                    @*<GridEvents OnActionBegin="ActionBegin" OnActionComplete="ActionComplete" TValue="UserTable"></GridEvents>*@
+                    <GridColumns>
+                        <GridColumn Field=@nameof(UserTable.UserName) HeaderText="User Name" ValidationRules="@(new ValidationRules{ Required=true})" Width="140"></GridColumn>
+                        <GridColumn Field=@nameof(UserTable.Email) HeaderText="Email" ValidationRules="@(new ValidationRules{ Required=true})" Width="140"></GridColumn>
+                        <GridColumn Field=@nameof(UserTable.FullName) HeaderText="User Id" Width="100"></GridColumn>
+                    </GridColumns>
+                </SfGrid>
+        </div>
+    </div>
+</div>
+
+@code {
+    List<UserTable> allUsers;
+
+    protected override async Task OnInitializedAsync()
+    {
+        allUsers = await prData.GetUserTablesAsync();
+    }
+}

@@ -1,0 +1,43 @@
+﻿@page "/import"
+@using System.IO
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment env
+@inject PrOnWeb.Services.PrDataService prDataService
+@inject NavigationManager navigationManager
+@inject Services.ImportCSV importCSV
+
+
+
+<h3>Import Data</h3>
+
+<SfButton CssClass="e-primary" @onclick="DoImport">Import</SfButton>
+
+@code {
+    public const string PathRawIn = "/CoStorage/";
+    public const string PathRawArchive = "/RawDataArchive/";
+
+    protected void DoImport()
+    {
+        // check CoStorage for files
+        // if Existed then Import
+
+
+        var filePath = env.WebRootPath + PathRawIn;
+        string[] RawFiles = Directory.GetFiles(filePath,"*.CSV");
+        string FileName;
+        string NewFileName;
+        if (RawFiles.Count() > 0)
+        {
+            // …
+            foreach (var rawFile in RawFiles)
+            {
+                //prDataService.Importer(rawFile);
+
+                FileName = Path.GetFileName(rawFile);
+                NewFileName = DateTime.Now.ToString("yMMdd") + "-" + FileName;
+                // move this raw to Raw Archive
+                System.IO.File.Move(rawFile, env.WebRootPath + PathRawArchive + NewFileName);
+            }
+        }
+
+    }
+}

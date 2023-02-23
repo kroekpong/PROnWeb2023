@@ -1,0 +1,83 @@
+﻿@page "/allprlist"
+@using System.Security.Claims
+@using Syncfusion.Blazor.Grids
+@inject PrOnWeb.Services.PrDataService prDataService
+@inject PrOnWeb.Services.PrMainService prMainService
+@inject NavigationManager navigationManager
+@attribute [Authorize(Roles = "Administrators,PF,PH")]
+
+@if (prHeaders == null)
+{
+    <p><em>No Data...</em></p>
+}
+else
+{
+    <h3>All PR List</h3>
+    
+    <SfGrid ID="Grid_AllPr" @ref="gridRef" DataSource="@prHeaders" AllowPaging="true" AllowFiltering="true" AllowResizing="true"
+            AllowSorting="true" Toolbar="@(new List<string>() { "Print", "ExcelExport","Search" })" AllowExcelExport="true">
+        <GridEvents OnToolbarClick="ToolbarClickHandler" TValue="vPRHeader"></GridEvents>
+        <GridSortSettings>
+            <GridSortColumns>
+                <GridSortColumn Field=@nameof(vPRHeader.Id) Direction="SortDirection.Descending"></GridSortColumn>
+            </GridSortColumns>
+        </GridSortSettings>        <GridColumns>
+            <GridColumn Field=@nameof(vPRHeader.Pr_No) HeaderText="SAP PR" TextAlign="TextAlign.Center" Width="100">
+                <Template>
+                    @{
+                        var prHeader0 = (context as vPRHeader);
+                        <div><a href="@navigationManager.Uri" @onclick="@(() => Navigate(prHeader0))">@prHeader0.Pr_No</a></div>
+                    }
+                </Template>
+            </GridColumn>
+            <GridColumn Field=@nameof(vPRHeader.Company) HeaderText="Company" Width="80"></GridColumn>
+            <GridColumn Field=@nameof(vPRHeader.Department) HeaderText="Dept." Width="50"></GridColumn>
+            <GridColumn Field=@nameof(vPRHeader.Section) HeaderText="Sect." Width="50"></GridColumn>
+            <GridColumn Field=@nameof(vPRHeader.Pr_Date) HeaderText="PR Date" Width="100" Format="d/M/yyyy"></GridColumn>
+            <GridColumn Field=@nameof(vPRHeader.Requester) HeaderText="Requester" Width="150"></GridColumn>
+            <GridColumn Field=@nameof(vPRHeader.Tracking_No) HeaderText="Tracking" Width="100"></GridColumn>
+            <GridColumn Field=@nameof(vPRHeader.Plant) HeaderText="Plant" Width="70"></GridColumn>
+            <GridColumn Field=@nameof(vPRHeader.Purchasing_Org) HeaderText="Pur Org" Width="70"></GridColumn>
+            <GridColumn Field=@nameof(vPRHeader.Create_Date) HeaderText="Cr.Date" Width="100" Format="d/M/yyyy"></GridColumn>
+            <GridColumn Field=@nameof(vPRHeader.PrStatus) HeaderText="Status" Width="150"></GridColumn>
+            <GridColumn Field=@nameof(vPRHeader.sPrAmt) HeaderText="Budget" Width="200" TextAlign="TextAlign.Right"></GridColumn>
+        </GridColumns>
+    </SfGrid>
+
+}
+
+<style type="text/css" class="cssStyles">
+    .e-grid .e-headercell {
+        background-color: #CADAFA;
+    }
+
+    .e-extlink:before {
+        content: '\e785';
+    }
+</style>
+
+@code {
+    SfGrid<vPRHeader> gridRef;
+    List<vPRHeader> prHeaders = new List<vPRHeader>();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        prHeaders = await prMainService.GetvPrHeadersAsync("ALL");
+        prHeaders = prHeaders.Where(x => x.Pr_No.Substring(0, 2) != "L-").ToList();
+    }
+
+    private void Navigate(vPRHeader prHeader1)
+    {
+        navigationManager.NavigateTo($"prform/{prHeader1.Id}");
+    }
+
+    public async Task ToolbarClickHandler(Syncfusion.Blazor.Navigations.ClickEventArgs args)
+    {
+        if (args.Item.Id == "Grid_AllPr_excelexport") //Id is combination of Grid's ID and itemname
+        {
+            await this.gridRef.ExcelExport();
+        }
+    }
+
+}

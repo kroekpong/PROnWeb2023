@@ -1,0 +1,116 @@
+﻿@page "/MasterData"
+@inject PrOnWeb.Services.PrDataService prDataService
+@attribute [Authorize]
+
+<div class="bg-secondary p-2 h6 text-white font-weight-bolder">
+    Organization Info
+</div>
+<div class="content">
+    <div class="row">
+        <div class="col-4">
+            <h5>Company</h5>
+            @if (Master_Orgs == null)
+            {
+                <p><em>Loading...</em></p>
+            }
+            else
+            {
+                <SfGrid DataSource="@Master_Orgs" AllowResizing="true" Width="500" Toolbar="@(new List<string>() { "Add", "Edit", "Update", "Cancel" })" AllowPaging="true">
+                    <GridEditSettings AllowAdding="true" AllowDeleting="true" AllowEditing="true" Mode="EditMode.Dialog"></GridEditSettings>
+                    <GridEvents OnActionComplete="ActionComplete" TValue="Master_Org"></GridEvents>
+                    <GridColumns>
+                        <GridColumn Field=@nameof(Master_Org.Id) HeaderText="Id" Visible="false" IsPrimaryKey="true"></GridColumn>
+                        <GridColumn Field=@nameof(Master_Org.Org) HeaderText="Name" Width="100"></GridColumn>
+                        <GridColumn Field=@nameof(Master_Org.Org_Name) HeaderText="Full Name" Width="200"></GridColumn>
+                    </GridColumns>
+                </SfGrid>
+            }
+        </div>
+        <div class="col-4">
+            <h5>Department</h5>
+            @if (Master_Deps == null)
+            {
+                <p><em>Loading...</em></p>
+            }
+            else
+            {
+                <SfGrid DataSource="@Master_Deps" AllowResizing="true" Width="500" Toolbar="@(new List<string>() { "Add", "Edit", "Update", "Cancel" })" AllowPaging="true">
+                    <GridEditSettings AllowAdding="true" AllowDeleting="true" AllowEditing="true" Mode="EditMode.Dialog"></GridEditSettings>
+                    <GridEvents OnActionComplete="ActionCompleteDep" TValue="Master_Dep"></GridEvents>
+                    <GridColumns>
+                        <GridColumn Field=@nameof(Master_Dep.Id) HeaderText="Id" Visible="false" IsPrimaryKey="true"></GridColumn>
+                        <GridColumn Field=@nameof(Master_Dep.Dep) HeaderText="Name" Width="100"></GridColumn>
+                        <GridColumn Field=@nameof(Master_Dep.Dep_Name) HeaderText="Full Name" Width="200"></GridColumn>
+                    </GridColumns>
+                </SfGrid>
+            }
+        </div>
+        <div class="col-4">
+            <h5>Section</h5>
+            @if (Master_Secs == null)
+            {
+                <p><em>Loading...</em></p>
+            }
+            else
+            {
+                <SfGrid DataSource="@Master_Secs" AllowResizing="true" Width="500" Toolbar="@(new List<string>() { "Add", "Edit", "Update", "Cancel" })" AllowPaging="true">
+                    <GridEditSettings AllowAdding="true" AllowDeleting="true" AllowEditing="true" Mode="EditMode.Dialog"></GridEditSettings>
+                    <GridEvents OnActionComplete="ActionCompleteSec" TValue="Master_Sec"></GridEvents>
+                    <GridColumns>
+                        <GridColumn Field=@nameof(Master_Sec.Id) HeaderText="Id" Visible="false" IsPrimaryKey="true"></GridColumn>
+                        <GridColumn Field=@nameof(Master_Sec.Sec) HeaderText="Name" Width="100"></GridColumn>
+                        <GridColumn Field=@nameof(Master_Sec.Sec_Name) HeaderText="Full Name" Width="200"></GridColumn>
+                    </GridColumns>
+                </SfGrid>
+            }
+        </div>
+    </div>
+</div>
+
+
+@code {
+    List<Master_Org> Master_Orgs;
+    List<Master_Dep> Master_Deps;
+    List<Master_Sec> Master_Secs;
+    List<MasterDimension> MasterDimensions;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Master_Orgs = await prDataService.GetMasterOrgsAsync();
+        Master_Deps = await prDataService.GetMasterDepsAsync();
+        Master_Secs = await prDataService.GetMasterSecsAsync();
+    }
+
+    public async Task ActionComplete(ActionEventArgs<Master_Org> args)
+    {
+        if (args.RequestType == Syncfusion.Blazor.Grids.Action.Save)
+        {
+            if (args.Data.Org != null)
+            {
+                await prDataService.UpdateMasterOrgsAsync(args.Data);
+            }
+        }
+    }
+
+    public async Task ActionCompleteDep(ActionEventArgs<Master_Dep> args)
+    {
+        if (args.RequestType == Syncfusion.Blazor.Grids.Action.Save)
+        {
+            if (args.Data.Dep != null)
+            {
+                await prDataService.UpdateMasterDepsAsync(args.Data);
+            }
+        }
+    }
+
+    public async Task ActionCompleteSec(ActionEventArgs<Master_Sec> args)
+    {
+        if (args.RequestType == Syncfusion.Blazor.Grids.Action.Save)
+        {
+            if (args.Data.Sec != null)
+            {
+                await prDataService.UpdateMasterSecsAsync(args.Data);
+            }
+        }
+    }
+}

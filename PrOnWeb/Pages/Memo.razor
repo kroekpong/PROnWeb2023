@@ -1,0 +1,225 @@
+﻿@page "/memo"
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Lists
+@using System.Collections.ObjectModel
+@using System.Security.Claims;
+@inject PrOnWeb.Services.PrDataService prDataService
+@if (DataSource == null)
+{
+    <textarea>loading...</textarea>
+}
+else
+{
+    <div id="container">
+        <div id="memobox">
+            <span class="b-label-notlift">Chat board for this PR</span>
+            <SfListView ID="list"
+                        DataSource="@DataSource"
+                        ShowHeader="false"
+                        Height="100px">
+                <ListViewFieldSettings TValue="vPrMemo" Id="Id" Text="Text"></ListViewFieldSettings>
+
+                <ListViewTemplates TValue="vPrMemo">
+                    <Template>
+                        @{
+                            vPrMemo currentData = context as vPrMemo;
+
+                            <div class="flex item__container">
+                                <div class="flex content__container flex__8 vertical padding left__align">
+                                    <div class="mini__font">@currentData.MemoWho (@currentData.MemoWhen) :</div>
+                                    <div class="small__font"> @currentData.MemoMsg</div>
+                                </div>
+                            </div>
+                        }
+                    </Template>
+                </ListViewTemplates>
+            </SfListView>
+            <div class="flex">
+                <div class="flex__8">
+                    <SfTextBox Multiline="true" Placeholder="Type your message"
+                               @ref="@SfTextBox"></SfTextBox>
+                </div>
+                <div class="flex__1">
+                    <button class="e-btn" @onclick="@OnSend">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code
+{
+    [Parameter] public int prNo { get; set; }
+    //[Parameter] public int userId { get; set; }
+
+    SfTextBox SfTextBox;
+    ObservableCollection<vPrMemo> DataSource = new ObservableCollection<vPrMemo>();
+
+    [CascadingParameter]
+    private Task<AuthenticationState> _authState { get; set; }
+    private AuthenticationState authState;
+    ClaimsPrincipal MyClaims = new ClaimsPrincipal();
+
+    int myUserId;
+
+    protected override async Task OnInitializedAsync()
+    {
+        authState = await _authState;
+        MyClaims = (await _authState).User;
+        if (MyClaims.Identity.IsAuthenticated)
+        {
+            myUserId = Int16.Parse(MyClaims.Claims.FirstOrDefault(c => c.Type == "PrUserId").Value);
+        }
+
+        List<vPrMemo> prMemoRead = await prDataService.GetvPrMemoAsync(prNo);
+        foreach (vPrMemo memo in prMemoRead)
+        {
+            DataSource.Add(memo);
+        }
+    }
+
+    public string generateID()
+    {
+        return Guid.NewGuid().ToString("N");
+    }
+
+    protected async Task OnSend()
+    {
+        if (SfTextBox.Value != "")
+        {
+            vPrMemo prMemo = new vPrMemo
+            {
+                MemoWhoID = myUserId,
+                MemoMsg = SfTextBox.Value,
+                MemoWhen = DateTime.Now,
+                PrID = prNo,
+                Id = generateID()
+                //Id = new Random().Next(300, 900).ToString()
+            };
+            DataSource.Add(prMemo);
+
+            await prDataService.InsertvPrMemoAsync(prMemo);
+        }
+        SfTextBox.Value = "";
+
+    }
+
+}
+
+<style>
+
+    #memobox {
+        height: auto;
+        margin: 0 auto;
+        display: block;
+        max-width: 350px;
+    }
+
+    #list {
+        margin: 0 auto;
+        border: 1px solid #ccc;
+    }
+
+        #list .e-list-item {
+            height: auto;
+            cursor: pointer;
+            line-height: 18px;
+            padding: 0px;
+        }
+
+        #list.e-listview .e-list-header {
+            background-color: #0278d7;
+            color: white;
+        }
+
+        #list .e-list-item.e-active {
+            background-color: transparent;
+        }
+
+        #list .e-list-item.e-hover {
+            background-color: transparent;
+        }
+
+    .padding {
+        padding: 4px;
+    }
+
+    .right__align {
+        text-align: right;
+        margin-right: 8px;
+        padding-right: 8px;
+    }
+
+    .left__align {
+        margin-left: 8px;
+        padding-left: 8px;
+    }
+
+    .content__container {
+        background-color: transparent;
+    }
+
+    .flex {
+        display: flex;
+    }
+
+    .flex__center {
+        justify-content: center;
+    }
+
+    .vertical__center {
+        align-items: center;
+    }
+
+    .vertical {
+        flex-direction: column;
+    }
+
+    .flex__order__1 {
+        order: 1;
+    }
+
+    .flex__order__2 {
+        order: 2;
+    }
+
+    .flex__1 {
+        flex: 1;
+    }
+
+    .flex__2 {
+        flex: 2;
+    }
+
+    .flex__3 {
+        flex: 3;
+    }
+
+    .flex__5 {
+        flex: 5;
+    }
+
+    .flex__8 {
+        flex: 8;
+    }
+
+    .bold {
+        font-weight: 500;
+    }
+
+    .margin {
+        margin: 10px;
+        width: 350px;
+    }
+
+    .mini__font {
+        font-size: 10px;
+        margin: 2px 0;
+        color: gray;
+    }
+
+    .small__font {
+        font-size: 12px;
+        margin: 2px 0;
+    }
+</style>

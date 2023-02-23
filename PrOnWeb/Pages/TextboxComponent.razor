@@ -1,0 +1,43 @@
+﻿@using Syncfusion.Blazor.Popups
+
+<SfDialog @ref="DialogObj" @bind-Visible="@Visible" IsModal="@IsModal" Width="250px">
+    <DialogTemplates>
+        <Header> @Header </Header>
+        <Content> @((MarkupString)Content) </Content>
+    </DialogTemplates>
+    <DialogButtons>
+        <DialogButton Content="OK" IsPrimary="true" OnClick="@OnOkClick" />
+        <DialogButton Content="Cancel" OnClick="@OnCancelClick" />
+    </DialogButtons>
+</SfDialog>
+
+@code {
+    SfDialog DialogObj;
+
+    [Parameter]
+    public string Header { get; set; } = "";
+    [Parameter]
+    public string Content { get; set; } = "";
+    [Parameter]
+    public bool Visible { get; set; } = false;
+    [Parameter]
+    public bool IsModal { get; set; } = true;
+
+    public void Show(string title, string message)
+    {
+        this.Header = title;
+        this.Content = message;
+        Visible = true;
+        this.StateHasChanged();
+    }
+
+    private void OnOkClick()
+    {
+        Visible = false;
+    }
+
+    private void OnCancelClick()
+    {
+        Visible = false;
+    }
+} 

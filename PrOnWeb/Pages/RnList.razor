@@ -1,0 +1,171 @@
+﻿@page "/rnlist"
+@using PrOnWeb.Data
+@using System.Security.Claims;
+@using Syncfusion.Blazor.Buttons;
+@using Syncfusion.Blazor.Grids;
+@inject PrOnWeb.Services.PrDataService prDataService
+@inject PrOnWeb.Services.PrMainService prMainService
+@inject NavigationManager navigationManager
+@attribute [Authorize]
+
+@if (vReturningNotes == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <h3>Returning Note List</h3>
+    <div>
+        <SfCheckBox @bind-Checked="@isActive" @onclick="@ActiveClick">Show only Active transaction</SfCheckBox>
+    </div>
+    <SfGrid ID="Grid_RnList" @ref="gridRef" DataSource="@vRnList" AllowPaging="true" AllowFiltering="true" AllowResizing="true"
+            AllowSorting="true" Toolbar="@(new List<string>() { "ExcelExport", "Search" })" AllowExcelExport="true">
+        <GridEvents OnToolbarClick="ToolbarClickHandler" TValue="VRnList"></GridEvents>
+        <GridColumns>
+            <GridColumn Field=@nameof(VRnList.Id) HeaderText="RN #">
+                <Template>
+                    @{
+                        var Rn0 = (context as VRnList);
+                        <div><a href="@navigationManager.Uri" @onclick="@(() => Navigate(Rn0))">@Rn0.Rn_Id</a></div>
+                    }
+                </Template>
+            </GridColumn>
+            <GridColumn Field=@nameof(VRnList.Rn_When) HeaderText="Date" Format="d/M/yyyy"></GridColumn>
+            <GridColumn Field=@nameof(VRnList.RnTypeName) HeaderText="Type"></GridColumn>
+            <GridColumn Field=@nameof(VRnList.Rn_Memo1) HeaderText="Description"></GridColumn>
+            <GridColumn Field=@nameof(VRnList.Pr_Id) HeaderText="PR #"></GridColumn>
+            <GridColumn Field=@nameof(VRnList.CompanyName) HeaderText="Company"></GridColumn>
+            <GridColumn Field=@nameof(VRnList.Department) HeaderText="Department"></GridColumn>
+            <GridColumn Field=@nameof(VRnList.Section) HeaderText="Section"></GridColumn>
+            <GridColumn Field=@nameof(VRnList.Rn_Status_Name) HeaderText="Status"></GridColumn>
+        </GridColumns>
+    </SfGrid>
+}
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+    [CascadingParameter]
+    private Task<AuthenticationState> _authState { get; set; }
+    private AuthenticationState authState;
+    ClaimsPrincipal MyClaims = new ClaimsPrincipal();
+
+    List<VReturningNote> vReturningNotes;
+    List<VRnList> vRnList;
+    List<VRnList> allRnList;
+    int myUserId;
+    List<Master_Rn_Type> RnType;
+    bool isActive = true;
+    SfGrid<VRnList> gridRef;
+    string myPD;
+   
+
+    public class VRnList : VReturningNote
+    {
+        public string RnTypeName { get; set; }
+        public string CompanyName { get; set; }
+        public string Department { get; set; }
+        public string Section { get; set; }
+        public string RNStatusName { get; set; }
+    }
+
+
+    public async Task<List<VRnList>> addVRN(List<VReturningNote> returningNotesToAdd)
+    {
+        var returningNotesAdded = new List<VRnList>();
+        VRnList vrn0;
+        vPRHeader vpr0;
+
+        foreach (var item in returningNotesToAdd)
+        {
+            vpr0 = await prMainService.GetvPrHeaderAsync(item.Pr_Id);
+            vrn0 = new VRnList()
+            {
+                Id = item.Id,
+                Rn_Id = item.Rn_Id,
+                Pr_Id = item.Pr_Id,
+                Pr_Item_No = item.Pr_Item_No,
+                Rn_Memo1 = item.Rn_Memo1,
+                Rn_Memo2 = item.Rn_Memo2,
+                Rn_Memo3 = item.Rn_Memo3,
+                Rn_By = item.Rn_By,
+                Rn_When = item.Rn_When,
+                CompanyName = vpr0.Company,
+                Department = vpr0.Department,
+                Section = vpr0.Section,
+                Rn_Status = item.Rn_Status,
+                Rn_Status_Name = item.Rn_Status_Name,
+                RnTypeName = RnType.Where(x => x.Id == item.Rn_Type).First().Rn_Type
+            };
+            returningNotesAdded.Add(vrn0);
+        }
+        return returningNotesAdded;
+    }
+
+    //===============================================================
+    protected override async Task OnInitializedAsync()
+    {
+        authState = await _authState;
+        MyClaims = (await _authState).User;
+
+        if (MyClaims.Identity.IsAuthenticated)
+        {
+            //Layout.SidebarToggle = false;
+
+            allRnList = new List<VRnList>();
+            RnType = await prDataService.GetRnType();
+            if (MyClaims.IsInRole("PSManager"))
+            {
+                if (MyClaims.IsInRole("PH"))
+                {
+                    myPD = "PDHO";
+                }
+                else // I'm int PF
+                    myPD = "PDRY";
+                // RN of PSMananager
+                vReturningNotes = await prDataService.GetVRnListForManagerAsync(myPD);
+                allRnList.AddRange(await addVRN(vReturningNotes));
+            }
+            else
+            {
+                // RN of My Name
+                myUserId = Int16.Parse(MyClaims.Claims.FirstOrDefault(c => c.Type == "PrUserId").Value);
+                vReturningNotes = await prDataService.GetVRnListFromUserIdAsync(myUserId);
+                allRnList.AddRange(await addVRN(vReturningNotes));
+            }
+
+
+            vRnList = allRnList.Where(x => x.Rn_Status != "RNCL").ToList();
+        }
+
+    }
+    private void Navigate(VReturningNote Rn0)
+    {
+        navigationManager.NavigateTo($"RnForm/V/{Rn0.Id}/0",true);
+    }
+
+    private void ActiveClick()
+    {
+        if (isActive == true)
+        {
+            isActive = false;
+            vRnList = allRnList;
+        }
+        else
+        {
+            isActive = true;
+            vRnList = allRnList.Where(x => x.Rn_Status != "RNCL").ToList();
+        }
+        gridRef.Refresh();
+
+    }
+
+    public async Task ToolbarClickHandler(Syncfusion.Blazor.Navigations.ClickEventArgs args)
+    {
+        if (args.Item.Id == "Grid_RnList_excelexport") //Id is combination of Grid's ID and itemname
+        {
+            await this.gridRef.ExcelExport();
+        }
+    }
+
+}
